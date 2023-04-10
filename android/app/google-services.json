@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "588499290984",
+    "project_id": "bp-treat-83199",
+    "storage_bucket": "bp-treat-83199.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588499290984:android:fafab2ae52a11e6ad0e4dd",
+        "android_client_info": {
+          "package_name": "com.teckvalley.bptreat.bp_treat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588499290984-td1obk2nmb57ricomg6jiimanulumjbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teckvalley.bptreat.bp_treat",
+            "certificate_hash": "74728a790ae3b00e7de85511d59c40652d2ccea4"
+          }
+        },
+        {
+          "client_id": "588499290984-3r0kthak4ciaqfg05koj2sq77uoqkasp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1BAycsLyjxMWA3I6by1S29ASl3xecc_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588499290984-3r0kthak4ciaqfg05koj2sq77uoqkasp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

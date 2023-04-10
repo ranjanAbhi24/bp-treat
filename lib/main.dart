@@ -1,0 +1,58 @@
+import 'dart:io';
+
+import 'package:bp_treat/module/dashboard/binding/root_binding.dart';
+import 'package:bp_treat/module/welcome/views/wrapper_view.dart';
+import 'package:bp_treat/route/app_route.dart';
+import 'package:bp_treat/service/notification_service.dart';
+import 'package:bp_treat/utils/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isIOS) {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+      apiKey: "AIzaSyBwKaJgWtthEzuS_nKpRDjPnEoySrOA8Xk",
+      appId: "1:588499290984:ios:8455ba96903b9bd0d0e4dd",
+      messagingSenderId: "588499290984",
+      projectId: "bp-treat-83199",
+    ));
+  } else {
+    await Firebase.initializeApp();
+  }
+
+  await NotificationService.initialize();
+  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      home: const Wrapper(),
+      // home: OTPScreen(),
+      debugShowCheckedModeBanner: false,
+      initialBinding: RootBindings(),
+      builder: EasyLoading.init(),
+      theme: themeData(),
+      defaultTransition: Transition.fade,
+      getPages: AppRoute.routes,
+    );
+  }
+}
