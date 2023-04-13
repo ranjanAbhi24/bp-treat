@@ -245,7 +245,7 @@ class RegisterScreen extends StatelessWidget {
                                         ..onTap = () {
                                           launchUrl(
                                               Uri.parse(
-                                                  'http://54.238.218.186/privacy-policy'),
+                                                  'https://app.houstonepilepsy.com/privacy-policy'),
                                               mode: LaunchMode.platformDefault);
                                         },
                                       text: " Privacy Policy",

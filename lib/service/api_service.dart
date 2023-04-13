@@ -24,7 +24,8 @@ class ApiService {
   Prefrence prefs = Prefrence();
   // String base_url = 'http://3.109.121.178:8080/api';
 
-  String base_url = 'http://54.238.218.186:5000/api';
+  // String base_url = 'http://54.238.218.186:5000/api';
+  String base_url = 'https://api.houstonepilepsy.com/api';
 
   Future<UserDetail> getUserDetails() async {
     var token = await prefs.getToken();

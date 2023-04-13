@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>588499290984-77dl3riobo5vkqhpp0r2ktlcmur1cjgn.apps.googleusercontent.com</string>
+	<string>588499290984-dmiqtiagjtaofp702j123ppkk55c312v.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.588499290984-77dl3riobo5vkqhpp0r2ktlcmur1cjgn</string>
+	<string>com.googleusercontent.apps.588499290984-dmiqtiagjtaofp702j123ppkk55c312v</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>588499290984-3safo5v7kdmkv103o3e2pr4cmo57eqa9.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.healthcareinitiative.bpTreat</string>
+	<string>com.healthinitiativeprogram.bpTreat</string>
 	<key>PROJECT_ID</key>
 	<string>bp-treat-83199</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:588499290984:ios:a1fa8e09c39658fad0e4dd</string>
+	<string>1:588499290984:ios:7cd551b042c5fc13d0e4dd</string>
 </dict>
 </plist>

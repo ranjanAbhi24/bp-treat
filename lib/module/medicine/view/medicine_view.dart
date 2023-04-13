@@ -83,7 +83,7 @@ class _MedicineViewState extends State<MedicineView> {
                                               title: medicineNamee,
                                               onTap: () async {
                                                 final url =
-                                                    "http://54.238.218.186:5000/prescriptions/${controller.reportList[index].pdf}";
+                                                    "https://api.houstonepilepsy.com/prescriptions/${controller.reportList[index].pdf}";
 
                                                 await controller
                                                     .requestDownload(

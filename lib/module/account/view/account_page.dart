@@ -167,7 +167,7 @@ class AccountPage extends StatelessWidget {
                             ontap: () {
                               launchUrl(
                                   Uri.parse(
-                                      'http://54.238.218.186/privacy-policy'),
+                                      'https://app.houstonepilepsy.com/privacy-policy'),
                                   mode: LaunchMode.platformDefault);
                             }),
                         buildListTile(
