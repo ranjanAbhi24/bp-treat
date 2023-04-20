@@ -24,10 +24,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
-	<key>FDAllFilesDownloadedMessage</key>
-	<string>All files have been downloaded</string>
-	<key>FDMaximumConcurrentTasks</key>
-	<integer>5</integer>
+	
+	
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>sms</string>
@@ -39,6 +37,9 @@
 	<true/>
 	<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 	<true/>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
+	
 	<key>NSTemporaryExceptionMinimumTLSVersion</key>
 	<string>TLSv1.1</string>
 	<key>UIBackgroundModes</key>
@@ -65,7 +66,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>kTCCServiceMediaLibrary</key>
-	<string>media</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>BP Treat app needs to access your Media Library to download files</string>
 </dict>
 </plist>

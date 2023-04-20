@@ -1,16 +1,18 @@
+import 'dart:io';
+
 import 'package:bp_treat/module/medicine/controller/medicine_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
+import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:path_provider/path_provider.dart';
 
-class MedicineView extends StatefulWidget {
+class MedicineView extends StatelessWidget {
   const MedicineView({super.key});
 
-  @override
-  State<MedicineView> createState() => _MedicineViewState();
-}
-
-class _MedicineViewState extends State<MedicineView> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MedicineController>(
@@ -57,6 +59,7 @@ class _MedicineViewState extends State<MedicineView> {
                                     ),
                                     itemCount: controller.reportList.length,
                                     itemBuilder: ((context, index) {
+                                      print('Loader ${controller.isLoading}');
                                       controller.prescriptionID =
                                           controller.reportList[index].sId;
                                       List medName = [];
@@ -84,18 +87,28 @@ class _MedicineViewState extends State<MedicineView> {
                                               onTap: () async {
                                                 final url =
                                                     "https://api.houstonepilepsy.com/prescriptions/${controller.reportList[index].pdf}";
-
-                                                await controller
-                                                    .requestDownload(
+                                                File newPDF = await controller
+                                                    .downloadPDF(
                                                   url: url,
-                                                  fileName: DateTime.now()
-                                                      .toLocal()
-                                                      .toString(),
-                                                  id: controller
-                                                          .reportList[index]
-                                                          .sId ??
-                                                      "",
+                                                  fileName: controller
+                                                      .reportList[index].pdf!,
                                                 );
+                                                print('path : $newPDF');
+                                                if (newPDF.path.isNotEmpty) {
+                                                  await controller
+                                                      .showNotificationWithdefaultSound();
+                                                  ApplicationUtils.showSnackBar(
+                                                      titleText:
+                                                          'Prescription Downloaded',
+                                                      messageText:
+                                                          "Your Prescription is downloaded");
+                                                } else {
+                                                  ApplicationUtils.showSnackBar(
+                                                      titleText:
+                                                          'Download Failed',
+                                                      messageText:
+                                                          "Your Prescription failed to download. Try again");
+                                                }
                                               },
                                               date: controller
                                                   .reportList[index].createdAt!
@@ -119,6 +132,7 @@ buildPrescriptionWidget({
   bool isViewed = false,
   String? date,
   Function()? onTap,
+  bool isLoading = false,
 }) {
   return Container(
     padding: const EdgeInsets.all(10),
@@ -161,7 +175,9 @@ buildPrescriptionWidget({
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       color: const Color(0XFFF49DA2)),
-                  child: const Icon(Icons.download)),
+                  child: isLoading
+                      ? const Icon(Icons.circle_outlined)
+                      : const Icon(Icons.download)),
             ),
           ],
         ),

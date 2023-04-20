@@ -51,7 +51,7 @@ class AuthService {
         throw Exception('Throwing Exception');
       }
     } catch (e) {
-      debugPrint("error ${e.toString()}");
+      debugPrint("Error ${e.toString()}");
       throw Exception(e);
     }
   }
@@ -129,7 +129,7 @@ class AuthService {
         debugPrint("Data : ${registerData.data}");
         return registerData;
       } else {
-        return Register();
+        throw Exception(response.statusCode);
       }
     } catch (e) {
       throw Exception("Exception : ${e.toString()}");

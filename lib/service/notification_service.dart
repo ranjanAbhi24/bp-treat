@@ -1,4 +1,6 @@
 import 'dart:developer';
+
+import 'dart:io';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -36,8 +38,9 @@ class NotificationService {
       String? token = await FirebaseMessaging.instance.getToken();
       if (token != null) {
         await Prefrence.setFCMToken(token);
-        log("TOKEN $token");
+        log("APNTOKEN $token");
       }
+
       FirebaseMessaging.onBackgroundMessage(backgroundMessageHandler);
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         RemoteNotification? notification = message.notification;

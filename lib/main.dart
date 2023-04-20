@@ -8,7 +8,6 @@ import 'package:bp_treat/utils/app_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +17,7 @@ Future<void> main() async {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
       apiKey: "AIzaSyBwKaJgWtthEzuS_nKpRDjPnEoySrOA8Xk",
-      appId: "1:588499290984:ios:8455ba96903b9bd0d0e4dd",
+      appId: "1:588499290984:ios:7cd551b042c5fc13d0e4dd",
       messagingSenderId: "588499290984",
       projectId: "bp-treat-83199",
     ));
@@ -27,7 +26,6 @@ Future<void> main() async {
   }
 
   await NotificationService.initialize();
-  await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );

@@ -66,7 +66,6 @@ class _AddBPViewState extends State<AddBPView> {
                             activeColor: kBlackColor,
                             onChanged: (value) {
                               setState(() {
-                                print(value);
                                 valuee = value;
                               });
                             })

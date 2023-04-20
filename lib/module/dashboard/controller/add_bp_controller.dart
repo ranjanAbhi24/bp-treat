@@ -38,11 +38,12 @@ class AddBPController extends GetxController {
     try {
       isLoading = true;
       _record = await _apiService.postUserRecord(
-        systolicBPValue,
-        diastolicBPValue,
-        pulseValue,
-        noteController.text,
-      );
+          systolicBPValue,
+          diastolicBPValue,
+          pulseValue,
+          noteController.text,
+          'IOS',
+          'dHD7dBQQU0zstXv3q9lTnZ:APA91bHKKwcwyeLF-oOiKw8lAwA5knzI81AznnuhhbqLeYhI0z08DC6tI_TsxSYn77Eb6P4eHf4X6JfvMNsxkozjamp9ONn10rKu1Y54-JSPLSXRATwaPInYZ8-S4fo2BAIEozkYU-8I');
       if (_record?.status == "Success") {
         isLoading = false;
         DashboardController controller = Get.find<DashboardController>();

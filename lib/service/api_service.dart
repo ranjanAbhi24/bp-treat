@@ -25,6 +25,7 @@ class ApiService {
   // String base_url = 'http://3.109.121.178:8080/api';
 
   // String base_url = 'http://54.238.218.186:5000/api';
+
   String base_url = 'https://api.houstonepilepsy.com/api';
 
   Future<UserDetail> getUserDetails() async {
@@ -86,7 +87,8 @@ class ApiService {
     }
   }
 
-  postUserRecord(int systolic, int diastolic, int pulse, String note) async {
+  postUserRecord(int systolic, int diastolic, int pulse, String note,
+      String deviceType, String deviceToken) async {
     var token = await prefs.getToken();
     Uri url = Uri.parse("$base_url/add-record");
     try {
@@ -95,6 +97,8 @@ class ApiService {
         "diastolic": diastolic,
         "pulse": pulse,
         "note": note,
+        "deviceType": deviceType = "IOS",
+        "deviceToken": deviceToken,
       };
       Map<String, String> header = {
         'Content-type': 'application/json',
