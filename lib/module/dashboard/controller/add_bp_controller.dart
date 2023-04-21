@@ -1,6 +1,7 @@
 import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
 import 'package:bp_treat/module/dashboard/model/add_record.dart';
 import 'package:bp_treat/service/api_service.dart';
+import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import '../model/user_record.dart';
 
 class AddBPController extends GetxController {
   final ApiService _apiService = ApiService();
+  final Prefrence _prefs = Prefrence();
   late TextEditingController noteController;
   List<Record>? _userRecord;
   List<Record>? get userrecord => _userRecord;
@@ -36,14 +38,17 @@ class AddBPController extends GetxController {
 
   postRecord() async {
     try {
+      var deviceToken = await _prefs.getFCMToken();
+      print(deviceToken);
       isLoading = true;
       _record = await _apiService.postUserRecord(
-          systolicBPValue,
-          diastolicBPValue,
-          pulseValue,
-          noteController.text,
-          'IOS',
-          'dHD7dBQQU0zstXv3q9lTnZ:APA91bHKKwcwyeLF-oOiKw8lAwA5knzI81AznnuhhbqLeYhI0z08DC6tI_TsxSYn77Eb6P4eHf4X6JfvMNsxkozjamp9ONn10rKu1Y54-JSPLSXRATwaPInYZ8-S4fo2BAIEozkYU-8I');
+        systolicBPValue,
+        diastolicBPValue,
+        pulseValue,
+        noteController.text,
+        'IOS',
+        deviceToken,
+      );
       if (_record?.status == "Success") {
         isLoading = false;
         DashboardController controller = Get.find<DashboardController>();

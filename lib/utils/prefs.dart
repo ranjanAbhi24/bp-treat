@@ -30,7 +30,7 @@ class Prefrence {
     return isTrue;
   }
 
-  getFCMToken() async {
+  Future<String> getFCMToken() async {
     _prefs = await SharedPreferences.getInstance();
     String? fcm = _prefs!.getString('fcm');
     debugPrint("fcm $fcm");

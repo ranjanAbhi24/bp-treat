@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bp_treat/module/medicine/controller/medicine_controller.dart';
+import 'package:bp_treat/service/notification_service.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
@@ -95,8 +96,6 @@ class MedicineView extends StatelessWidget {
                                                 );
                                                 print('path : $newPDF');
                                                 if (newPDF.path.isNotEmpty) {
-                                                  await controller
-                                                      .showNotificationWithdefaultSound();
                                                   ApplicationUtils.showSnackBar(
                                                       titleText:
                                                           'Prescription Downloaded',

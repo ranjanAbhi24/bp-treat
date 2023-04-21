@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'dart:io';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -20,6 +19,7 @@ class NotificationService {
       importance: Importance.high,
       playSound: true,
     );
+
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
             alert: true, badge: true, sound: true);
@@ -28,8 +28,6 @@ class NotificationService {
       alert: true,
       announcement: false,
       badge: true,
-      carPlay: false,
-      criticalAlert: false,
       provisional: false,
       sound: true,
     );
@@ -44,8 +42,8 @@ class NotificationService {
       FirebaseMessaging.onBackgroundMessage(backgroundMessageHandler);
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         RemoteNotification? notification = message.notification;
-        AndroidNotification? android = message.notification?.android;
-        if (notification != null && android != null) {
+        // AndroidNotification? android = message.notification?.android;
+        if (notification != null) {
           Prefrence.setBadgeStatus(true);
           flutterLocalNotificationsPlugin.show(
               notification.hashCode,
