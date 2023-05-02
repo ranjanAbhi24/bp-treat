@@ -68,5 +68,7 @@
 	<false/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>BP Treat app needs to access your Media Library to download files</string>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>
