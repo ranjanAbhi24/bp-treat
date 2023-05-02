@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
 import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/model/user_record.dart';
@@ -11,8 +11,8 @@ import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/size.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class DashBoardView extends StatelessWidget {
   const DashBoardView({super.key});
@@ -50,12 +50,13 @@ class DashBoardView extends StatelessWidget {
                                 await Prefrence.setBadgeStatus(false);
                                 Get.to(() => const NotificationView());
                               },
-                              child: Badge(
+                              child: badge.Badge(
                                 showBadge: controller.badgeStatus == true
                                     ? true
                                     : false,
-                                position: BadgePosition.topEnd(top: 0, end: 1),
-                                animationType: BadgeAnimationType.scale,
+                                position:
+                                    badge.BadgePosition.topEnd(top: 0, end: 1),
+                                animationType: badge.BadgeAnimationType.scale,
                                 badgeContent: null,
                                 child: Image.asset(
                                     'assets/images/notification.png'),

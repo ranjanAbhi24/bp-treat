@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:bp_treat/module/dashboard/binding/root_binding.dart';
 import 'package:bp_treat/module/welcome/views/wrapper_view.dart';
 import 'package:bp_treat/route/app_route.dart';
@@ -24,8 +23,6 @@ Future<void> main() async {
   } else {
     await Firebase.initializeApp();
   }
-
-  // await NotificationService.initialize();
   await NotificationService.initialize();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],

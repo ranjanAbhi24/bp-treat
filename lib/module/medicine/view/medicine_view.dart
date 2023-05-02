@@ -1,15 +1,10 @@
 import 'dart:io';
-
 import 'package:bp_treat/module/medicine/controller/medicine_controller.dart';
-import 'package:bp_treat/service/notification_service.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:path_provider/path_provider.dart';
 
 class MedicineView extends StatelessWidget {
   const MedicineView({super.key});
