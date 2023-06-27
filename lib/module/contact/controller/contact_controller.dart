@@ -66,8 +66,7 @@ class ContactController extends GetxController {
   sendMedicineForChange(String pID) async {
     _postMed = await _apiService.postMedicineForChange(
       prescriptionID: pID,
-      doctorID:
-          Get.find<LandingController>().userData?.data?.doctorId?.sId ?? "",
+      doctorID: "",
       medicine: selectedMedicines,
       otherIssue: otherIssueController.text,
     );

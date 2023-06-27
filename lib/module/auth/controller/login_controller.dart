@@ -23,6 +23,7 @@ class LoginController extends GetxController {
   bool isObsecure = true;
   String? token;
   String? userData;
+  String? patientID;
 
   late TextEditingController emailController, passwordController;
   late GlobalKey<FormState> loginFormKey;
@@ -41,7 +42,9 @@ class LoginController extends GetxController {
         isLoading = false;
         token = _loginUser?.data?.loginToken;
         userData = json.encode(_loginUser);
+        patientID = _loginUser?.data?.sId;
         await Prefrence.setToken(token);
+        await _prefs.setPatientID(patientID);
         await _prefs.setUserDetails(userData);
         await _prefs.setConsent(_loginUser?.data?.consultationConsent);
         Get.offAll(() => const LandingPage());

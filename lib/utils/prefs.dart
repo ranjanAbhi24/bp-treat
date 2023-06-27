@@ -11,6 +11,19 @@ class Prefrence {
     return true;
   }
 
+  setPatientID(String? pid) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isData = await prefs.setString('patientID', pid ?? "");
+    print(isData);
+  }
+
+  Future<String?> getPatientID() async {
+    _prefs = await SharedPreferences.getInstance();
+    String? id = _prefs?.getString('patientID');
+    print('ID : $id');
+    return id;
+  }
+
   static setToken(String? token) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('token', token!);
@@ -66,14 +79,13 @@ class Prefrence {
     _prefs = await SharedPreferences.getInstance();
     bool? userData = await _prefs!.setString("userDetails", value!);
     debugPrint("valuSaved $userData");
-
     return userData;
   }
 
   Future<String> getUserDetails() async {
     _prefs = await SharedPreferences.getInstance();
     String? user = _prefs!.getString("userDetails");
-    // print('Userrrr $user');
+    print('Userrrr $user');
     return user ?? "";
   }
 

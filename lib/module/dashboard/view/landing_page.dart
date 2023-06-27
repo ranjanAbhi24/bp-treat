@@ -13,7 +13,7 @@ class LandingPage extends StatelessWidget {
       child: GetBuilder<LandingController>(
           init: LandingController(),
           builder: (controller) => Scaffold(
-                body: controller.pages[controller.tabIndex],
+                body: controller.getPage(controller.tabIndex),
                 bottomNavigationBar:
                     buildBottomNavigationMenu(context, controller),
               )),
@@ -78,7 +78,7 @@ class LandingPage extends StatelessWidget {
             tabBuilder: ((context, index) {
               return CupertinoTabView(
                 builder: (context) {
-                  return controller.pages[index];
+                  return controller.getPage(index);
                 },
               );
             }));

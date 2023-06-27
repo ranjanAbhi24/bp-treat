@@ -23,6 +23,7 @@ class UserDetail {
 }
 
 class Data {
+  String? id;
   String? name;
   String? mobile;
   String? email;
@@ -36,7 +37,8 @@ class Data {
   String? notificationTime;
 
   Data(
-      {this.name,
+      {this.id,
+      this.name,
       this.mobile,
       this.email,
       this.gender,
@@ -49,6 +51,7 @@ class Data {
       this.notificationTime});
 
   Data.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     name = json['name'];
     mobile = json['mobile'];
     email = json['email'];
@@ -64,6 +67,7 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['name'] = name;
     data['mobile'] = mobile;
     data['email'] = email;

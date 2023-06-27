@@ -1,5 +1,4 @@
-import 'dart:convert';
-import 'package:bp_treat/module/auth/model/user.dart';
+import 'package:bp_treat/module/account/model/user_detail.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/model/graph.dart';
 import 'package:bp_treat/module/dashboard/model/notification.dart';
@@ -16,24 +15,27 @@ class DashboardController extends GetxController {
   final Prefrence _prefs = Prefrence();
   bool isLoading = false;
 
-  User? _user;
-  User? get userData => _user;
+  UserDetail? _userDetail;
+  UserDetail? get userDetail => _userDetail;
 
   UserRecord? _patientRecord;
   UserRecord? get patientRecord => _patientRecord;
+
   GraphModel? _graphModel;
   GraphModel? get graph => _graphModel;
+
   final List<Graph> _listOfGraphData = [];
   List<Graph> get listOfGraphData => _listOfGraphData;
 
   UserNotification? _userNotification;
   UserNotification? get userNotification => _userNotification;
+
   final List<Notify> _notificationList = [];
   List<Notify>? get notificationList => _notificationList;
 
   final List<Record> _record = [];
   List<Record> get record => _record;
-  String patientID = "";
+
   String dropDownValue = 'Weekly';
   bool badgeStatus = false;
   List<String> items = [
@@ -46,22 +48,14 @@ class DashboardController extends GetxController {
   badgeStatusFn() async {
     badgeStatus = await _prefs.getBadgStatus();
     debugPrint('BadgeStatus: $badgeStatus');
-    update();
-  }
 
-  getUserDetails() async {
-    String jsonUser = await _prefs.getUserDetails();
-    Map<String, dynamic> jsonData = jsonDecode(jsonUser);
-    _user = User.fromJson(jsonData);
-    patientID = _user?.data?.sId ?? "";
     update();
   }
 
   fetchNotification() async {
     isLoading = true;
     try {
-      await getUserDetails();
-      _userNotification = await _apiService.getNotification(patientID);
+      _userNotification = await _apiService.getNotification("");
       if (_userNotification?.status == "Success") {
         isLoading = false;
         _notificationList.addAll(_userNotification?.notify ?? []);
@@ -79,10 +73,11 @@ class DashboardController extends GetxController {
   }
 
   userRecord() async {
+    // await fetchPatientID();
+    // print("::=> $patientID");
     isLoading = true;
     try {
-      await getUserDetails();
-      _patientRecord = await _apiService.getUserRecord(patientID);
+      _patientRecord = await _apiService.getUserRecord('');
       if (_patientRecord?.status == "Success") {
         _record.clear();
         isLoading = false;
@@ -90,19 +85,20 @@ class DashboardController extends GetxController {
       } else {
         isLoading = false;
         ApplicationUtils.showSnackBar(
-            titleText: 'Error', messageText: "Errorr");
+            titleText: _patientRecord?.status,
+            messageText: _patientRecord?.msg);
       }
     } catch (e) {
-      throw Error();
+      return print(e.toString());
     }
     update();
   }
 
   getGraphData({String? dropDownValue}) async {
-    await Get.find<LandingController>().getUserDetails();
-    _user = Get.find<LandingController>().userData;
+    // await Get.find<LandingController>().getUserDetails();
+    _userDetail = Get.find<LandingController>().userDetail;
     _graphModel = await _apiService.fetchGraph(
-        dropDownValue ?? 'week', _user?.data?.sId ?? "");
+        dropDownValue ?? 'week', _userDetail?.data?.id ?? "");
     if (_graphModel?.status == "Success") {
       _listOfGraphData.clear();
       _listOfGraphData.addAll(_graphModel?.graph ?? []);
@@ -127,11 +123,9 @@ class DashboardController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    fetchNotification();
     badgeStatusFn();
-    getUserDetails();
     userRecord();
     getGraphData();
-    fetchNotification();
-    // onChangeValue('Weekly');
   }
 }

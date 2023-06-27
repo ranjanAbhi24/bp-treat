@@ -50,8 +50,7 @@ class ApiService {
 
         return userDetails;
       } else {
-        debugPrint('else block');
-        return UserDetail();
+        throw Exception();
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -337,7 +336,8 @@ class ApiService {
           .catchError((err) {
         debugPrint("Err : $err");
       });
-      debugPrint('Res : ${response.body}');
+      debugPrint('Header : $header');
+      debugPrint('Body : $body');
       if (response.statusCode == 200 || response.statusCode == 201) {
         debugPrint('Response : ${response.body}');
 

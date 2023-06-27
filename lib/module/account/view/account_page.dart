@@ -45,9 +45,9 @@ class AccountPage extends StatelessWidget {
                               backgroundColor: Colors.black,
                               child: Text(
                                 Get.find<LandingController>()
-                                        .userData
+                                        .userDetail
                                         ?.data
-                                        ?.name?[0] ??
+                                        ?.name ??
                                     "U",
                                 style: Theme.of(context)
                                     .textTheme
@@ -62,14 +62,17 @@ class AccountPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          Get.find<LandingController>().userData?.data?.name ??
+                          Get.find<LandingController>()
+                                  .userDetail
+                                  ?.data
+                                  ?.name ??
                               "user",
                           style: Theme.of(context).textTheme.headline1,
                         ),
                         const SizedBox(height: 10),
                         Text(
                           Get.find<LandingController>()
-                                  .userData
+                                  .userDetail
                                   ?.data
                                   ?.mobile ??
                               "phone",
@@ -77,7 +80,10 @@ class AccountPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          Get.find<LandingController>().userData?.data?.email ??
+                          Get.find<LandingController>()
+                                  .userDetail
+                                  ?.data
+                                  ?.email ??
                               "abc@xyz.com",
                           style: Theme.of(context).textTheme.bodyText2,
                         ),
@@ -95,7 +101,9 @@ class AccountPage extends StatelessWidget {
                                 children: [
                               TextSpan(
                                   text:
-                                      "${Get.find<LandingController>().userData?.data?.doctorId?.fname ?? "-"} ${Get.find<LandingController>().userData?.data?.doctorId?.lname ?? "-"}",
+                                      "{Get.find<LandingController>().userDetail?.data?.doctorId?.fname ?? "
+                                      "} {Get.find<LandingController>().userData?.data?.doctorId?.lname ?? "
+                                      "}",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText2

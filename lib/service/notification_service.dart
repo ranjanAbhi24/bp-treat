@@ -9,6 +9,9 @@ Future<dynamic> backgroundMessageHandler(RemoteMessage message) async {
 }
 
 class NotificationService {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
   static Future<void> initialize() async {
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin();
@@ -34,6 +37,7 @@ class NotificationService {
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       log('Firebase Initialize');
       String? token = await FirebaseMessaging.instance.getToken();
+      print('token : $token');
       if (token != null) {
         await Prefrence.setFCMToken(token);
         log("APNTOKEN $token");

@@ -27,7 +27,7 @@ class ViewAllController extends GetxController {
 
   viewAll() async {
     isLoading = true;
-    patientID = Get.find<LandingController>().userData?.data?.sId!;
+    patientID = Get.find<LandingController>().userDetail?.data?.id;
     _viewAllRecord = await _apiService.viewAllRecord(
         intervals: interval, patientID: patientID ?? "");
     if (_viewAllRecord?.status == "Success") {

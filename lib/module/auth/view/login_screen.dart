@@ -19,7 +19,6 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: false,
         body: GetBuilder<LoginController>(
             init: LoginController(),
             builder: (controller) {

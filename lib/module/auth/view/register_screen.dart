@@ -19,7 +19,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+
         body: GetBuilder<RegisterController>(
             init: RegisterController(),
             builder: (controller) {

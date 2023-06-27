@@ -37,7 +37,7 @@ class DashBoardView extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                              "Hello, ${landingcontroller.userData?.data?.name ?? "user"}",
+                              "Hello, ${landingcontroller.userDetail?.data?.name ?? "user"}",
                               style: Theme.of(context)
                                   .textTheme
                                   .headline2

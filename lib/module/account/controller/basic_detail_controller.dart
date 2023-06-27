@@ -47,7 +47,7 @@ class BasicDetailController extends GetxController {
     try {
       isLoading = true;
       _userData = await _apiService.getUserDetails();
-      print(_userData!.data!.zipcode);
+      print("ZIP Code ${_userData!.data!.zipcode}");
       nameController.text = _userData?.data?.name ?? "name";
       emailController.text = _userData?.data?.email ?? "email";
       dobController.text = _userData?.data?.dob ?? "dob";
@@ -60,6 +60,9 @@ class BasicDetailController extends GetxController {
       timeController.text = _userData!.data?.notificationTime ?? '09:00';
       isLoading = false;
     } catch (e) {
+      ApplicationUtils.showSnackBar(
+          titleText: _userData?.status ?? "",
+          messageText: _userData?.msg ?? "");
       isLoading = false;
     }
     update();

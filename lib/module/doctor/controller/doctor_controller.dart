@@ -37,11 +37,13 @@ class DoctorController extends GetxController {
   selectDoc({required String doctorID, required String docRole}) async {
     selectDoctor =
         await _apiService.selectDoctor(doctorID: doctorID, role: docRole);
+    debugPrint("Doc ${selectDoctor.msg}");
+    debugPrint("Doc ${selectDoctor.status}");
 
     if (selectDoctor.status == "Success") {
-      userData = jsonEncode(selectDoctor);
-      debugPrint("json $userData");
-      await _prefs.setUserDetails(userData);
+      // userData = jsonEncode(selectDoctor);
+      // debugPrint("json $userData");
+      // await _prefs.setUserDetails(userData);
       Get.offAll(() => const DoctorConsultationConsent());
     } else {
       ApplicationUtils.showSnackBar(

@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 class RootBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<LandingController>(() => LandingController(), fenix: true);
-    Get.lazyPut<DashboardController>(() => DashboardController(), fenix: true);
-    Get.lazyPut<MedicineController>(() => MedicineController(), fenix: true);
-    Get.lazyPut<ContactController>(() => ContactController(), fenix: true);
-    Get.lazyPut<AccountController>(() => AccountController(), fenix: true);
+    Get.lazyPut<LandingController>(() => LandingController());
+    Get.lazyPut<DashboardController>(() => DashboardController());
+    Get.lazyPut<MedicineController>(() => MedicineController());
+    Get.lazyPut<ContactController>(() => ContactController());
+    Get.lazyPut<AccountController>(() => AccountController());
   }
 }

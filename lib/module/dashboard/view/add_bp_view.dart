@@ -21,20 +21,25 @@ class _AddBPViewState extends State<AddBPView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         body: GetBuilder<AddBPController>(
             init: AddBPController(),
             builder: (controller) {
               return Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                child: ListView(
+                  // crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Row(
                       children: [
+                        IconButton(
+                          icon: Icon(Icons.arrow_back),
+                          onPressed: () {
+                            Get.back();
+                          },
+                        ),
                         Text(
-                            "Hello, ${Get.find<LandingController>().userData?.data?.name ?? ""}",
+                            "Hello, ${Get.find<LandingController>().userDetail?.data?.name ?? ""}",
                             style: Theme.of(context).textTheme.headline2),
                         const SizedBox(width: 6),
                         Image.asset('assets/images/waving_hand.png'),

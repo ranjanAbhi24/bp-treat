@@ -1,13 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:bp_treat/module/auth/model/user.dart';
-import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
+import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
 import 'package:bp_treat/module/medicine/model/medicine.dart';
 import 'package:bp_treat/module/medicine/model/prescribtion_status.dart';
 import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -27,23 +26,29 @@ class MedicineController extends GetxController {
   PrescribtionStatus? get prescStatus => _prescrbtionStatus;
   bool isLoading = false;
   String? prescriptionID;
+  String? patientID;
 
   // getMedicineName(String medicineName) async {
   //   var result = medicineName.contains('name');
   //   print("result :$result");
   //   update();
   // }
-
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  fetchPatientID() async {
+    final pid = await _prefs.getPatientID().then((value) {
+      patientID = value;
+    });
+    update();
+  }
 
   getUserPrecription() async {
+    await fetchPatientID();
+    print('pid :=: $patientID');
     isLoading = true;
-    _report = await _apiService.fetchPrescribtion(
-        Get.find<LandingController>().userData?.data?.sId ?? "");
+    _report = await _apiService.fetchPrescribtion(patientID ?? "");
+    print("report : $_report");
     if (_report?.status == "Success") {
       isLoading = false;
-      _reportList.assignAll(_report?.report ?? []);
+      _reportList.addAll(_report?.report ?? []);
     } else {
       isLoading = false;
       ApplicationUtils.showSnackBar(
@@ -65,7 +70,8 @@ class MedicineController extends GetxController {
     } else {
       isLoading = false;
       ApplicationUtils.showSnackBar(
-          titleText: 'Error', messageText: _prescrbtionStatus?.msg);
+          titleText: _prescrbtionStatus?.status,
+          messageText: _prescrbtionStatus?.msg);
     }
     update();
   }
@@ -93,13 +99,13 @@ class MedicineController extends GetxController {
           final appDocDir = Platform.isAndroid
               ? Directory('/storage/emulated/0/Download')
               : await getApplicationDocumentsDirectory();
-          print('Dir : $appDocDir');
+
           final pdfFile = File('${appDocDir.path}/$fileName');
           await pdfFile.writeAsBytes(bytes);
           return pdfFile;
         } else {
           isLoading = false;
-          print('else block');
+
           throw Exception('Exception => ${response.statusCode}');
         }
       } else {
@@ -111,22 +117,6 @@ class MedicineController extends GetxController {
       isLoading = false;
       throw Exception('Exception => $e');
     }
-  }
-
-  Future showNotificationWithdefaultSound() async {
-    var androidPlatformChannelSpecifies = const AndroidNotificationDetails(
-      "high_importance_channel",
-      'High Importance Notifications',
-      importance: Importance.max,
-      priority: Priority.high,
-    );
-    var iosPlatformChannelSpecifies = const DarwinNotificationDetails();
-    var platoformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifies,
-        iOS: iosPlatformChannelSpecifies);
-    await flutterLocalNotificationsPlugin.show(0, 'Prescription Downloaded',
-        'Your Prescription has been download', platoformChannelSpecifics,
-        payload: 'Default_Sound');
   }
 
   @override

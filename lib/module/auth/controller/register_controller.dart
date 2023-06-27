@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bp_treat/module/auth/model/register.dart';
 import 'package:bp_treat/module/auth/model/send_otp.dart';
 import 'package:bp_treat/module/auth/view/otp_screen.dart';
@@ -28,9 +30,11 @@ class RegisterController extends GetxController {
   Register? get register => _registerUser;
   bool isObsecure = true;
   bool isObsecureCNF = true;
-  String userData = '';
+
   String? token;
+  String? patientID = '';
   bool? isChecked = false;
+  String? userData;
 
   sendOtp() async {
     isLoading = true;
@@ -77,12 +81,13 @@ class RegisterController extends GetxController {
         privacyConsent: isChecked ?? true,
       );
       debugPrint("register ${_registerUser?.msg}");
+      debugPrint("register ${_registerUser?.status}");
       if (_registerUser?.status == "Success") {
         isLoading = false;
         token = _registerUser?.data?.loginToken;
-        // userData = json.encode(_registerUser);
+        patientID = _registerUser?.data?.sId;
+        await _prefs.setPatientID(patientID);
         await Prefrence.setToken(token);
-        // await _prefs.setUserDetails(userData);
         await ApplicationUtils.showSnackBar(
             titleText: _registerUser?.status, messageText: _registerUser?.msg);
         Get.offAll(() => const DoctorSelectionScreen());

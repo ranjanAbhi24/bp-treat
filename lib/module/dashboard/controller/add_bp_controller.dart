@@ -54,10 +54,10 @@ class AddBPController extends GetxController {
         DashboardController controller = Get.find<DashboardController>();
         // controller.record.clear();
         // controller.listOfGraphData.clear();
-        await controller.userRecord();
-        await controller.getGraphData();
-        await controller.fetchNotification();
-        await controller.badgeStatusFn();
+        controller.userRecord();
+        controller.getGraphData();
+        controller.fetchNotification();
+        controller.badgeStatusFn();
         // Get.offAll(() => const LandingPage());
         Get.back();
         ApplicationUtils.showSnackBar(

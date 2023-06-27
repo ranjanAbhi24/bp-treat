@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bp_treat/module/consult/model/add_consent.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
@@ -205,14 +207,16 @@ class ConsentController extends GetxController {
         state: stateController.text,
         zipcode: int.parse(zipController.text),
       );
-      debugPrint("Consent : $_addConsent");
+      debugPrint("Consent : ${_addConsent?.status}");
+      debugPrint("Consent : ${_addConsent?.msg}");
 
       if (_addConsent?.status == "Success") {
         isLoading = false;
         ApplicationUtils.showSnackBar(
             titleText: _addConsent?.status, messageText: _addConsent?.msg);
-        await _prefs.setConsent(_addConsent?.consent?.consultationConsent);
-        await Get.find<LandingController>().getUserDetails();
+        // await _prefs.setConsent(_addConsent?.consent?.consultationConsent);
+        await _prefs.setUserDetails(jsonEncode(_addConsent?.consent));
+        // Get.find<LandingController>().getUserDetails();
         Get.off(() => const LandingPage());
       } else {
         isLoading = false;
@@ -235,7 +239,6 @@ class ConsentController extends GetxController {
     dobController = TextEditingController();
     heightController = TextEditingController();
     weightController = TextEditingController();
-
     phoneController = TextEditingController();
     stateController = TextEditingController();
     zipController = TextEditingController();
