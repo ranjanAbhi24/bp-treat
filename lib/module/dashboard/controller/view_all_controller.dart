@@ -27,16 +27,16 @@ class ViewAllController extends GetxController {
 
   viewAll() async {
     isLoading = true;
-    patientID = Get.find<LandingController>().userDetail?.data?.id;
     _viewAllRecord = await _apiService.viewAllRecord(
-        intervals: interval, patientID: patientID ?? "");
+        intervals: interval,
+        patientID: Get.find<LandingController>().userInfo['data']['_id']);
     if (_viewAllRecord?.status == "Success") {
       isLoading = false;
       _listOfRecord.assignAll(_viewAllRecord?.records?.listrecord ?? []);
     } else {
       isLoading = false;
       ApplicationUtils.showSnackBar(
-          titleText: 'Error', messageText: _viewAllRecord?.msg ?? "Errror");
+          titleText: _viewAllRecord?.status, messageText: _viewAllRecord?.msg);
     }
     update();
   }

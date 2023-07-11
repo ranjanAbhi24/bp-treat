@@ -9,10 +9,11 @@ Future<dynamic> backgroundMessageHandler(RemoteMessage message) async {
 }
 
 class NotificationService {
+  final Prefrence _prefs = Prefrence.instance;
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-  static Future<void> initialize() async {
+  Future<void> initialize() async {
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
         FlutterLocalNotificationsPlugin();
     AndroidNotificationChannel channel = const AndroidNotificationChannel(
@@ -39,7 +40,7 @@ class NotificationService {
       String? token = await FirebaseMessaging.instance.getToken();
       print('token : $token');
       if (token != null) {
-        await Prefrence.setFCMToken(token);
+        await _prefs.setFCMToken(token);
         log("APNTOKEN $token");
       }
 
@@ -48,7 +49,7 @@ class NotificationService {
         RemoteNotification? notification = message.notification;
         // AndroidNotification? android = message.notification?.android;
         if (notification != null) {
-          Prefrence.setBadgeStatus(true);
+          _prefs.setBadgeStatus(true);
           flutterLocalNotificationsPlugin.show(
               notification.hashCode,
               notification.title,

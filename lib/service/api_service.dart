@@ -21,7 +21,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  Prefrence prefs = Prefrence();
+  Prefrence prefs = Prefrence.instance;
   // String base_url = 'http://3.109.121.178:8080/api';
 
   // String base_url = 'http://54.238.218.186:5000/api';
@@ -29,7 +29,7 @@ class ApiService {
   String base_url = 'https://api.houstonepilepsy.com/api';
 
   Future<UserDetail> getUserDetails() async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     debugPrint("token : $token");
     try {
       Uri url = Uri.parse("$base_url/get-basic-details");
@@ -59,7 +59,7 @@ class ApiService {
   }
 
   Future<UserRecord> getUserRecord(String patientID) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     try {
       Uri url = Uri.parse("$base_url/get-record?patientId=$patientID");
 
@@ -88,7 +88,7 @@ class ApiService {
 
   postUserRecord(int systolic, int diastolic, int pulse, String note,
       String deviceType, String deviceToken) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse("$base_url/add-record");
     try {
       Map<String, dynamic> body = {
@@ -131,7 +131,7 @@ class ApiService {
   }
 
   updateUserRecord({dynamic weight, String? time}) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse("$base_url/update-patient-details");
     try {
       Map<String, dynamic> body = {"weight": weight, "notificationTime": time};
@@ -177,7 +177,7 @@ class ApiService {
     bool? isSmoker,
     bool? isWeedUser,
   }) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse("$base_url/update-patient-details");
     try {
       Map<String, dynamic> body = {
@@ -222,7 +222,7 @@ class ApiService {
   }
 
   getNotification(String patientID) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     try {
       Uri url =
           Uri.parse("$base_url/get-user-notifications?patientId=$patientID");
@@ -247,7 +247,7 @@ class ApiService {
   }
 
   getPatientDetail() async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     try {
       Uri url = Uri.parse("$base_url/get-patient-details");
       Map<String, String> header = {
@@ -296,7 +296,7 @@ class ApiService {
     String? state,
     int? zipcode,
   }) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     try {
       Uri url = Uri.parse("$base_url/add-patient-details");
       Map<String, dynamic> body = {
@@ -351,7 +351,7 @@ class ApiService {
   }
 
   fetchGraph(String hour, String patientID) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse(
         "$base_url/get-graph-data?interval=$hour&patientId=$patientID");
     try {
@@ -391,7 +391,7 @@ class ApiService {
   }
 
   fetchPrescribtion(String patientID) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse("$base_url/get-user-prescription?patientId=$patientID");
     try {
       Map<String, String> header = {
@@ -415,7 +415,7 @@ class ApiService {
   }
 
   changePrescriptionStatus(String prescriptionId) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse(
         '$base_url/prescription-viewed?prescriptionId=$prescriptionId');
     try {
@@ -441,7 +441,7 @@ class ApiService {
   }
 
   viewAllRecord({required String patientID, required String intervals}) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse(
         '$base_url/get-all-records?patientId=$patientID&interval=$intervals');
 
@@ -467,7 +467,7 @@ class ApiService {
   }
 
   Future<DoctorModel> fetchDoctorList() async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse('$base_url/get-doctor');
 
     try {
@@ -496,7 +496,7 @@ class ApiService {
   }
 
   selectDoctor({required String doctorID, required String role}) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse('$base_url/select-doctor');
     try {
       Map<String, String> header = {
@@ -522,7 +522,7 @@ class ApiService {
   }
 
   Future<ChangePrescription> listMedicineForChange() async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse('$base_url/get-latest-prescription');
     try {
       Map<String, String> header = {
@@ -555,7 +555,7 @@ class ApiService {
     List? medicine,
     String? otherIssue,
   }) async {
-    var token = await prefs.getToken();
+    var token = prefs.getToken();
     Uri url = Uri.parse('$base_url/save-side-effect');
     try {
       Map<String, String> header = {

@@ -4,7 +4,6 @@ import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/instance_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 

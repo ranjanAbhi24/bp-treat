@@ -10,16 +10,15 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   // static String base_url = 'http://3.109.121.178:8080/api';
 
   // static String base_url = 'http://54.238.218.186:5000/api';
 
   String base_url = 'https://api.houstonepilepsy.com/api';
 
-  Prefrence prefs = Prefrence();
   Future<User> loginUser(String email, String password) async {
-    String fcmToken = await _prefs.getFCMToken();
+    String fcmToken = _prefs.getFCMToken();
     debugPrint('fcmmm : $fcmToken');
     try {
       var url = Uri.parse("$base_url/login");
@@ -159,7 +158,7 @@ class AuthService {
 
   changePassword({required String email, required String password}) async {
     try {
-      var token = await prefs.getToken();
+      var token = _prefs.getToken();
       Uri url = Uri.parse("$base_url/change-password");
       Map<String, dynamic> body = {
         "email": email,
@@ -212,7 +211,7 @@ class AuthService {
   }
 
   Future userLogout() async {
-    var token = await prefs.getToken();
+    var token = _prefs.getToken();
     Uri url = Uri.parse("$base_url/logout");
     try {
       Map<String, String> header = {

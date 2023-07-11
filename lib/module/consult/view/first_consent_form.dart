@@ -103,7 +103,7 @@ class FirstConsentForm extends StatelessWidget {
                                   return null;
                                 }
                               },
-                              text: "Height (in inches)"),
+                              text: "Height (in feet)"),
                         ),
                         const SizedBox(width: 8),
                         Expanded(

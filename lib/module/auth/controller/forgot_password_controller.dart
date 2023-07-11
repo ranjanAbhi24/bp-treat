@@ -14,7 +14,7 @@ import 'package:timer_count_down/timer_controller.dart';
 
 class ForgotPasswordController extends GetxController {
   final AuthService _auth = AuthService();
-  // final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   late TextEditingController otpController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
@@ -81,22 +81,19 @@ class ForgotPasswordController extends GetxController {
       if (verifiedOTP?.status == "Success") {
         isLoading = false;
         isChangePassowrdFieldVisible = true;
-        await Prefrence.setToken(verifiedOTP?.data?.loginToken);
+        await _prefs.setToken(verifiedOTP?.data?.loginToken);
         ApplicationUtils.showSnackBar(
             titleText: verifiedOTP?.status, messageText: verifiedOTP?.msg);
       } else {
         isLoading = false;
-
         isChangePassowrdFieldVisible = false;
         ApplicationUtils.showSnackBar(
             titleText: "Failed", messageText: "Invalid OTP");
       }
     } catch (e) {
       isLoading = false;
-
       debugPrint(e.toString());
     }
-
     update();
   }
 

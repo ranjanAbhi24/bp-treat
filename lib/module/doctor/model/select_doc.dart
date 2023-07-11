@@ -1,14 +1,14 @@
 class SelectDoctor {
   String? msg;
   String? status;
-  Data? data;
+  Doc? data;
 
   SelectDoctor({this.msg, this.status, this.data});
 
   SelectDoctor.fromJson(Map<String, dynamic> json) {
     msg = json['msg'];
     status = json['status'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Doc.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -22,66 +22,23 @@ class SelectDoctor {
   }
 }
 
-class Data {
-  String? sId;
-  String? email;
-  bool? consultationConsent;
-  bool? privacyPolicyConsent;
-  String? fcmToken;
-  String? loginToken;
-  String? mobile;
-  String? name;
-  String? state;
-  int? zipcode;
+class Doc {
   DoctorId? doctorId;
-  String? notificationTime;
 
-  Data(
-      {this.sId,
-      this.email,
-      this.consultationConsent,
-      this.privacyPolicyConsent,
-      this.fcmToken,
-      this.loginToken,
-      this.mobile,
-      this.name,
-      this.state,
-      this.zipcode,
-      this.doctorId,
-      this.notificationTime});
+  Doc({
+    this.doctorId,
+  });
 
-  Data.fromJson(Map<String, dynamic> json) {
-    sId = json['_id'];
-    email = json['email'];
-    consultationConsent = json['consultationConsent'];
-    privacyPolicyConsent = json['privacyPolicyConsent'];
-    fcmToken = json['fcmToken'];
-    loginToken = json['loginToken'];
-    mobile = json['mobile'];
-    name = json['name'];
-    state = json['state'];
-    zipcode = json['zipcode'];
+  Doc.fromJson(Map<String, dynamic> json) {
     doctorId =
         json['doctorId'] != null ? DoctorId.fromJson(json['doctorId']) : null;
-    notificationTime = json['notificationTime'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['_id'] = sId;
-    data['email'] = email;
-    data['consultationConsent'] = consultationConsent;
-    data['privacyPolicyConsent'] = privacyPolicyConsent;
-    data['fcmToken'] = fcmToken;
-    data['loginToken'] = loginToken;
-    data['mobile'] = mobile;
-    data['name'] = name;
-    data['state'] = state;
-    data['zipcode'] = zipcode;
     if (doctorId != null) {
       data['doctorId'] = doctorId!.toJson();
     }
-    data['notificationTime'] = notificationTime;
     return data;
   }
 }

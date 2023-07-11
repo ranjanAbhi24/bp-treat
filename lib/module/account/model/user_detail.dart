@@ -31,7 +31,7 @@ class Data {
   String? state;
   int? zipcode;
   String? dob;
-  int? height;
+  dynamic height;
   int? weight;
   bool? consultationConsent;
   String? notificationTime;

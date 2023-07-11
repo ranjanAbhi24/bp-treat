@@ -3,94 +3,65 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Prefrence {
   SharedPreferences? _prefs;
+  Prefrence._privateConstructor();
+
+  static final Prefrence instance = Prefrence._privateConstructor();
+
+  Future<void> init() async {
+    _prefs = await SharedPreferences.getInstance();
+  }
 
   Future<bool> getSharedPreferencesInstance() async {
+    SharedPreferences _prefs = await SharedPreferences.getInstance();
     _prefs = await SharedPreferences.getInstance().catchError((e) {
       debugPrint('prefrence Error : $e');
     });
     return true;
   }
 
-  setPatientID(String? pid) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool isData = await prefs.setString('patientID', pid ?? "");
-    print(isData);
+  Future setToken(String? token) async {
+    await _prefs!.setString('token', token!);
   }
 
-  Future<String?> getPatientID() async {
-    _prefs = await SharedPreferences.getInstance();
-    String? id = _prefs?.getString('patientID');
-    print('ID : $id');
-    return id;
-  }
-
-  static setToken(String? token) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('token', token!);
-  }
-
-  Future<String> getToken() async {
-    _prefs = await SharedPreferences.getInstance();
+  String getToken() {
     String? getToken = _prefs!.getString('token');
     debugPrint(getToken);
     return getToken ?? "";
   }
 
-  static Future<bool> setFCMToken(String fcmToken) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    bool isTrue = await preferences.setString('fcm', fcmToken);
-
+  Future<bool> setFCMToken(String fcmToken) async {
+    bool isTrue = await _prefs!.setString('fcm', fcmToken);
     return isTrue;
   }
 
-  Future<String> getFCMToken() async {
-    _prefs = await SharedPreferences.getInstance();
+  String getFCMToken() {
     String? fcm = _prefs!.getString('fcm');
     debugPrint("fcm $fcm");
-    return fcm!;
+    return fcm ?? "no fcm found";
   }
 
-  static Future<bool> setBadgeStatus(bool badge) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool status = await prefs.setBool('badgeStatus', badge);
+  Future<bool> setBadgeStatus(bool badge) async {
+    bool status = await _prefs!.setBool('badgeStatus', badge);
     return status;
   }
 
-  getBadgStatus() async {
-    _prefs = await SharedPreferences.getInstance();
-    bool? status = _prefs?.getBool('badgeStatus');
-
+  getBadgStatus() {
+    bool? status = _prefs!.getBool('badgeStatus');
     return status ?? false;
   }
 
-  Future<bool> setConsent(bool? value) async {
-    _prefs = await SharedPreferences.getInstance();
-    bool consent = await _prefs!.setBool('consent', value!);
-    return consent;
-  }
-
-  Future<bool> getConsent() async {
-    _prefs = await SharedPreferences.getInstance();
-    bool? userConsent = _prefs!.getBool("consent");
-    return userConsent ?? false;
-  }
-
-  Future<bool?> setUserDetails(String? value) async {
-    _prefs = await SharedPreferences.getInstance();
-    bool? userData = await _prefs!.setString("userDetails", value!);
-    debugPrint("valuSaved $userData");
+  Future<bool> setUserDetails(String value) async {
+    bool? userData = await _prefs!.setString("userDetails", value);
     return userData;
   }
 
-  Future<String> getUserDetails() async {
-    _prefs = await SharedPreferences.getInstance();
+  String? getUserDetails() {
     String? user = _prefs!.getString("userDetails");
     print('Userrrr $user');
     return user ?? "";
   }
 
   Future<bool> clearData() async {
-    _prefs = await SharedPreferences.getInstance();
     await _prefs!.clear();
     return true;
   }

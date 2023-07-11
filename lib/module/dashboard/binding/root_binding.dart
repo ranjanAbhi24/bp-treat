@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class RootBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<LandingController>(() => LandingController());
+    Get.put<LandingController>(LandingController(), permanent: true);
     Get.lazyPut<DashboardController>(() => DashboardController());
     Get.lazyPut<MedicineController>(() => MedicineController());
     Get.lazyPut<ContactController>(() => ContactController());

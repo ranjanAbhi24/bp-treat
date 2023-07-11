@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   final AuthService _auth = AuthService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
 
   User? _loginUser;
   User? get loginUser => _loginUser;
@@ -22,7 +22,7 @@ class LoginController extends GetxController {
 
   bool isObsecure = true;
   String? token;
-  String? userData;
+  String userData = '';
   String? patientID;
 
   late TextEditingController emailController, passwordController;
@@ -43,10 +43,8 @@ class LoginController extends GetxController {
         token = _loginUser?.data?.loginToken;
         userData = json.encode(_loginUser);
         patientID = _loginUser?.data?.sId;
-        await Prefrence.setToken(token);
-        await _prefs.setPatientID(patientID);
+        await _prefs.setToken(token);
         await _prefs.setUserDetails(userData);
-        await _prefs.setConsent(_loginUser?.data?.consultationConsent);
         Get.offAll(() => const LandingPage());
       } else {
         isLoading = false;
@@ -71,7 +69,7 @@ class LoginController extends GetxController {
   getFcmTokenn() async {
     String? token = await FirebaseMessaging.instance.getToken();
     if (token != null) {
-      await Prefrence.setFCMToken(token);
+      await _prefs.setFCMToken(token);
       log("TOKEN $token");
     }
   }

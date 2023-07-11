@@ -174,7 +174,7 @@ class _ChatViewState extends State<ChatView> {
                                                       color: kPrimaryColor,
                                                       fontSize: 15),
                                               text:
-                                                  "{Get.find<LandingController>().userData?.data?.doctorId?.fname} {Get.find<LandingController>().userData?.data?.doctorId?.lname}")
+                                                  "${Get.find<LandingController>().userInfo['data']['doctorId']['fname']} ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}")
                                         ]),
                                   ),
                                   const SizedBox(height: 5),
@@ -184,7 +184,7 @@ class _ChatViewState extends State<ChatView> {
                                       ),
                                       onPressed: () => controller.makePhoneCall(
                                           Uri.parse(
-                                              'tel:{Get.find<LandingController>().userData?.data?.doctorId?.contact}')),
+                                              'tel:${Get.find<LandingController>().userInfo['data']['doctorId']['contact']}')),
                                       child: const Text('Call'))
                                 ],
                               ),

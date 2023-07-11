@@ -10,7 +10,7 @@ import '../model/user_record.dart';
 
 class AddBPController extends GetxController {
   final ApiService _apiService = ApiService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   late TextEditingController noteController;
   List<Record>? _userRecord;
   List<Record>? get userrecord => _userRecord;
@@ -38,8 +38,8 @@ class AddBPController extends GetxController {
 
   postRecord() async {
     try {
-      var deviceToken = await _prefs.getFCMToken();
-      print(deviceToken);
+      var deviceToken = _prefs.getFCMToken();
+
       isLoading = true;
       _record = await _apiService.postUserRecord(
         systolicBPValue,
@@ -54,9 +54,9 @@ class AddBPController extends GetxController {
         DashboardController controller = Get.find<DashboardController>();
         // controller.record.clear();
         // controller.listOfGraphData.clear();
-        controller.userRecord();
-        controller.getGraphData();
-        controller.fetchNotification();
+        await controller.userRecord();
+        await controller.getGraphData();
+        await controller.fetchNotification();
         controller.badgeStatusFn();
         // Get.offAll(() => const LandingPage());
         Get.back();

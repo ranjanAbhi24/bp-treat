@@ -44,10 +44,8 @@ class AccountPage extends StatelessWidget {
                               radius: 40,
                               backgroundColor: Colors.black,
                               child: Text(
-                                Get.find<LandingController>()
-                                        .userDetail
-                                        ?.data
-                                        ?.name ??
+                                Get.find<LandingController>().userInfo['data']
+                                        ['name'][0] ??
                                     "U",
                                 style: Theme.of(context)
                                     .textTheme
@@ -62,28 +60,22 @@ class AccountPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          Get.find<LandingController>()
-                                  .userDetail
-                                  ?.data
-                                  ?.name ??
+                          Get.find<LandingController>().userInfo['data']
+                                  ['name'] ??
                               "user",
                           style: Theme.of(context).textTheme.headline1,
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          Get.find<LandingController>()
-                                  .userDetail
-                                  ?.data
-                                  ?.mobile ??
+                          Get.find<LandingController>().userInfo['data']
+                                  ['mobile'] ??
                               "phone",
                           style: Theme.of(context).textTheme.bodyText1,
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          Get.find<LandingController>()
-                                  .userDetail
-                                  ?.data
-                                  ?.email ??
+                          Get.find<LandingController>().userInfo['data']
+                                  ['email'] ??
                               "abc@xyz.com",
                           style: Theme.of(context).textTheme.bodyText2,
                         ),
@@ -101,9 +93,7 @@ class AccountPage extends StatelessWidget {
                                 children: [
                               TextSpan(
                                   text:
-                                      "{Get.find<LandingController>().userDetail?.data?.doctorId?.fname ?? "
-                                      "} {Get.find<LandingController>().userData?.data?.doctorId?.lname ?? "
-                                      "}",
+                                      "${Get.find<LandingController>().userInfo['data']['doctorId']['fname']} ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']} ",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText2
@@ -113,7 +103,9 @@ class AccountPage extends StatelessWidget {
                                           color: kPrimaryColor))
                             ])),
                         const SizedBox(height: 20),
-                        Get.find<LandingController>().userConsent == false
+                        Get.find<LandingController>().userInfo['data']
+                                    ['consultationConsent'] ==
+                                false
                             ? ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: kPrimaryColor,

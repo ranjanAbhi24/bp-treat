@@ -12,7 +12,7 @@ import '../model/user_record.dart';
 
 class DashboardController extends GetxController {
   final ApiService _apiService = ApiService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   bool isLoading = false;
 
   UserDetail? _userDetail;
@@ -52,10 +52,12 @@ class DashboardController extends GetxController {
     update();
   }
 
-  fetchNotification() async {
+  Future fetchNotification() async {
     isLoading = true;
+    final patientID = Get.find<LandingController>().userInfo['data']['_id'];
+
     try {
-      _userNotification = await _apiService.getNotification("");
+      _userNotification = await _apiService.getNotification(patientID);
       if (_userNotification?.status == "Success") {
         isLoading = false;
         _notificationList.addAll(_userNotification?.notify ?? []);
@@ -72,12 +74,12 @@ class DashboardController extends GetxController {
     update();
   }
 
-  userRecord() async {
-    // await fetchPatientID();
-    // print("::=> $patientID");
+  Future userRecord() async {
     isLoading = true;
+    final patientID = Get.find<LandingController>().userInfo['data']['_id'];
+
     try {
-      _patientRecord = await _apiService.getUserRecord('');
+      _patientRecord = await _apiService.getUserRecord(patientID);
       if (_patientRecord?.status == "Success") {
         _record.clear();
         isLoading = false;
@@ -94,11 +96,11 @@ class DashboardController extends GetxController {
     update();
   }
 
-  getGraphData({String? dropDownValue}) async {
-    // await Get.find<LandingController>().getUserDetails();
-    _userDetail = Get.find<LandingController>().userDetail;
-    _graphModel = await _apiService.fetchGraph(
-        dropDownValue ?? 'week', _userDetail?.data?.id ?? "");
+  Future getGraphData({String? dropDownValue}) async {
+    final patientID = Get.find<LandingController>().userInfo['data']['_id'];
+
+    _graphModel =
+        await _apiService.fetchGraph(dropDownValue ?? 'week', patientID);
     if (_graphModel?.status == "Success") {
       _listOfGraphData.clear();
       _listOfGraphData.addAll(_graphModel?.graph ?? []);

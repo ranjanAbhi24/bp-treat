@@ -73,7 +73,7 @@ class AppRoute {
     ),
     GetPage(
       name: "/dashboard",
-      page: () => const DashBoardView(),
+      page: () => DashBoardView(),
       binding: DashboardBinding(),
     ),
     GetPage(

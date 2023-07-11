@@ -13,7 +13,7 @@ import 'package:intl/intl.dart';
 
 class ConsentController extends GetxController {
   final ApiService _apiService = ApiService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
 
   AddConsent? _addConsent;
   AddConsent? get consent => _addConsent;
@@ -207,16 +207,13 @@ class ConsentController extends GetxController {
         state: stateController.text,
         zipcode: int.parse(zipController.text),
       );
-      debugPrint("Consent : ${_addConsent?.status}");
-      debugPrint("Consent : ${_addConsent?.msg}");
 
       if (_addConsent?.status == "Success") {
         isLoading = false;
         ApplicationUtils.showSnackBar(
             titleText: _addConsent?.status, messageText: _addConsent?.msg);
-        // await _prefs.setConsent(_addConsent?.consent?.consultationConsent);
-        await _prefs.setUserDetails(jsonEncode(_addConsent?.consent));
-        // Get.find<LandingController>().getUserDetails();
+        await _prefs.setUserDetails(jsonEncode(_addConsent));
+        Get.find<LandingController>().getUserDetails();
         Get.off(() => const LandingPage());
       } else {
         isLoading = false;

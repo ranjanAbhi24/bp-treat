@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:bp_treat/module/auth/model/user.dart';
 import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
+import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/medicine/model/medicine.dart';
 import 'package:bp_treat/module/medicine/model/prescribtion_status.dart';
 import 'package:bp_treat/service/api_service.dart';
@@ -14,7 +15,7 @@ import 'package:http/http.dart' as http;
 
 class MedicineController extends GetxController {
   final ApiService _apiService = ApiService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   MedicineReport? _report;
   MedicineReport? get report => _report;
   User? _userData;
@@ -26,26 +27,13 @@ class MedicineController extends GetxController {
   PrescribtionStatus? get prescStatus => _prescrbtionStatus;
   bool isLoading = false;
   String? prescriptionID;
-  String? patientID;
-
-  // getMedicineName(String medicineName) async {
-  //   var result = medicineName.contains('name');
-  //   print("result :$result");
-  //   update();
-  // }
-  fetchPatientID() async {
-    final pid = await _prefs.getPatientID().then((value) {
-      patientID = value;
-    });
-    update();
-  }
 
   getUserPrecription() async {
-    await fetchPatientID();
-    print('pid :=: $patientID');
     isLoading = true;
-    _report = await _apiService.fetchPrescribtion(patientID ?? "");
-    print("report : $_report");
+    final patientID = Get.find<LandingController>().userInfo['data']['_id'];
+
+    _report = await _apiService.fetchPrescribtion(patientID);
+
     if (_report?.status == "Success") {
       isLoading = false;
       _reportList.addAll(_report?.report ?? []);

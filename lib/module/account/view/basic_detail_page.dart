@@ -181,7 +181,7 @@ class EditBasicDetails extends StatelessWidget {
                                                 return null;
                                               }
                                             },
-                                            text: 'Height(in inches)'),
+                                            text: 'Height (in feet)'),
                                       ),
                                       const SizedBox(width: 10),
                                       Expanded(

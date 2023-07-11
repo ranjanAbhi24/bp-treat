@@ -33,13 +33,13 @@ class _AddBPViewState extends State<AddBPView> {
                     Row(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           onPressed: () {
                             Get.back();
                           },
                         ),
                         Text(
-                            "Hello, ${Get.find<LandingController>().userDetail?.data?.name ?? ""}",
+                            "Hello, ${Get.find<LandingController>().userInfo['data']['name']}",
                             style: Theme.of(context).textTheme.headline2),
                         const SizedBox(width: 6),
                         Image.asset('assets/images/waving_hand.png'),

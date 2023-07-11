@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:bp_treat/module/consult/view/first_consent_form.dart';
 import 'package:bp_treat/module/dashboard/binding/root_binding.dart';
 import 'package:bp_treat/module/welcome/views/wrapper_view.dart';
 import 'package:bp_treat/route/app_route.dart';
 import 'package:bp_treat/service/notification_service.dart';
 import 'package:bp_treat/utils/app_theme.dart';
+import 'package:bp_treat/utils/prefs.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +14,7 @@ import 'package:get/get.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Prefrence.instance.init();
   if (Platform.isIOS) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
@@ -23,7 +26,7 @@ Future<void> main() async {
   } else {
     await Firebase.initializeApp();
   }
-  await NotificationService.initialize();
+  await NotificationService().initialize();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
@@ -41,7 +44,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: const Wrapper(),
+      home: Wrapper(),
       // home: OTPScreen(),
       debugShowCheckedModeBanner: false,
       initialBinding: RootBindings(),

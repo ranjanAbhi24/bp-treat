@@ -15,7 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DashBoardView extends StatelessWidget {
-  const DashBoardView({super.key});
+  DashBoardView({super.key});
+  final Prefrence _prefs = Prefrence.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class DashBoardView extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                              "Hello, ${landingcontroller.userDetail?.data?.name ?? "user"}",
+                              "Hello, ${landingcontroller.userInfo['data']['name'] ?? "user"}",
                               style: Theme.of(context)
                                   .textTheme
                                   .headline2
@@ -47,7 +48,7 @@ class DashBoardView extends StatelessWidget {
                           const Spacer(),
                           GestureDetector(
                               onTap: () async {
-                                await Prefrence.setBadgeStatus(false);
+                                await _prefs.setBadgeStatus(false);
                                 Get.to(() => const NotificationView());
                               },
                               child: badge.Badge(

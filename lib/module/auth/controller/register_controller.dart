@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
   final AuthService _auth = AuthService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   late TextEditingController userNameController;
   late TextEditingController emailController;
   late TextEditingController userPhoneNumberController;
@@ -32,7 +32,7 @@ class RegisterController extends GetxController {
   bool isObsecureCNF = true;
 
   String? token;
-  String? patientID = '';
+  // String? patientID = '';
   bool? isChecked = false;
   String? userData;
 
@@ -66,7 +66,7 @@ class RegisterController extends GetxController {
   }
 
   verifyAndRegister() async {
-    String fcmToken = await _prefs.getFCMToken();
+    String fcmToken = _prefs.getFCMToken();
     try {
       isLoading = true;
       _registerUser = await _auth.verifyOtpAndRegister(
@@ -80,22 +80,23 @@ class RegisterController extends GetxController {
         // userZipCode: userZipcodeController.text,
         privacyConsent: isChecked ?? true,
       );
-      debugPrint("register ${_registerUser?.msg}");
-      debugPrint("register ${_registerUser?.status}");
+
       if (_registerUser?.status == "Success") {
         isLoading = false;
         token = _registerUser?.data?.loginToken;
-        patientID = _registerUser?.data?.sId;
-        await _prefs.setPatientID(patientID);
-        await Prefrence.setToken(token);
+        // patientID = _registerUser?.data?.sId;
+        await _prefs.setToken(token);
         await ApplicationUtils.showSnackBar(
             titleText: _registerUser?.status, messageText: _registerUser?.msg);
         Get.offAll(() => const DoctorSelectionScreen());
       } else {
+        isLoading = false;
         ApplicationUtils.showSnackBar(
             titleText: _registerUser?.status, messageText: _registerUser?.msg);
       }
     } catch (e) {
+      isLoading = false;
+
       debugPrint("catch Error ${e.toString()}");
     }
     update();

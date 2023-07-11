@@ -6,21 +6,21 @@ import 'package:bp_treat/module/doctor/model/select_doc.dart';
 import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DoctorController extends GetxController {
   final ApiService _apiService = ApiService();
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
   DoctorModel _docModel = DoctorModel();
   DoctorModel get docModel => _docModel;
   final List<Doctor> _listOfDoctor = [];
   List<Doctor> get listOfDoctor => _listOfDoctor;
-  SelectDoctor selectDoctor = SelectDoctor();
   String? docID;
   String? role;
   String? docName;
-  String userData = '';
+  SelectDoctor? _selectDoctor;
+  SelectDoctor? get selectDoctor => _selectDoctor;
+  String? docData;
 
   bool isLoading = false;
 
@@ -35,19 +35,16 @@ class DoctorController extends GetxController {
   }
 
   selectDoc({required String doctorID, required String docRole}) async {
-    selectDoctor =
+    _selectDoctor =
         await _apiService.selectDoctor(doctorID: doctorID, role: docRole);
-    debugPrint("Doc ${selectDoctor.msg}");
-    debugPrint("Doc ${selectDoctor.status}");
 
-    if (selectDoctor.status == "Success") {
-      // userData = jsonEncode(selectDoctor);
-      // debugPrint("json $userData");
-      // await _prefs.setUserDetails(userData);
+    if (_selectDoctor?.status == "Success") {
+      docData = json.encode(_selectDoctor);
+
       Get.offAll(() => const DoctorConsultationConsent());
     } else {
       ApplicationUtils.showSnackBar(
-          titleText: selectDoctor.status, messageText: selectDoctor.msg);
+          titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
     }
     update();
   }

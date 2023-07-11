@@ -17,7 +17,7 @@ class Wrapper extends StatefulWidget {
 }
 
 class _WrapperState extends State<Wrapper> {
-  final Prefrence _prefs = Prefrence();
+  final Prefrence _prefs = Prefrence.instance;
 
   @override
   void initState() {
@@ -25,9 +25,9 @@ class _WrapperState extends State<Wrapper> {
     autoLogin();
   }
 
-  autoLogin() async {
-    String userDetail = await _prefs.getUserDetails();
-    if (userDetail.isEmpty) {
+  autoLogin() {
+    String? userDetail = _prefs.getUserDetails();
+    if (userDetail!.isEmpty) {
       Timer(const Duration(seconds: 3), () {
         Get.offAll(() => WelcomeScreen());
       });
