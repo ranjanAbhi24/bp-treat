@@ -24,13 +24,21 @@ class EmailFormField extends StatelessWidget {
         return null;
       },
       decoration: InputDecoration(
-        filled: true,
-        fillColor: const Color(0xFFE2F5F6),
+        // filled: true,
+        // fillColor: const Color(0xFFE2F5F6),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6.0),
+          borderSide: const BorderSide(color: Colors.black),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6.0),
+          borderSide: const BorderSide(color: Colors.black),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6.0),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: Colors.black),
         ),
       ),
     );

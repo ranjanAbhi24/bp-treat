@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Wrapper(),
+      home: const Wrapper(),
       // home: OTPScreen(),
       debugShowCheckedModeBanner: false,
       initialBinding: RootBindings(),

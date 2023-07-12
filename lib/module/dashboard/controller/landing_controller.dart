@@ -35,8 +35,11 @@ class LandingController extends GetxController {
 
   getUserDetails() {
     final jsonData = _prefs.getUserDetails();
-    userInfo = json.decode(jsonData!);
-    print("prefs data : ${userInfo['data']['_id']}");
+    if(jsonData!.isNotEmpty){
+      userInfo = json.decode(jsonData!);
+    }
+
+   // print("prefs data : ${userInfo['data']['_id']}");
     update();
   }
 

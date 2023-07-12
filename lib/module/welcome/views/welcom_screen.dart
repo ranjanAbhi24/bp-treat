@@ -1,4 +1,5 @@
 import 'package:bp_treat/module/auth/view/login_screen.dart';
+import 'package:bp_treat/module/auth/view/register_screen_1.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
@@ -114,10 +115,12 @@ class WelcomeScreen extends StatelessWidget {
               decoration: pageDecoration),
         ],
         onDone: () {
-          Get.off(() => const LoginScreen());
+         // Get.off(() => const LoginScreen());
+          Get.off(() => const RegisterScreen1());
         },
         onSkip: () {
-          Get.off(() => const LoginScreen());
+         // Get.off(() => const LoginScreen());
+          Get.off(() => const RegisterScreen1());
         },
         showBackButton: false,
         showSkipButton: true,

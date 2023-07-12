@@ -21,7 +21,10 @@ class RegisterController extends GetxController {
   late TextEditingController passwordController;
   late TextEditingController confirmPasswordController;
   late TextEditingController otpController;
+  late TextEditingController firstName;
+  late TextEditingController lastName;
   late GlobalKey<FormState> formKey;
+  late GlobalKey<FormState> welcomeKey;
 
   bool isLoading = false;
   SendOtp? _sendOtp;
@@ -39,6 +42,7 @@ class RegisterController extends GetxController {
   sendOtp() async {
     isLoading = true;
     _sendOtp = await _auth.sendOtpToEmail(emailController.text);
+    print("email---${emailController.text}");
     if (_sendOtp?.status == "Success") {
       isLoading = false;
       Get.to(() => const OTPScreen());
@@ -46,7 +50,7 @@ class RegisterController extends GetxController {
       isLoading = false;
       ApplicationUtils.showSnackBar(
           titleText: 'Error',
-          messageText: _sendOtp!.msg ?? "Somthing wrong.Try again");
+          messageText: _sendOtp!.msg ?? "Something wrong.Try again");
     }
     update();
   }
@@ -74,13 +78,13 @@ class RegisterController extends GetxController {
         userOTP: otpController.text,
         userPassword: passwordController.text,
         userFcmToken: fcmToken,
-        userName: userNameController.text,
+        userName: "${firstName.text}\t${lastName.text}",
         // userMobile: userPhoneNumberController.text,
         // userState: userStateController.text,
         // userZipCode: userZipcodeController.text,
         privacyConsent: isChecked ?? true,
       );
-
+print(_registerUser);
       if (_registerUser?.status == "Success") {
         isLoading = false;
         token = _registerUser?.data?.loginToken;
@@ -121,7 +125,10 @@ class RegisterController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    firstName=TextEditingController();
+    lastName=TextEditingController();
     userNameController = TextEditingController();
+
     emailController = TextEditingController();
     userPhoneNumberController = TextEditingController();
     userStateController = TextEditingController();
@@ -130,13 +137,17 @@ class RegisterController extends GetxController {
     confirmPasswordController = TextEditingController();
     otpController = TextEditingController();
     formKey = GlobalKey<FormState>();
+    welcomeKey=GlobalKey<FormState>();
   }
+
 
   @override
   void dispose() {
     super.dispose();
     userNameController.dispose();
     emailController.dispose();
+    firstName.dispose();
+    lastName.dispose();
     userPhoneNumberController.dispose();
     userStateController.dispose();
     userZipcodeController.dispose();

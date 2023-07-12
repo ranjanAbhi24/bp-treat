@@ -26,15 +26,24 @@ class PasswordFormField extends StatelessWidget {
         return null;
       },
       decoration: InputDecoration(
-        filled: true,
-        fillColor: const Color(0xFFE2F5F6),
+        // filled: true,
+        // fillColor: const Color(0xFFE2F5F6),
         contentPadding:
-            const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+        const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6.0),
+          borderSide: const BorderSide(color: Colors.black),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(6.0),
+          borderSide: const BorderSide(color: Colors.black),
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6.0),
-          borderSide: BorderSide.none,
+          borderSide: const BorderSide(color: Colors.black),
         ),
         suffixIcon: IconButton(
+          color: Colors.black,
           icon: Icon(
             isObsecure ? Icons.visibility_off : Icons.visibility,
           ),

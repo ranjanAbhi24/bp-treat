@@ -39,9 +39,10 @@ class InputTextField extends StatelessWidget {
       children: [
         Text(
           text,
-          style: TextStyle(
-            color: kBlackColor?.withOpacity(0.6),
-            fontSize: 13,
+          style: const TextStyle(
+            // color: kBlackColor?.withOpacity(0.6),
+            color: Colors.black,
+            fontSize: 15,
             fontWeight: FontWeight.w600,
             fontFamily: "Montserrat",
           ),
@@ -58,15 +59,22 @@ class InputTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
-            filled: true,
-            fillColor: kSecondaryColor,
+            //filled: true,
+            // fillColor: kSecondaryColor,
             contentPadding:
-                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                //  borderSide: BorderSide.none,
+                borderSide: const BorderSide(color: Colors.black)
+            ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(6.0),
-              borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(12),
+                //  borderSide: BorderSide.none,
+                borderSide: const BorderSide(color: Colors.black)
             ),
             suffixIcon: IconButton(
+              color: Colors.black,
               icon: Icon(icon),
               onPressed: onTap,
             ),
