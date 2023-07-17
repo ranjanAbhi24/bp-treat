@@ -110,7 +110,9 @@ class DoctorConsultationConsent extends StatelessWidget {
                                 onTap: () {
                                   Get.to(() => const DoctorSelectionScreen());
                                 },
-                                title: 'Select Doctor')),
+                                title: 'Select Doctor',
+                              backgroundColor: kPrimaryColor,
+                              textColor: kWhiteColor,)),
                         // const SizedBox(width: 10),
                         // Expanded(
                         //   flex: 1,
@@ -143,7 +145,8 @@ class DoctorConsultationConsent extends StatelessWidget {
                                 onTap: () {
                                   Get.to(() => const FirstConsentForm());
                                 },
-                                title: 'Continue')),
+                                title: 'Continue',
+                              backgroundColor: kPrimaryColor, textColor: kWhiteColor,)),
                       ],
                     ),
                     SizedBox(height: size.height * 0.06),

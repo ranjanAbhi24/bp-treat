@@ -5,6 +5,7 @@ Color? kWhiteColor = const Color(0XFFFFFFFF);
 Color? kBlackColor = const Color(0xFF0D0D0D);
 Color? kSecondaryColor = const Color(0xFFE2F5F6);
 Color? kTealColor = const Color(0XFF28B59D);
+Color? kGreyColor = const Color(0xFFE0E0E0);
 Color? kOrangeAccentColor = const Color(0xFFFFD0B3);
 
 ThemeData themeData() {

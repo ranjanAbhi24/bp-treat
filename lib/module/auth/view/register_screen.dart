@@ -41,7 +41,7 @@ class RegisterScreen extends StatelessWidget {
                       height: size.height * 0.1,
                       width: size.width * 0.4,
                     ),
-                    Text("Hello Rebecca!",
+                    Text("Hello ${controller.firstName.text}\t${controller.lastName.text}!",
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text("Let's create your account.",
@@ -205,7 +205,7 @@ class RegisterScreen extends StatelessWidget {
                             ),
                             SizedBox(
                               width: size.width * 0.7,
-                              child: CommonElevatedButton(
+                               child: CommonElevatedButton(
                                 title: 'Continue',
                                 onTap: controller.isChecked == false
                                     ? () {
@@ -221,7 +221,7 @@ class RegisterScreen extends StatelessWidget {
                                     await controller.sendOtp();
                                     EasyLoading.dismiss();
                                   }
-                                },
+                                }, backgroundColor: kPrimaryColor, textColor: kWhiteColor,
                               ),
                             ),
                           ],

@@ -2,6 +2,7 @@ import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:bp_treat/module/consult/controller/consent_controller.dart';
 import 'package:bp_treat/module/consult/view/fourth_consent.dart';
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -100,7 +101,9 @@ class ThirdConsentForm extends StatelessWidget {
                       onTap: () {
                         Get.to(() => FourthConsent());
                       },
-                      title: 'Continue'),
+                      title: 'Continue',
+                    backgroundColor: kPrimaryColor,
+                    textColor: kWhiteColor,),
                   const SizedBox(height: 20),
                 ],
               ),

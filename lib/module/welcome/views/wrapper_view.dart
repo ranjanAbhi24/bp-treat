@@ -7,6 +7,8 @@ import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../auth/view/register_screen_1.dart';
+
 class Wrapper extends StatefulWidget {
   const Wrapper({
     Key? key,
@@ -29,7 +31,7 @@ class _WrapperState extends State<Wrapper> {
     String? userDetail = _prefs.getUserDetails();
     if (userDetail!.isEmpty) {
       Timer(const Duration(seconds: 3), () {
-        Get.offAll(() => WelcomeScreen());
+        Get.offAll(() => const RegisterScreen1());
       });
     } else {
       Timer(const Duration(seconds: 3), () {

@@ -2,6 +2,7 @@ import 'package:bp_treat/module/account/controller/health_detail_controller.dart
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:bp_treat/module/consult/widget/Drop_down_form_field.dart';
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -300,7 +301,10 @@ class HealthDetailView extends StatelessWidget {
                                     await EasyLoading.dismiss();
                                   }
                                 },
-                                title: 'Update'),
+                                title: 'Update',
+                              backgroundColor: kPrimaryColor,
+                              textColor: kWhiteColor,
+                            ),
                             const SizedBox(height: 10),
                           ],
                         ),

@@ -85,7 +85,9 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
                                             "62b577b25729c44144144bde",
                                         docRole: controller.role ?? "Admin");
                                   },
-                                  title: 'Submit')),
+                                  title: 'Submit',
+                                backgroundColor: kPrimaryColor,
+                                textColor: kWhiteColor,)),
                           const SizedBox(width: 10),
                           Expanded(
                             flex: 1,

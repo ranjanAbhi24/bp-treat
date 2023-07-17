@@ -128,7 +128,8 @@ crossAxisAlignment: CrossAxisAlignment.center,
                                     // await controller.sendOtp();
                                     // EasyLoading.dismiss();
                                   }
-                                },
+                                }, backgroundColor: kPrimaryColor,
+                                textColor: kWhiteColor,
                               ),
                             ),
                           ],

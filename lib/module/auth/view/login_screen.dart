@@ -134,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                             alignment: Alignment.center,
                             child: SizedBox(
                               width: 200,
-                              child: CommonElevatedButton(
+                               child: CommonElevatedButton(
                                 title: 'Log In',
                                 onTap: () async {
                                   if (controller.loginFormKey.currentState!.validate()) {
@@ -142,7 +142,7 @@ class LoginScreen extends StatelessWidget {
                                     await controller.login();
                                     EasyLoading.dismiss();
                                   }
-                                },
+                                }, backgroundColor: kPrimaryColor, textColor: kWhiteColor,
                               ),
                             ),
                           ),

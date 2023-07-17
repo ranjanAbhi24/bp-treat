@@ -305,6 +305,8 @@ class _AddBPViewState extends State<AddBPView> {
                         await EasyLoading.dismiss();
                       },
                       title: 'Save',
+                      backgroundColor: kPrimaryColor,
+                      textColor: kWhiteColor,
                     ),
                   ],
                 ),

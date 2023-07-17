@@ -1,5 +1,6 @@
 import 'package:bp_treat/module/consult/controller/consent_controller.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -162,7 +163,9 @@ class FourthConsent extends StatelessWidget {
                                       await controller.postConsent();
                                       await EasyLoading.dismiss();
                                     },
-                                    title: 'Finish'),
+                                    title: 'Finish', backgroundColor: kPrimaryColor,
+                                  textColor: kPrimaryColor,
+                                ),
                                 const SizedBox(height: 20),
                               ])));
                 })));

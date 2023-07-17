@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bp_treat/module/auth/controller/register_controller.dart';
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/utils/app_theme.dart';
 
 import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +94,9 @@ class _OTPScreenState extends State<OTPScreen> {
                       onTap: () async {
                         await controller.verifyAndRegister();
                       },
-                      title: "Get started")
+                      title: "Get started", backgroundColor: kPrimaryColor,
+                    textColor: kWhiteColor,
+                  )
                 ],
               ),
             );

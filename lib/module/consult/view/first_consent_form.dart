@@ -4,6 +4,7 @@ import 'package:bp_treat/module/consult/controller/consent_controller.dart';
 import 'package:bp_treat/module/consult/view/second_concent_form.dart';
 import 'package:bp_treat/module/consult/widget/Drop_down_form_field.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -192,7 +193,7 @@ class FirstConsentForm extends StatelessWidget {
                       ],
                     ),
                     const Spacer(),
-                    CommonElevatedButton(
+                     CommonElevatedButton(
                         onTap: () {
                           var isValid =
                               controller.formKey.currentState!.validate();
@@ -200,7 +201,7 @@ class FirstConsentForm extends StatelessWidget {
                             Get.to(() => const SecondConsentForm());
                           }
                         },
-                        title: 'Continue'),
+                        title: 'Continue', backgroundColor: kPrimaryColor, textColor: kWhiteColor,),
                     const SizedBox(height: 20),
                   ],
                 ),
