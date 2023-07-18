@@ -59,6 +59,7 @@ dependencies:
   spinner_date_time_picker: ^0.0.8
   scroll_date_picker: ^3.7.3
   webview_flutter: ^3.0.4
+  flutter_screenutil: ^5.8.4
 
 
 

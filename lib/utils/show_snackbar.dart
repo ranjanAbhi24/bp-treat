@@ -8,7 +8,7 @@ class ApplicationUtils {
       {required String? titleText, required String? messageText}) {
     return Get.snackbar('', '',
         messageText: Text(
-          messageText!,
+          messageText??'',
           style: TextStyle(
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w500,

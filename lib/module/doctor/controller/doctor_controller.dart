@@ -15,6 +15,7 @@ class DoctorController extends GetxController {
   DoctorModel get docModel => _docModel;
   final List<Doctor> _listOfDoctor = [];
   List<Doctor> get listOfDoctor => _listOfDoctor;
+  String? docContact;
   String? docID;
   String? role;
   String? docName;

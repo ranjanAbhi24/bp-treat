@@ -4,7 +4,10 @@ import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import 'doctor_virtual_visit.dart';
 
 class DoctorSelectionScreen extends StatefulWidget {
   const DoctorSelectionScreen({super.key});
@@ -18,110 +21,154 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: kWhiteColor,
-            elevation: 0.0,
-            leading: Icon(
-              Icons.arrow_back,
-              color: kBlackColor,
-            ),
-          ),
-          backgroundColor: kWhiteColor,
-          body: GetBuilder<DoctorController>(
-              init: DoctorController(),
-              builder: (controller) {
-                return Container(
-                  height: size.height,
-                  width: size.width,
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Choose your preferred Doctor',
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                      // Text(
-                      //   'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
-                      //   style: Theme.of(context).textTheme.subtitle1,
-                      //   textAlign: TextAlign.center,
-                      // ),
-                      const SizedBox(height: 30),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: controller.listOfDoctor.length,
-                          itemBuilder: (context, index) {
-                            return buildDoctorListTile(
-                              docName:
-                                  '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
-                              docAddress:
-                                  '${controller.listOfDoctor[index].address}',
-                              onTap: () {
-                                setState(() {
-                                  isSelected = index;
-                                  controller.docID =
-                                      controller.listOfDoctor[index].sId;
-                                  controller.role =
-                                      controller.listOfDoctor[index].role;
-                                  controller.docName =
-                                      "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
-                                });
-                              },
-                              isSelected: isSelected == index,
-                            );
-                          },
-                        ),
-                      ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child:
+          Scaffold(
+              // appBar: AppBar(
+              //   backgroundColor: kWhiteColor,
+              //   elevation: 0.0,
+              //   leading: Icon(
+              //     Icons.arrow_back,
+              //     color: kBlackColor,
+              //   ),
+              // ),
+              backgroundColor: kWhiteColor,
+              body: GetBuilder<DoctorController>(
+                  init: DoctorController(),
+                  builder: (controller) {
+                    return Container(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
                         children: [
-                          Expanded(
-                              flex: 2,
-                              child: CommonElevatedButton(
-                                  onTap: () async {
-                                    await controller.selectDoc(
-                                        doctorID: controller.docID ??
-                                            "62b577b25729c44144144bde",
-                                        docRole: controller.role ?? "Admin");
-                                  },
-                                  title: 'Submit',
-                                backgroundColor: kPrimaryColor,
-                                textColor: kWhiteColor,)),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            flex: 1,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Get.to(() => const DoctorConsultationConsent());
-                                // await controller.selectDoc(
-                                //     doctorID: "62b577b25729c44144144bde",
-                                //     docRole: "Admin");
-                              },
-                              style: ElevatedButton.styleFrom(
-                                elevation: 0.0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(12)),
-                                    side: BorderSide(color: kPrimaryColor!)),
-                                backgroundColor: Colors.white,
-                                fixedSize: Size(
-                                  size.width,
-                                  50,
-                                ),
-                              ),
-                              child: Text(
-                                'Skip',
-                                style: TextStyle(color: kBlackColor),
-                              ),
+
+                          Image.asset(
+                            "assets/images/app_icon2.png",
+                              height: 90.h,
+                              width: 100.w
+                          ),
+                          Text(
+                            'Choose your Doctor',
+                            style: Theme.of(context).textTheme.headline1!.copyWith(
+                              fontSize: 20.h,
                             ),
                           ),
+                          Text(
+                            'This doctor will have access to your record '
+                                'and you may contact them for a virtual visit',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.headline4!.copyWith(
+
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12.sp,
+                                color: kBlackColor?.withOpacity(0.8)
+                            ),
+                          ),
+                          SizedBox(
+                            height: 40.h,
+                          ),
+                          Text("Available doctors for zip code 77071",
+                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            color: kBlackColor
+                          ),
+                          ),
+SizedBox(
+  height: 20.h,
+),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.zero,
+                            itemCount: controller.listOfDoctor.length,
+                            itemBuilder: (context, index) {
+                              return buildDoctorListTile(
+                                docName:
+                                    '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
+                                docAddress:
+                                    '${controller.listOfDoctor[index].zipcode}',
+                                onTap: () {
+                                  setState(() {
+                                    isSelected = index;
+                                    controller.docID =
+                                        controller.listOfDoctor[index].sId;
+                                    controller.role =
+                                        controller.listOfDoctor[index].role;
+                                    controller.docName =
+                                        "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
+                                    controller.docContact = "${controller.listOfDoctor[index].contact}";
+                                  });
+                                },
+                                isSelected: isSelected == index,
+                              );
+                            },
+                          ),
+                             SizedBox(
+                               height: 40.h,
+                             ),
+                             SizedBox(
+                               width: 200.w,
+                               child: CommonElevatedButton(
+                                   onTap: ()  {
+                                 Get.to(()=> const DoctorVirtualVisit(),
+                                 arguments: [controller.docName,controller.docContact],
+
+                                 );
+                                     // await controller.selectDoc(
+                                     //                       doctorID: controller.docID ??
+                                     //                           "62b577b25729c44144144bde",
+                                     //                       docRole: controller.role ?? "Admin");
+                                   },
+                                   title: "Continue",
+                                   backgroundColor: kPrimaryColor,
+                                   textColor: kWhiteColor),
+                             )
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          //   children: [
+                          //     Expanded(
+                          //         flex: 2,
+                          //         child: CommonElevatedButton(
+                          //             onTap: () async {
+                          //               await controller.selectDoc(
+                          //                   doctorID: controller.docID ??
+                          //                       "62b577b25729c44144144bde",
+                          //                   docRole: controller.role ?? "Admin");
+                          //             },
+                          //             title: 'Submit',
+                          //           backgroundColor: kPrimaryColor,
+                          //           textColor: kWhiteColor,)),
+                          //     const SizedBox(width: 10),
+                          //     // Expanded(
+                          //     //   flex: 1,
+                          //     //   child: ElevatedButton(
+                          //     //     onPressed: () {
+                          //     //       Get.to(() => const DoctorConsultationConsent());
+                          //     //       // await controller.selectDoc(
+                          //     //       //     doctorID: "62b577b25729c44144144bde",
+                          //     //       //     docRole: "Admin");
+                          //     //     },
+                          //     //     style: ElevatedButton.styleFrom(
+                          //     //       elevation: 0.0,
+                          //     //       shape: RoundedRectangleBorder(
+                          //     //           borderRadius: const BorderRadius.all(
+                          //     //               Radius.circular(12)),
+                          //     //           side: BorderSide(color: kPrimaryColor!)),
+                          //     //       backgroundColor: Colors.white,
+                          //     //       fixedSize: Size(
+                          //     //         size.width,
+                          //     //         50,
+                          //     //       ),
+                          //     //     ),
+                          //     //     child: Text(
+                          //     //       'Skip',
+                          //     //       style: TextStyle(color: kBlackColor),
+                          //     //     ),
+                          //     //   ),
+                          //     // ),
+                          //   ],
+                          // )
                         ],
-                      )
-                    ],
-                  ),
-                );
-              })),
+                      ),
+                    );
+                  }))
+
     );
   }
 
@@ -131,8 +178,13 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
     required Function() onTap,
     required bool isSelected,
   }) {
-    return Card(
-      color: isSelected ? kPrimaryColor : kWhiteColor,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        border: Border.all(color: isSelected ? Colors.red : Colors.grey,),
+        borderRadius: const BorderRadius.all(Radius.circular(12))
+      ),
+     // color: isSelected ? kPrimaryColor : kWhiteColor,
       child: ListTile(
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
@@ -147,16 +199,19 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
         ),
         title: Text("$docName",
             style: TextStyle(
-                color: isSelected ? kWhiteColor : kBlackColor, fontSize: 16)),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 5),
+                color:
+                //isSelected ? kWhiteColor : kBlackColor, fontSize: 16
+              kBlackColor,
+              fontSize: 16
+            )),
+        subtitle:
             Text(
-              '$docAddress',
+              'Zip code: $docAddress',
+
               style: TextStyle(
-                color: isSelected ? kWhiteColor : kBlackColor,
-                fontSize: 10,
+                color: kBlackColor,
+                //isSelected ? kWhiteColor : kBlackColor,
+                fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
               maxLines: 2,
@@ -169,8 +224,7 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
             //       fontSize: 12,
             //       fontWeight: FontWeight.w400,
             //     )),
-          ],
-        ),
+
       ),
     );
   }
