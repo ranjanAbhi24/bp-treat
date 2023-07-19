@@ -53,57 +53,74 @@ class AddHealthProfilePage2 extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 30.h),
-                        Text("How tall are you?",
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                color: Colors.black
-                            )
-                        ),
-
-                    SizedBox(
-                        height: 20.h
-                        ),
-                        Row(
-
-                          children: [
-                            PinCodeTextField(controller: controller.feetController,
-                             maxLine: 1,
-                              width: 50.w,
-                            ),
-                            SizedBox(
-                               width: 5.w
-                            ),
-                            // SizedBox(
-                            //   width: size.width*0.13,
-                            //   height: size.height*0.2,
-                            //   child: InputTextField(
-                            //       controller:controller.feetController,
-                            //       validator: (value) {  },
-                            //   text: '',),
-                            // ),
-                            Text("Feet",
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              color: Colors.black
-                            ),
-                            ),
-                            SizedBox(
-                                width: 10.w
-                            ),
-                            PinCodeTextField(
-                              controller: controller.inchesController,
-                              maxLine: 1, width: 50.w,),
-                            SizedBox(
-                                width: 5.w
-                            ),
-
-                            Text("Inches",
-                              style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                  color: Colors.black
+                        Form(
+                          key: controller.page2FormKey,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("How tall are you?",
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                      color: Colors.black
+                                  )
                               ),
-                            ),
 
-                          ],
-                        ),
+                              SizedBox(
+                                  height: 20.h
+                              ),
+                              Row(
+
+                                children: [
+                                  PinCodeTextField(controller: controller.feetController,
+                                    maxLine: 1,
+                                    width: 50.w, validator: (value) {
+                                     if(value!.isEmpty){
+                                        return "Required *";
+                                      }else{
+                                        return null;
+                                      }
+                                    },
+                                  ),
+                                  SizedBox(
+                                      width: 5.w
+                                  ),
+                                  // SizedBox(
+                                  //   width: size.width*0.13,
+                                  //   height: size.height*0.2,
+                                  //   child: InputTextField(
+                                  //       controller:controller.feetController,
+                                  //       validator: (value) {  },
+                                  //   text: '',),
+                                  // ),
+                                  Text("Feet",
+                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                        color: Colors.black
+                                    ),
+                                  ),
+                                  SizedBox(
+                                      width: 10.w
+                                  ),
+                                  PinCodeTextField(
+                                    controller: controller.inchesController,
+                                    maxLine: 1, width: 50.w, validator: (value) {
+                                      if(value!.isEmpty){
+                                        return "Required *";
+                                      }else{
+                                        return null;
+                                      }
+                                  },),
+                                  SizedBox(
+                                      width: 5.w
+                                  ),
+
+                                  Text("Inches",
+                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                        color: Colors.black
+                                    ),
+                                  ),
+
+                                ],
+                              ),
                               SizedBox(
                                   height: 20.h
                               ),
@@ -120,7 +137,13 @@ class AddHealthProfilePage2 extends StatelessWidget {
                                 children: [
                                   PinCodeTextField(controller: controller.poundsController,
                                     maxLine: 1,
-                                    width: 70.w,
+                                    width: 70.w, validator: (value) {
+                                    if(value!.isEmpty){
+                                        return "Required *";
+                                      }else{
+                                        return null;
+                                      }
+                                    },
                                   ),
                                   SizedBox(
                                       width: 20.w
@@ -136,24 +159,30 @@ class AddHealthProfilePage2 extends StatelessWidget {
                               SizedBox(
                                   height: 20.h
                               ),
-                        Text('What allergies do you have?',
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                          color: Colors.black
-                        ),
-                        ),
-                          Text('(If none, please enter "none")',
-                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500
-                          ),
-                          ),
+                              Text('What allergies do you have?',
+                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Colors.black
+                                ),
+                              ),
+                              Text('(If none, please enter "none")',
+                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500
+                                ),
+                              ),
                               SizedBox(
                                   height: 10.h
                               ),
                               PinCodeTextField(
                                   controller: controller.allergiesController,
-                                maxLine: 5,
-                                  width: 360.w),
+                                  maxLine: 5,
+                                  width: 360.w, validator: (value) {
+                                if(value!.isEmpty){
+                                  return "Required *";
+                                }else{
+                                  return null;
+                                }
+                              },),
                               SizedBox(
                                   height: 40.h
                               ),
@@ -163,10 +192,10 @@ class AddHealthProfilePage2 extends StatelessWidget {
                                   SizedBox(
                                     width: 140.w,
                                     child: CommonElevatedButton(
-                                        onTap: (){
-                                          Get.back();
-                                        },
-                                        title: "Back",
+                                      onTap: (){
+                                        Get.back();
+                                      },
+                                      title: "Back",
                                       backgroundColor: kGreyColor,
                                       textColor: kBlackColor,
                                     ),
@@ -174,10 +203,12 @@ class AddHealthProfilePage2 extends StatelessWidget {
                                   SizedBox(
                                     width: 140.w,
                                     child: CommonElevatedButton(
-                                        onTap: (){
+                                      onTap: (){
+                                        if(controller.page2FormKey.currentState!.validate()){
                                           Get.to(()=>const AddHealthProfilePage3());
-                                        },
-                                        title: "Continue",
+                                        }
+                                      },
+                                      title: "Continue",
                                       backgroundColor: kPrimaryColor,
                                       textColor: kWhiteColor,
                                     ),
@@ -185,6 +216,9 @@ class AddHealthProfilePage2 extends StatelessWidget {
 
                                 ],
                               )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),

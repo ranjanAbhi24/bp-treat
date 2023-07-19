@@ -1,5 +1,6 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/consult/view/doctor_consultation.dart';
+import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/size.dart';
@@ -17,7 +18,7 @@ class DoctorSelectionScreen extends StatefulWidget {
 }
 
 class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
-  int isSelected = 0;
+  int isSelected = -1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,7 +66,7 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
                           SizedBox(
                             height: 40.h,
                           ),
-                          Text("Available doctors for zip code 77071",
+                          Text("Available doctors for zip code 7701}",
                           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: kBlackColor
                           ),
@@ -82,7 +83,7 @@ SizedBox(
                                 docName:
                                     '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
                                 docAddress:
-                                    '${controller.listOfDoctor[index].zipcode}',
+                                    controller.listOfDoctor[index].zipcode??"not available",
                                 onTap: () {
                                   setState(() {
                                     isSelected = index;
@@ -92,7 +93,8 @@ SizedBox(
                                         controller.listOfDoctor[index].role;
                                     controller.docName =
                                         "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
-                                    controller.docContact = "${controller.listOfDoctor[index].contact}";
+                                    controller.docContact = controller.listOfDoctor[index].contact??"XXX-XXX-XXXX";
+                                    print(controller.docContact);
                                   });
                                 },
                                 isSelected: isSelected == index,
@@ -105,15 +107,14 @@ SizedBox(
                              SizedBox(
                                width: 200.w,
                                child: CommonElevatedButton(
-                                   onTap: ()  {
+                                   onTap: ()  async {
+                                     print("docId-${controller.docID}");
+                                     print("role-${controller.role}");
+                                     print("contact-${controller.docContact}");
                                  Get.to(()=> const DoctorVirtualVisit(),
                                  arguments: [controller.docName,controller.docContact],
-
                                  );
-                                     // await controller.selectDoc(
-                                     //                       doctorID: controller.docID ??
-                                     //                           "62b577b25729c44144144bde",
-                                     //                       docRole: controller.role ?? "Admin");
+
                                    },
                                    title: "Continue",
                                    backgroundColor: kPrimaryColor,

@@ -54,7 +54,7 @@ class DashboardController extends GetxController {
 
   Future fetchNotification() async {
     isLoading = true;
-    final patientID = Get.find<LandingController>().userInfo['data']['_id'];
+    final patientID = Get.find<LandingController>().userInfo['data']["_id"];
 
     try {
       _userNotification = await _apiService.getNotification(patientID);
@@ -77,7 +77,7 @@ class DashboardController extends GetxController {
   Future userRecord() async {
     isLoading = true;
     final patientID = Get.find<LandingController>().userInfo['data']['_id'];
-
+    print(patientID);
     try {
       _patientRecord = await _apiService.getUserRecord(patientID);
       if (_patientRecord?.status == "Success") {
@@ -98,7 +98,7 @@ class DashboardController extends GetxController {
 
   Future getGraphData({String? dropDownValue}) async {
     final patientID = Get.find<LandingController>().userInfo['data']['_id'];
-
+    print(patientID);
     _graphModel =
         await _apiService.fetchGraph(dropDownValue ?? 'week', patientID);
     if (_graphModel?.status == "Success") {

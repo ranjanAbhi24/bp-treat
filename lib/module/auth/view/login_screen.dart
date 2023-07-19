@@ -1,4 +1,6 @@
 import 'package:bp_treat/module/auth/controller/login_controller.dart';
+import 'package:bp_treat/module/auth/view/register_screen.dart';
+import 'package:bp_treat/module/auth/view/register_screen_1.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -135,6 +137,24 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 10.h),
+                              Align(
+                                alignment: Alignment.center,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Get.to(() => const RegisterScreen1());
+                                  },
+                                  child: Text("Create new account",
+                                      style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                                          decoration: TextDecoration.underline,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                          color: kBlackColor
+
+                                      )
+                                  ),
+                                ),
+                              ),
                               SizedBox(height: 40.h),
                               Align(
                                 alignment: Alignment.center,
@@ -144,7 +164,7 @@ class LoginScreen extends StatelessWidget {
                                     title: 'Log In',
                                     onTap: () async {
                                       if (controller.loginFormKey.currentState!.validate()) {
-                                        EasyLoading.show(status: 'Sign In');
+                                        EasyLoading.show(status: 'Logging');
                                         await controller.login();
                                         EasyLoading.dismiss();
                                       }

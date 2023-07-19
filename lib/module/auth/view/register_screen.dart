@@ -18,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-var arguments=Get.arguments;
+//
     return SafeArea(child: Scaffold(
       resizeToAvoidBottomInset: false,
       body:
@@ -44,7 +44,7 @@ var arguments=Get.arguments;
                             height: 90.h,
                             width: 100.w
                         ),
-                        Text("Hello ${arguments[0]}!",
+                        Text("Hello ${controller.firstName.text}!",
                           style: Theme.of(context).textTheme.headline1!.copyWith(
                               fontSize: 22.sp
                           ),

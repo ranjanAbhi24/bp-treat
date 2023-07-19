@@ -1,6 +1,7 @@
 import 'package:bp_treat/module/auth/controller/add_health_profile_controller.dart';
 import 'package:bp_treat/module/auth/view/add_health_profile_page2.dart';
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/utils/show_snackbar.dart';
 
 import 'package:flutter/cupertino.dart';
 
@@ -150,7 +151,24 @@ class AddHealthProfile extends StatelessWidget {
                           width:200.w,
                           child: CommonElevatedButton(
                               onTap: (){
-                                Get.to(()=> const AddHealthProfilePage2());
+                                if(controller.select_gender.isNotEmpty && controller.dob.isNotEmpty){
+                                  Get.to(()=> const AddHealthProfilePage2());
+                                }
+                                else{
+                                  if(controller.select_gender.isEmpty && controller.dob.isEmpty){
+                                    ApplicationUtils.showSnackBar(
+                                        titleText: "Alert",
+                                        messageText: "Select the values");
+                                  }else if(controller.select_gender.isEmpty){
+                                    ApplicationUtils.showSnackBar(
+                                        titleText: "Alert",
+                                        messageText: "Select your biological gender");
+                                  }else{
+                                    ApplicationUtils.showSnackBar(
+                                        titleText: "Alert",
+                                        messageText: "Select your dob");
+                                  }
+                                }
                               },
                               title: "Continue",
                             backgroundColor: kPrimaryColor,

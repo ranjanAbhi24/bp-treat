@@ -45,6 +45,7 @@ class AuthService {
       debugPrint('Body : $body');
       if (response.statusCode == 200 || response.statusCode == 400) {
         User user = User.fromJson(jsonDecode(response.body));
+        debugPrint('loginBody : ${response.body}');
         return user;
       } else {
         throw Exception('Throwing Exception');

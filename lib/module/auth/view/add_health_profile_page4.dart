@@ -1,5 +1,6 @@
 import 'package:bp_treat/module/auth/controller/add_health_profile_controller.dart';
 import 'package:bp_treat/module/auth/view/profile_complete.dart';
+import 'package:bp_treat/utils/show_snackbar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -193,7 +194,12 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                             width: 140.w,
                             child: CommonElevatedButton(
                               onTap: (){
-Get.to(()=> const ProfileComplete());
+//Get.to(()=> const ProfileComplete());
+                              if(controller.select_list1_value.isNotEmpty && controller.select_list2_value.isNotEmpty){
+                                controller.addUserHealthDetail();
+                              }else{
+                                ApplicationUtils.showSnackBar(titleText: "Alert", messageText: "Something is missing");
+                              }
                               },
                               title: "Continue",
                               backgroundColor: kPrimaryColor,

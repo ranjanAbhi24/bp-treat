@@ -1,3 +1,4 @@
+import 'package:bp_treat/module/auth/controller/add_health_profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -120,7 +121,8 @@ class ProfileComplete extends StatelessWidget {
                     child: CommonElevatedButton(
                       title: 'Choose Doctor',
                       onTap: ()  {
-                        Get.to(()=> const DoctorSelectionScreen());
+                        Get.to(()=> const DoctorSelectionScreen(),
+                        );
                       }, backgroundColor: kPrimaryColor, textColor: kWhiteColor,
                     ),
                   ),

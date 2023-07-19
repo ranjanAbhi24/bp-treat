@@ -54,6 +54,7 @@ class AddPersonalProfile extends StatelessWidget {
                               height: 40.h,
                             ),
                             Form(
+                              key: controller.profileFormKey,
                               child: Center(
                                 child: Column(
                                   children: [
@@ -62,7 +63,15 @@ class AddPersonalProfile extends StatelessWidget {
                                       child: InputTextField(
                                           controller: controller.phoneNumberController,
                                           inputType: TextInputType.number,
-                                          validator: (value){},
+                                          validator: (value){
+                                            if(value!.isEmpty ){
+                                              return "*Required *";
+                                            }else if(value.length != 10){
+                                              return "Enter valid Number";
+                                            }else {
+                                              return null;
+                                            }
+                                          },
                                           text: "Phone number"
                                       ),
                                     ),
@@ -73,7 +82,16 @@ class AddPersonalProfile extends StatelessWidget {
                                       width: 250.w,
                                       child: InputTextField(
                                           controller: controller.zipCodeController,
-                                          validator: (value){},
+                                          validator: (value){
+                                            if(value!.isEmpty){
+                                              return "Required *";
+                                            }else if(value.length != 5){
+                                              return "Enter valid code";
+                                            }
+                                            else {
+                                              return null;
+                                            }
+                                          },
                                           text: "Zip code"
                                       ),
                                     ),
@@ -92,7 +110,10 @@ class AddPersonalProfile extends StatelessWidget {
                                       width:200.w,
                                       child: CommonElevatedButton(
                                           onTap: (){
-                                            Get.to(()=>const AddHealthProfile());
+                                            if(controller.profileFormKey.currentState!.validate()){
+                                              Get.to(()=>const AddHealthProfile());
+                                            }
+
                                           },
                                           title: "Continue", backgroundColor: kPrimaryColor,
                                         textColor: kWhiteColor,

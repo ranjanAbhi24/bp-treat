@@ -12,6 +12,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../dashboard/controller/landing_controller.dart';
+
 class LoginController extends GetxController {
   final AuthService _auth = AuthService();
   final Prefrence _prefs = Prefrence.instance;
@@ -43,18 +45,20 @@ class LoginController extends GetxController {
         isLoading = false;
         token = _loginUser?.data?.loginToken;
         userData = json.encode(_loginUser);
-        patientID = _loginUser?.data?.sId;
+        // patientID = loginUser?.data?.sId;
         await _prefs.setToken(token);
-        await _prefs.setUserDetails(userData);
-     //  Get.offAll(() => const LandingPage());
-        Get.to(()=> const AddPersonalProfile());
+         await _prefs.setUserDetails(userData);
+        Get.find<LandingController>().getUserDetails();
+        print(userData);
+       Get.offAll(() => const LandingPage());
+
       } else {
         isLoading = false;
         return ApplicationUtils.showSnackBar(
             titleText: _loginUser?.status, messageText: _loginUser?.msg);
       }
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint("loginError -${e.toString()}");
     }
     update();
   }

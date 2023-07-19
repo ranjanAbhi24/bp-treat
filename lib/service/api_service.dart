@@ -514,7 +514,9 @@ class ApiService {
       debugPrint("Body : $body");
       if (response.statusCode == 200 || response.statusCode == 201) {
         SelectDoctor docRes = SelectDoctor.fromJson(jsonDecode(response.body));
+        print("docRes - ${response.body}");
         return docRes;
+
       }
     } catch (e) {
       throw e.toString();

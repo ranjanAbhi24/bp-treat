@@ -11,7 +11,7 @@ class LandingController extends GetxController {
   final Prefrence _prefs = Prefrence.instance;
 
   var tabIndex = 0;
-  dynamic userInfo = '';
+dynamic userInfo;
 
   Widget getPage(int index) {
     switch (index) {
@@ -36,11 +36,12 @@ class LandingController extends GetxController {
   getUserDetails() {
     final jsonData = _prefs.getUserDetails();
     if(jsonData!.isNotEmpty){
-      userInfo = json.decode(jsonData!);
-    }
+      userInfo = json.decode(jsonData);
 
-   // print("prefs data : ${userInfo['data']['_id']}");
-    update();
+    }
+    print(userInfo);
+   // print("prefs data : ${userInfo['data']["_id"]}");
+update();
   }
 
   @override

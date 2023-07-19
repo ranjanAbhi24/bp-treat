@@ -128,7 +128,7 @@ class RegisterScreen1 extends StatelessWidget {
                                         if (controller.welcomeKey.currentState!
                                             .validate()) {
                                           Get.to(()=>const RegisterScreen(),
-                                          arguments: ["${controller.firstName.text}\t${controller.lastName.text}"]
+                                          arguments: [(controller.firstName.text)]
                                           );
                                           // EasyLoading.show(status: 'Generating Otp...');
                                           // await controller.sendOtp();

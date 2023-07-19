@@ -58,7 +58,8 @@ class Prefrence {
   String? getUserDetails() {
     String? user = _prefs!.getString("userDetails");
     print('Userrrr $user');
-    return user ?? "";
+
+    return user??'';
   }
 
   Future<bool> clearData() async {
