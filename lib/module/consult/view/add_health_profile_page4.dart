@@ -1,5 +1,5 @@
-import 'package:bp_treat/module/auth/controller/add_health_profile_controller.dart';
-import 'package:bp_treat/module/auth/view/profile_complete.dart';
+import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
+import 'package:bp_treat/module/consult/view/profile_complete.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
 import '../../../utils/size.dart';
-import '../widget/common_elevated_button.dart';
+import '../../auth/widget/common_elevated_button.dart';
 
 class AddHealthProfilePage4 extends StatefulWidget {
   const AddHealthProfilePage4({super.key});
@@ -76,9 +76,10 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                               children: [
                                 InkWell(
                                   onTap:(){
-                             controller.selectedValueL1(controller.list1[index]);
+                             controller.selectedValueL1(controller.list1[index],index);
+                             print(controller.selectedIndexesL1);
                           },
-                                  child: controller.select_list1_value==controller.list1[index]?Icon(Icons.check_box,
+                                  child: controller.selectedIndexesL1.contains(index)?Icon(Icons.check_box,
                                   color: kPrimaryColor,
                                   ):
                                   const Icon(Icons.check_box_outline_blank),
@@ -117,10 +118,10 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                             children: [
                               InkWell(
                                 onTap:(){
-                                  controller.selectedValueL2(controller.list2[index]);
-                                  print(controller.select_list2_value);
+                                  controller.selectedValueL2(controller.list2[index],index);
+                                 print(controller.selectedIndexesL2);
                                 },
-                                child: controller.select_list2_value==controller.list2[index]?Icon(Icons.check_box,
+                                child: controller.selectedIndexesL2.contains(index)?Icon(Icons.check_box,
                                   color: kPrimaryColor,
                                 ):
                                 const Icon(Icons.check_box_outline_blank),
@@ -195,7 +196,7 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                             child: CommonElevatedButton(
                               onTap: (){
 //Get.to(()=> const ProfileComplete());
-                              if(controller.select_list1_value.isNotEmpty && controller.select_list2_value.isNotEmpty){
+                              if(controller.selectedIndexesL1.isNotEmpty && controller.selectedIndexesL2.isNotEmpty){
                                 controller.addUserHealthDetail();
                               }else{
                                 ApplicationUtils.showSnackBar(titleText: "Alert", messageText: "Something is missing");

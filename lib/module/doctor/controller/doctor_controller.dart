@@ -52,7 +52,7 @@ class DoctorController extends GetxController {
           titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
 
 
-      //Get.find<LandingController>().getUserDetails();
+      Get.find<LandingController>().getUserDetails();
       Get.offAll(()=> const LandingPage());
       //Get.offAll(() => const DoctorConsultationConsent());
     } else {

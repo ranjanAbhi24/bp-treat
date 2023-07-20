@@ -38,11 +38,16 @@ class DashboardController extends GetxController {
 
   String dropDownValue = 'Weekly';
   bool badgeStatus = false;
+  // List<String> items = [
+  //   '24hr',
+  //   '7 Days',
+  //   'Monthly',
+  //   'Yearly',
+  // ];
   List<String> items = [
-    '24hr',
-    'Weekly',
-    'Monthly',
-    'Yearly',
+    '7 Days',
+    '30 Days',
+    '360 Days',
   ];
 
   badgeStatusFn() async {

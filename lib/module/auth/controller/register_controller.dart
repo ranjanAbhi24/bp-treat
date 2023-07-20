@@ -10,7 +10,7 @@ import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../view/add_personal_profile.dart';
+import '../../consult/view/add_personal_profile.dart';
 
 class RegisterController extends GetxController {
   final AuthService _auth = AuthService();

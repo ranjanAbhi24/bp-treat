@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/module/welcome/views/welcom_screen.dart';
 import 'package:bp_treat/utils/prefs.dart';
@@ -36,6 +37,7 @@ class _WrapperState extends State<Wrapper> {
     } else {
       Timer(const Duration(seconds: 3), () {
         Get.offAll(() => const LandingPage());
+        //Get.to(()=>const ReminderScreen());
       });
     }
   }

@@ -1,4 +1,4 @@
-import 'package:bp_treat/module/auth/controller/add_health_profile_controller.dart';
+import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
 import '../../../utils/size.dart';
-import '../widget/common_elevated_button.dart';
-import '../widget/pin_code_textfild.dart';
+import '../../auth/widget/common_elevated_button.dart';
+import '../../auth/widget/pin_code_textfild.dart';
 import 'add_health_profile_page4.dart';
 
 

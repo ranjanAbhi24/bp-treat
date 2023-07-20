@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:bp_treat/module/auth/controller/add_profile_controller.dart';
-import 'package:bp_treat/module/auth/view/profile_complete.dart';
+import 'package:bp_treat/module/consult/controller/add_profile_controller.dart';
+import 'package:bp_treat/module/consult/view/profile_complete.dart';
 import 'package:bp_treat/service/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
 
 import '../../../utils/prefs.dart';
 import '../../../utils/show_snackbar.dart';
-import '../../consult/model/add_consent.dart';
+import '../model/add_consent.dart';
 import '../../dashboard/controller/landing_controller.dart';
 import '../../dashboard/view/landing_page.dart';
 
@@ -36,13 +36,16 @@ class AddHealthController extends GetxController {
   bool diabetesNo = false;
   bool isDiabetic = false;
   bool isMarijuana = false;
+ // bool istabacco=false;
   bool isAmphetamine = false;
   List<String> dropdownList = ["Select a choice..", "1", '2', "3"];
   List<String> list1 = ['Tabacco', 'Marijuana', 'None of these'];
   String selectValueL1 = '';
   String selectValueL2 = '';
-  String select_list1_value = "";
-  String select_list2_value = '';
+  // String select_list1_value = "";
+  // String select_list2_value = '';
+  var selectedIndexesL1=[];
+  var selectedIndexesL2=[];
   List<String> list2 = [
     'Narcotics',
     'Amphetamines',
@@ -66,10 +69,11 @@ class AddHealthController extends GetxController {
          allergies: allergiesController.text,
          isDiabetic: isDiabetic,
          medication: currentMedicationsController.text,
-         isNarcotics: isNarcotics,
-         isMarijuana: isMarijuana,
-         isAmphetamine: isAmphetamine,
-
+         isNarcotics: selectedIndexesL2.contains(0),
+         isMarijuana: selectedIndexesL1.contains(1),
+         isAmphetamine: selectedIndexesL2.contains(1),
+         isCocaine: selectedIndexesL2.contains(2),
+         isTabacco: selectedIndexesL1.contains(0)
 
      );
 
@@ -77,8 +81,8 @@ class AddHealthController extends GetxController {
         isLoading = false;
         ApplicationUtils.showSnackBar(
             titleText: _addConsent?.status, messageText: _addConsent?.msg);
-        // await _prefs.setUserDetails(jsonEncode(_addConsent));
-        // Get.find<LandingController>().getUserDetails();
+        await _prefs.setUserDetails(jsonEncode(_addConsent));
+        Get.find<LandingController>().getUserDetails();
         Get.to(() => const ProfileComplete());
      } else{
        isLoading=false;
@@ -109,34 +113,54 @@ update();
     update();
   }
 
-  selectedValueL1(value) {
+  selectedValueL1(value,index) {
     selectValueL1 = value;
-    if (selectValueL1 == "Tabacco") {
-      // tabacco = true;
-      select_list1_value = "Tabacco";
-    } else if (selectValueL1 == "Marijuana") {
-      isMarijuana =  true;
-      select_list1_value = "Marijuana";
-    } else {
-      select_list1_value = "None of these";
-      //noOfThese1=true;
+
+    if (selectedIndexesL1.contains(index) ) {
+      selectedIndexesL1.remove(index);   // unselect
+    }else if(index==2){
+      selectedIndexesL1.clear();
+      selectedIndexesL1.add(index);
     }
+    else if(selectedIndexesL1.contains(2) == false){
+      selectedIndexesL1.add(index);  // select
+    }
+
+
+        //  else if (selectValueL1 == "Marijuana") {
+   //    isMarijuana =  true;
+   //    //select_list1_value = "Marijuana";
+   //  } else {
+   //    select_list1_value = "None of these";
+   //    //noOfThese1=true;
+   //
+   //  }
     update();
   }
 
-  selectedValueL2(value) {
+  selectedValueL2(value,index) {
     selectValueL2 = value;
-    if (selectValueL2 == "Narcotics") {
-      select_list2_value = "Narcotics";
-      isNarcotics = true;
-    } else if (selectValueL2 == "Amphetamines") {
-      isAmphetamine=true;
-      select_list2_value = "Amphetamines";
-    } else if (selectValueL2 == "Cocaine") {
-      select_list2_value = "Cocaine";
-    } else {
-      select_list2_value = "None of these";
+    if (selectedIndexesL2.contains(index)) {
+      selectedIndexesL2.remove(index);   // unselect
+    }else if(index == 3){
+      selectedIndexesL2.clear();
+      selectedIndexesL2.add(index);
     }
+    else if(selectedIndexesL2.contains(3)==false){
+      selectedIndexesL2.add(index);  // select
+    }
+    // if (selectValueL2 == "Narcotics") {
+    //   select_list2_value = "Narcotics";
+    //
+    //   isNarcotics = true;
+    // } else if (selectValueL2 == "Amphetamines") {
+    //   isAmphetamine=true;
+    //   select_list2_value = "Amphetamines";
+    // } else if (selectValueL2 == "Cocaine") {
+    //   select_list2_value = "Cocaine";
+    // } else {
+    //   select_list2_value = "None of these";
+    // }
     update();
   }
 

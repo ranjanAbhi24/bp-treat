@@ -1,5 +1,5 @@
-import 'package:bp_treat/module/auth/controller/add_profile_controller.dart';
-import 'package:bp_treat/module/auth/view/add_health_profile.dart';
+import 'package:bp_treat/module/consult/controller/add_profile_controller.dart';
+import 'package:bp_treat/module/consult/view/add_health_profile.dart';
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:flutter/material.dart';

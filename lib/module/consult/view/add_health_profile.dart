@@ -1,5 +1,5 @@
-import 'package:bp_treat/module/auth/controller/add_health_profile_controller.dart';
-import 'package:bp_treat/module/auth/view/add_health_profile_page2.dart';
+import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
+import 'package:bp_treat/module/consult/view/add_health_profile_page2.dart';
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 

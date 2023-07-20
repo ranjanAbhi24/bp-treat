@@ -74,37 +74,40 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
 SizedBox(
   height: 20.h,
 ),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.zero,
-                            itemCount: controller.listOfDoctor.length,
-                            itemBuilder: (context, index) {
-                              return buildDoctorListTile(
-                                docName:
-                                    '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
-                                docAddress:
-                                    controller.listOfDoctor[index].zipcode??"not available",
-                                onTap: () {
-                                  setState(() {
-                                    isSelected = index;
-                                    controller.docID =
-                                        controller.listOfDoctor[index].sId;
-                                    controller.role =
-                                        controller.listOfDoctor[index].role;
-                                    controller.docName =
-                                        "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
-                                    controller.docContact = controller.listOfDoctor[index].contact??"XXX-XXX-XXXX";
-                                    print(controller.docContact);
-                                  });
-                                },
-                                isSelected: isSelected == index,
-                              );
-                            },
+                          Expanded(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              padding: EdgeInsets.zero,
+                              itemCount: controller.listOfDoctor.length,
+                              itemBuilder: (context, index) {
+                                return buildDoctorListTile(
+                                  docName:
+                                      '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
+                                  docAddress:
+                                      controller.listOfDoctor[index].zipcode??"not available",
+                                  onTap: () {
+                                    setState(() {
+                                      isSelected = index;
+                                      controller.docID =
+                                          controller.listOfDoctor[index].sId;
+                                      controller.role =
+                                          controller.listOfDoctor[index].role;
+                                      controller.docName =
+                                          "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
+                                      controller.docContact = controller.listOfDoctor[index].contact??"XXX-XXX-XXXX";
+                                      print(controller.docContact);
+                                    });
+                                  },
+                                  isSelected: isSelected == index,
+                                );
+                              },
+                            ),
                           ),
-                             SizedBox(
-                               height: 40.h,
-                             ),
-                             SizedBox(
+                           SizedBox(
+                             height: 20.h,
+                           ),
+                            Container(
+                              alignment: Alignment.bottomCenter,
                                width: 200.w,
                                child: CommonElevatedButton(
                                    onTap: ()  async {
