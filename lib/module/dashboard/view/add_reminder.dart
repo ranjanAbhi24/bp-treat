@@ -1,5 +1,6 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/dashboard/controller/add_reminder_controller.dart';
+import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
+import 'landing_page.dart';
 
 
 
@@ -300,7 +302,10 @@ class ReminderScreen extends StatelessWidget {
                           child: SizedBox(
                             width: 180.w,
                             child: CommonElevatedButton(
-                                onTap: (){},
+                                onTap: (){
+                                  Get.find<LandingController>().getUserDetails();
+                                  Get.to(()=>const LandingPage());
+                                },
                                 title: "Record BP",
                                 backgroundColor: kPrimaryColor,
                                 textColor: kWhiteColor),

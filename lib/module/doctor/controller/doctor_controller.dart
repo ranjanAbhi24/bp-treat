@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
 import 'package:bp_treat/module/consult/view/doctor_consultation.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
+import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/module/doctor/model/doctor_model.dart';
 import 'package:bp_treat/module/doctor/model/select_doc.dart';
@@ -53,7 +55,12 @@ class DoctorController extends GetxController {
 
 
       Get.find<LandingController>().getUserDetails();
-      Get.offAll(()=> const LandingPage());
+      Get.find<AddHealthController>().addConsent;
+      await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
+      Get.offAll(()=>const ReminderScreen());
+
+
+      //Get.offAll(()=> const LandingPage());
       //Get.offAll(() => const DoctorConsultationConsent());
     } else {
       ApplicationUtils.showSnackBar(

@@ -98,7 +98,7 @@ class AppRoute {
     ),
     GetPage(
       name: "/contact-page",
-      page: () => const ChatView(),
+      page: () => const ContactMyDoctor(),
       binding: ChatBinding(),
     ),
   ];

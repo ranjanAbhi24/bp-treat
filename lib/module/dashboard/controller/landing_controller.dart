@@ -23,7 +23,7 @@ dynamic userInfo;
         //return const MedicineView();
         return DashBoardView();
       case 2:
-        return const ChatView();
+        return const ContactMyDoctor();
       case 3:
         return const AccountPage();
       default:

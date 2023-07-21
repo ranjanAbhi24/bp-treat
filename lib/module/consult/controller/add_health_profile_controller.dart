@@ -16,7 +16,7 @@ import '../../dashboard/view/landing_page.dart';
 class AddHealthController extends GetxController {
   bool isMale = false;
   bool isFemale = false;
-  AddConsent? _addConsent;
+  AddConsent? addConsent;
   DateTime selectDate = DateTime.now();
   final Prefrence _prefs = Prefrence.instance;
   late TextEditingController feetController;
@@ -42,6 +42,7 @@ class AddHealthController extends GetxController {
   List<String> list1 = ['Tabacco', 'Marijuana', 'None of these'];
   String selectValueL1 = '';
   String selectValueL2 = '';
+
   // String select_list1_value = "";
   // String select_list2_value = '';
   var selectedIndexesL1=[];
@@ -59,7 +60,7 @@ class AddHealthController extends GetxController {
   addUserHealthDetail() async{
    try{
      isLoading=true;
-     _addConsent= await _apiService.addPatientConsent(
+     addConsent= await _apiService.addPatientConsent(
          mobile: Get.find<AddProfileController>().phoneNumberController.text,
          zipcode: int.parse(Get.find<AddProfileController>().zipCodeController.text),
          gender: select_gender,
@@ -76,18 +77,18 @@ class AddHealthController extends GetxController {
          isTabacco: selectedIndexesL1.contains(0)
 
      );
-
-     if(_addConsent?.status == "Success"){
+print(addConsent);
+     if(addConsent?.status == "Success"){
         isLoading = false;
         ApplicationUtils.showSnackBar(
-            titleText: _addConsent?.status, messageText: _addConsent?.msg);
-        await _prefs.setUserDetails(jsonEncode(_addConsent));
-        Get.find<LandingController>().getUserDetails();
+            titleText: addConsent?.status, messageText: addConsent?.msg);
+
+
         Get.to(() => const ProfileComplete());
      } else{
        isLoading=false;
        ApplicationUtils.showSnackBar(
-           titleText: _addConsent?.status, messageText: _addConsent?.msg);
+           titleText: addConsent?.status, messageText: addConsent?.msg);
      }
 
    }catch(e){

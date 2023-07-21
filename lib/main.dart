@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:bp_treat/module/consult/view/first_consent_form.dart';
+// import 'package:bp_treat/module/consult/view/first_consent_form.dart';
 import 'package:bp_treat/module/dashboard/binding/root_binding.dart';
 import 'package:bp_treat/module/welcome/views/wrapper_view.dart';
 import 'package:bp_treat/route/app_route.dart';

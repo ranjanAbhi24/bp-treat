@@ -24,7 +24,7 @@ class EditBasicDetails extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: const Text(
-            "Login",
+            "My Profile",
             style: TextStyle(
               color: Colors.black,
               fontSize: 16,

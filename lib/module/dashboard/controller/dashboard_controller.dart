@@ -36,18 +36,14 @@ class DashboardController extends GetxController {
   final List<Record> _record = [];
   List<Record> get record => _record;
 
-  String dropDownValue = 'Weekly';
+  String dropDownValue = '24 hour';
   bool badgeStatus = false;
-  // List<String> items = [
-  //   '24hr',
-  //   '7 Days',
-  //   'Monthly',
-  //   'Yearly',
-  // ];
+
   List<String> items = [
-    '7 Days',
-    '30 Days',
-    '360 Days',
+    '24 hour',
+    '7 days',
+    '28 days',
+    'yearly'
   ];
 
   badgeStatusFn() async {
@@ -113,13 +109,13 @@ class DashboardController extends GetxController {
     update();
   }
 
-  onChangeValue(String value) {
+  onChangeValue(value) {
     dropDownValue = value;
-    if (dropDownValue == "24hr") {
+    if (dropDownValue == "24 hour") {
       getGraphData(dropDownValue: 'hour');
-    } else if (dropDownValue == 'Weekly') {
+    } else if (dropDownValue == '7 days') {
       getGraphData(dropDownValue: 'week');
-    } else if (dropDownValue == 'Monthly') {
+    } else if (dropDownValue == '28 days') {
       getGraphData(dropDownValue: 'month');
     } else {
       getGraphData(dropDownValue: 'year');

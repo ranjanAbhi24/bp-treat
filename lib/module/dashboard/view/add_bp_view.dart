@@ -1,6 +1,7 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/dashboard/controller/add_bp_controller.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
+import 'package:bp_treat/module/dashboard/view/menu_view.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ import 'package:get/get.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../controller/dashboard_controller.dart';
+
 class AddBPView extends StatefulWidget {
   const AddBPView({super.key});
 
@@ -18,6 +21,7 @@ class AddBPView extends StatefulWidget {
 }
 
 class _AddBPViewState extends State<AddBPView> {
+ var dashboardController= Get.find<DashboardController>();
   bool valuee = false;
   @override
   Widget build(BuildContext context) {
@@ -73,7 +77,9 @@ textAlign: TextAlign.center,
                           ),
                         ),
                         IconButton(
-                            onPressed: (){}, icon: const Icon(Icons.menu,
+                            onPressed: (){
+                              MenuDialog().openMenuDialog();
+                            }, icon: const Icon(Icons.menu,
                         size: 40,),
 
                         )

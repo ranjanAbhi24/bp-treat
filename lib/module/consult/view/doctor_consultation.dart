@@ -1,6 +1,6 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/consult/controller/consent_controller.dart';
-import 'package:bp_treat/module/consult/view/first_consent_form.dart';
+//import 'package:bp_treat/module/consult/view/first_consent_form.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/module/doctor/view/doctor_selection_screen.dart';
 import 'package:bp_treat/utils/app_theme.dart';
@@ -143,7 +143,7 @@ class DoctorConsultationConsent extends StatelessWidget {
                             flex: 1,
                             child: CommonElevatedButton(
                                 onTap: () {
-                                  Get.to(() => const FirstConsentForm());
+                                 // Get.to(() => const FirstConsentForm());
                                 },
                                 title: 'Continue',
                               backgroundColor: kPrimaryColor, textColor: kWhiteColor,)),
