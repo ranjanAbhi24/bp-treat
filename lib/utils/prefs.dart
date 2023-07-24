@@ -19,6 +19,17 @@ class Prefrence {
     return true;
   }
 
+  Future  setDoctorDetails(String value) async {
+    await _prefs!.setString('drDetails', value);
+
+  }
+
+ String getDrDetails() {
+     String? data =  _prefs!.getString('drDetails');
+     debugPrint(data);
+     return data??'';
+  }
+
   Future setToken(String? token) async {
     await _prefs!.setString('token', token!);
   }

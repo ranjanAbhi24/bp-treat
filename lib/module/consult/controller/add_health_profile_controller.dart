@@ -39,7 +39,7 @@ class AddHealthController extends GetxController {
  // bool istabacco=false;
   bool isAmphetamine = false;
   List<String> dropdownList = ["Select a choice..", "1", '2', "3"];
-  List<String> list1 = ['Tabacco', 'Marijuana', 'None of these'];
+  List<String> list1 = ['Tobacco', 'Marijuana', 'None of these'];
   String selectValueL1 = '';
   String selectValueL2 = '';
 
@@ -84,6 +84,8 @@ print(addConsent);
             titleText: addConsent?.status, messageText: addConsent?.msg);
 
 
+        await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
+        Get.find<LandingController>().getUserDetails();
         Get.to(() => const ProfileComplete());
      } else{
        isLoading=false;

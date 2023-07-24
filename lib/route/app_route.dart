@@ -1,4 +1,6 @@
 import 'package:bp_treat/module/account/view/health_detail_view.dart';
+import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
+import 'package:bp_treat/module/consult/view/add_health_profile.dart';
 import 'package:bp_treat/module/contact/binding/chat_binding.dart';
 import 'package:bp_treat/module/contact/view/contact_view.dart';
 import 'package:bp_treat/module/dashboard/binding/dashboard_bindings.dart';
@@ -16,7 +18,7 @@ import 'package:bp_treat/module/auth/view/forgot_password_view.dart';
 import 'package:bp_treat/module/auth/view/login_screen.dart';
 import 'package:bp_treat/module/auth/view/register_screen.dart';
 import 'package:bp_treat/module/consult/binding/consent_binding.dart';
-import 'package:bp_treat/module/consult/view/doctor_consultation.dart';
+
 import 'package:bp_treat/module/dashboard/binding/root_binding.dart';
 import 'package:bp_treat/module/dashboard/view/add_bp_view.dart';
 import 'package:bp_treat/module/dashboard/view/dashboard_view.dart';
@@ -53,7 +55,7 @@ class AppRoute {
     ),
     GetPage(
       name: "/consent",
-      page: () => const DoctorConsultationConsent(),
+      page: () => const AddHealthProfile(),
       binding: ConsentBinding(),
     ),
     GetPage(

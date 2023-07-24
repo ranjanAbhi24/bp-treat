@@ -13,6 +13,7 @@ class LandingController extends GetxController {
 
   var tabIndex = 0;
 dynamic userInfo;
+dynamic doctorInfo;
 
   Widget getPage(int index) {
     switch (index) {
@@ -47,9 +48,19 @@ dynamic userInfo;
 update();
   }
 
+  getDoctorDetails(){
+    final jsonData = _prefs.getDrDetails();
+    if(jsonData!.isNotEmpty){
+      doctorInfo = json.decode(jsonData);
+    }
+    print(" docInfo - $doctorInfo");
+    update();
+  }
+
   @override
   void onInit() {
     super.onInit();
     getUserDetails();
+    //getDoctorDetails();
   }
 }

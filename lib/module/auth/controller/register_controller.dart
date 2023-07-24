@@ -92,6 +92,7 @@ print(_registerUser);
         token = _registerUser?.data?.loginToken;
         // patientID = _registerUser?.data?.sId;
         await _prefs.setToken(token);
+
         await ApplicationUtils.showSnackBar(
             titleText: _registerUser?.status, messageText: _registerUser?.msg);
         Get.to(() => const AddPersonalProfile(),

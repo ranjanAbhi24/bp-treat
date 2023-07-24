@@ -100,6 +100,7 @@ class DashboardController extends GetxController {
   Future getGraphData({String? dropDownValue}) async {
     final patientID = Get.find<LandingController>().userInfo['data']['_id'];
     print(patientID);
+    print(dropDownValue);
     _graphModel =
         await _apiService.fetchGraph(dropDownValue ?? 'week', patientID);
     if (_graphModel?.status == "Success") {

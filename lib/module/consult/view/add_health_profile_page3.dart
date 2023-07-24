@@ -37,7 +37,7 @@ class AddHealthProfilePage3 extends StatelessWidget {
                           ),
                         ),
                         Center(
-                          child: Text("Health Profile(3 of 4)",
+                          child: Text("Health Profile (3 of 4)",
                             style: Theme.of(context).textTheme.headline1!.copyWith(
                                 fontSize: 25.sp
                             ),

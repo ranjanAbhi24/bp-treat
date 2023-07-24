@@ -1,5 +1,5 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
-import 'package:bp_treat/module/consult/view/doctor_consultation.dart';
+
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
@@ -66,7 +66,7 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
                           SizedBox(
                             height: 40.h,
                           ),
-                          Text("Available doctors for zip code 7701}",
+                          Text("Available Doctors",
                           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: kBlackColor
                           ),
@@ -94,7 +94,7 @@ SizedBox(
                                           controller.listOfDoctor[index].role;
                                       controller.docName =
                                           "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
-                                      controller.docContact = controller.listOfDoctor[index].contact??"XXX-XXX-XXXX";
+                                      controller.docContact = controller.listOfDoctor[index].contact??"281-481-4236";
                                       print(controller.docContact);
                                     });
                                   },

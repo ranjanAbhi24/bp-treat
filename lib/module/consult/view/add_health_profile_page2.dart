@@ -37,7 +37,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
                           ),
                         ),
                         Center(
-                          child: Text("Health Profile(2 of 4)",
+                          child: Text("Health Profile (2 of 4)",
                             style: Theme.of(context).textTheme.headline1!.copyWith(
                                 fontSize: 25.sp
                             ),
@@ -124,7 +124,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
                               SizedBox(
                                   height: 20.h
                               ),
-                              Text("How much do you weight?",
+                              Text("How much do you weigh?",
                                   textAlign: TextAlign.center,
                                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                       color: Colors.black

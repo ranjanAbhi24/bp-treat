@@ -37,7 +37,7 @@ class AddHealthProfile extends StatelessWidget {
                             height: 90.h,
                             width: 100.w
                         ),
-                        Text("Health Profile(1 of 4)",
+                        Text("Health Profile (1 of 4)",
                           style: Theme.of(context).textTheme.headline1!.copyWith(
                             fontSize: 25.sp
                           ),

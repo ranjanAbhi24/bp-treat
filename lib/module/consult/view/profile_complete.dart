@@ -103,7 +103,6 @@ class ProfileComplete extends StatelessWidget {
                                   textAlign: TextAlign.start,
                                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                       color: Colors.black,
-                                      fontWeight: FontWeight.w500,
                                       decoration: TextDecoration.underline,
 
                                   )),

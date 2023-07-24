@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
-import 'package:bp_treat/module/consult/view/doctor_consultation.dart';
+
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
@@ -53,10 +53,9 @@ class DoctorController extends GetxController {
       ApplicationUtils.showSnackBar(
           titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
 
-
-      Get.find<LandingController>().getUserDetails();
-      Get.find<AddHealthController>().addConsent;
-      await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
+      await _prefs.setDoctorDetails(jsonEncode(_selectDoctor));
+      Get.find<LandingController>().getDoctorDetails();
+      await Get.find<AddHealthController>().addUserHealthDetail;
       Get.offAll(()=>const ReminderScreen());
 
 

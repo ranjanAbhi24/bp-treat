@@ -1,4 +1,5 @@
 import 'package:bp_treat/module/account/controller/basic_detail_controller.dart';
+import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
@@ -221,25 +222,35 @@ class EditBasicDetails extends StatelessWidget {
                                       },
                                       text: "Preferred Notification Time"),
                                   const SizedBox(height: 10),
-                                  ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          backgroundColor: kPrimaryColor,
-                                          fixedSize: const Size(200, 50)),
-                                      onPressed: () async {
+                                  CommonElevatedButton(
+                                      onTap: () async{
                                         await EasyLoading.show();
-                                        await controller.updateDetail();
-                                        await EasyLoading.dismiss();
+                                              await controller.updateDetail();
+                                              await EasyLoading.dismiss();
                                       },
-                                      child: const Text(
-                                        'Update',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 17,
-                                        ),
-                                      ))
+                                      title: 'Update',
+                                      backgroundColor: kPrimaryColor,
+                                      textColor: kWhiteColor
+                                  )
+                                  // ElevatedButton(
+                                  //     style: ElevatedButton.styleFrom(
+                                  //         shape: RoundedRectangleBorder(
+                                  //             borderRadius:
+                                  //                 BorderRadius.circular(8)),
+                                  //         backgroundColor: kPrimaryColor,
+                                  //         fixedSize: const Size(200, 50)),
+                                  //     onPressed: () async {
+                                  //       await EasyLoading.show();
+                                  //       await controller.updateDetail();
+                                  //       await EasyLoading.dismiss();
+                                  //     },
+                                  //     child: const Text(
+                                  //       'Update',
+                                  //       style: TextStyle(
+                                  //         fontWeight: FontWeight.bold,
+                                  //         fontSize: 17,
+                                  //       ),
+                                  //     ))
                                 ],
                               ),
                             ),

@@ -45,10 +45,15 @@ class LoginController extends GetxController {
         isLoading = false;
         token = _loginUser?.data?.loginToken;
         userData = json.encode(_loginUser);
+
         // patientID = loginUser?.data?.sId;
         await _prefs.setToken(token);
          await _prefs.setUserDetails(userData);
+       // await _prefs.setDoctorDetails(jsonEncode(_loginUser!.data!.doctorId));
+     //   print("${_loginUser!.data!.doctorId}-> login doctor info");
+      //  await _prefs.setDoctorDetails(jsonEncode(_loginUser));
         Get.find<LandingController>().getUserDetails();
+       // Get.find<LandingController>().getDoctorDetails();
         print(userData);
        Get.offAll(() => const LandingPage());
 

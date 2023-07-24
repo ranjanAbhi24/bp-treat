@@ -1,3 +1,4 @@
+import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
 import 'package:bp_treat/utils/app_theme.dart';
@@ -19,6 +20,7 @@ class ContactMyDoctor extends StatefulWidget {
 class _ContactMyDoctorState extends State<ContactMyDoctor> {
   @override
   Widget build(BuildContext context) {
+    Get.put<DashboardController>(DashboardController());
     return
       Scaffold(
         // appBar: AppBar(
@@ -114,7 +116,12 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                         ),
                                       ),
                                     ),
-                                    title: Text("${Get.find<LandingController>().userInfo['data']['doctorId']['fname']} ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}",
+                                    title:
+                                    Text(
+                                        "${Get.find<LandingController>().userInfo['data']['doctorId']['fname']}"
+                                         " ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}",
+                                        // "${Get.find<LandingController>().doctorInfo['data']['doctorId']['fname']}"
+                                        // " ${Get.find<LandingController>().doctorInfo['data']['doctorId']['lname']}",
                                         style: TextStyle(
                                             color:
                                             //isSelected ? kWhiteColor : kBlackColor, fontSize: 16
@@ -195,7 +202,6 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                   controller: controller.descriptionController,
                                   onChanged: (value) {},
                                   maxLines: 5,
-
                                   cursorColor: kBlackColor,
                                   decoration: InputDecoration(
                                       enabled: true,
@@ -263,7 +269,10 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                   child: SizedBox(
                                     width: 150.w,
                                     child: CommonElevatedButton(
-                                      onTap: () {  },
+                                      onTap: () {
+
+
+                                      },
                                       title: 'Send',
                                       backgroundColor: kPrimaryColor,
                                       textColor: kWhiteColor,

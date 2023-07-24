@@ -131,7 +131,6 @@ textAlign: TextAlign.center,
                               RichText(
                                 textAlign:TextAlign.center,
                                   text: TextSpan(
-
                                       text: 'Systolic',
                                       style: Theme.of(context)
                                           .textTheme
@@ -243,7 +242,7 @@ textAlign: TextAlign.center,
                                         kBlackColor!)),
                                 minValue: 70,
                                 maxValue: 220,
-                                step: 2,
+                                step: 1,
                                 haptics: true,
                                 value: controller.systolicBPValue,
                                 onChanged: controller.onSystolicValueChange,
@@ -251,7 +250,7 @@ textAlign: TextAlign.center,
                               NumberPicker(
                                 minValue: 50,
                                 maxValue: 120,
-                                step: 2,
+                                step: 1,
                                 value: controller.diastolicBPValue,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,

@@ -59,7 +59,7 @@ class AddBPController extends GetxController {
         await controller.fetchNotification();
         controller.badgeStatusFn();
         // Get.offAll(() => const LandingPage());
-        Get.back();
+      //  Get.back();
         ApplicationUtils.showSnackBar(
             titleText: _record?.status, messageText: _record?.msg);
       } else {

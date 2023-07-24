@@ -41,7 +41,7 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                       ),
                       Center(
                         child: Text(
-                          "Health Profile(4 of 4)",
+                          "Health Profile (4 of 4)",
                           maxLines: 1,
                           style: Theme.of(context).textTheme.headline1!.copyWith(
                                 fontSize: 25.sp,

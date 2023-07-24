@@ -63,30 +63,30 @@ List<String> items= ['Select a choice..','Medication Side Effect','Medication Al
   //   update();
   // }
 
-  // sendMedicineForChange(String pID) async {
-  //   _postMed = await _apiService.postMedicineForChange(
-  //     prescriptionID: pID,
-  //     doctorID: "",
-  //     medicine: selectedMedicines,
-  //     otherIssue: descriptionController.text,
-  //   );
-  //   debugPrint("med $_postMed");
-  //   try {
-  //     if (_postMed.status == "Success") {
-  //       return ApplicationUtils.showSnackBar(
-  //           titleText: 'Request Accepted',
-  //           messageText:
-  //               'You request has been accepted. You will receive updated Prescription shortly.');
-  //     } else {
-  //       return ApplicationUtils.showSnackBar(
-  //           titleText: 'Somthing went wrong',
-  //           messageText: 'Please try again later');
-  //     }
-  //   } catch (e) {
-  //     debugPrint("Catch Error : ${e.toString()}");
-  //   }
-  //   update();
-  // }
+  sendMedicineForChange(String pID,doctorID) async {
+    _postMed = await _apiService.postMedicineForChange(
+      prescriptionID: pID,
+      doctorID: doctorID,
+      medicine: selectedMedicines,
+      otherIssue: descriptionController.text,
+    );
+    debugPrint("med $_postMed");
+    try {
+      if (_postMed.status == "Success") {
+        return ApplicationUtils.showSnackBar(
+            titleText: 'Request Accepted',
+            messageText:
+                'You request has been accepted. You will receive updated Prescription shortly.');
+      } else {
+        return ApplicationUtils.showSnackBar(
+            titleText: 'Something went wrong',
+            messageText: 'Please try again later');
+      }
+    } catch (e) {
+      debugPrint("Catch Error : ${e.toString()}");
+    }
+    update();
+  }
 
   onChanged(value) {
     dropdownValue = value;
