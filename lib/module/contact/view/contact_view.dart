@@ -199,11 +199,13 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                     )),
                                 const SizedBox(height: 10),
                                 TextField(
+
                                   controller: controller.descriptionController,
                                   onChanged: (value) {},
                                   maxLines: 5,
                                   cursorColor: kBlackColor,
                                   decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.all(10),
                                       enabled: true,
                                       focusedBorder: OutlineInputBorder(
                                           borderRadius:
