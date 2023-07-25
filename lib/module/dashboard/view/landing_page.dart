@@ -14,6 +14,7 @@ class LandingPage extends StatelessWidget {
       child: GetBuilder<LandingController>(
           init: LandingController(),
           builder: (controller) => Scaffold(
+            backgroundColor: kWhiteColor,
                 body: controller.getPage(controller.tabIndex),
                 bottomNavigationBar:
                     buildBottomNavigationMenu(context, controller),
@@ -154,7 +155,6 @@ class LandingPage extends StatelessWidget {
               height: 80.h,
               width: 90.w,
               decoration: BoxDecoration(
-
                   color: controller.tabIndex==2?kPrimaryColor:kGreyColor,
                   borderRadius: BorderRadius.circular(10)
               ),

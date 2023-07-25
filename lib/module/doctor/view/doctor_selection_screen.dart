@@ -18,7 +18,7 @@ class DoctorSelectionScreen extends StatefulWidget {
 }
 
 class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
-  int isSelected = -1;
+  int isSelected = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(

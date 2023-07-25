@@ -20,6 +20,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 //
     return SafeArea(child: Scaffold(
+      backgroundColor: kWhiteColor,
       resizeToAvoidBottomInset: false,
       body:
            GetBuilder<RegisterController>(

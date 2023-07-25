@@ -5,6 +5,7 @@ import 'package:bp_treat/module/account/view/basic_detail_page.dart';
 import 'package:bp_treat/module/dashboard/view/menu_view.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../dashboard/widget/common_list_tile.dart';
@@ -194,14 +195,16 @@ class AccountPage extends StatelessWidget {
                         //               'https://app.houstonepilepsy.com/privacy-policy'),
                         //           mode: LaunchMode.platformDefault);
                         //     }),
-                        // buildListTile(
-                        //     title: 'Logout',
-                        //     image: "assets/icons/logout.png",
-                        //     ontap: () async {
-                        //       EasyLoading.show();
-                        //       await controller.logout();
-                        //       EasyLoading.dismiss();
-                        //     }),
+                        SizedBox(height: 10.h,),
+                        buildListTile(
+                            title: 'Logout',
+                            image: "assets/icons/logout.png",
+                            onTap: () async {
+                              EasyLoading.show();
+                              await controller.logout();
+                              EasyLoading.dismiss();
+                            }),
+
                       ],
                     ),
                   ),

@@ -28,6 +28,7 @@ class AddHealthProfile extends StatelessWidget {
               builder: (controller){
                 return SingleChildScrollView(
                   child: Container(
+                    color: kWhiteColor,
                     padding: const EdgeInsets.all(32),
                     child:  Column(
                       children: [

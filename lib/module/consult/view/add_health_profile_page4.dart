@@ -23,6 +23,7 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
     return SafeArea(
         child:
             Scaffold(
+              backgroundColor: kWhiteColor,
       body: GetBuilder<AddHealthController>(
               init: AddHealthController(),
               builder: (controller) {
@@ -198,6 +199,8 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
 //Get.to(()=> const ProfileComplete());
                               if(controller.selectedIndexesL1.isNotEmpty && controller.selectedIndexesL2.isNotEmpty){
                                 controller.addUserHealthDetail();
+                                 // Get.to(() => const ProfileComplete());
+
                               }else{
                                 ApplicationUtils.showSnackBar(titleText: "Alert", messageText: "Something is missing");
                               }

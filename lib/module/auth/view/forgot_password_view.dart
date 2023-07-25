@@ -64,25 +64,28 @@ class ForgotPasswordView extends StatelessWidget {
                               },
                               text: 'Email*'),
                           const SizedBox(height: 30),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                          SizedBox(
+                            width: 200.w,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                                ),
+                                backgroundColor: kPrimaryColor,
+                                fixedSize: Size(
+                                  size.width,
+                                  50,
+                                ),
                               ),
-                              backgroundColor: kPrimaryColor,
-                              fixedSize: Size(
-                                size.width,
-                                50,
-                              ),
+                              onPressed: () async {
+                                var isValid =
+                                    controller.formKey.currentState!.validate();
+                                if (isValid) {
+                                  await controller.sendOtpForPasswordChange();
+                                }
+                              },
+                              child: const Text('Send Code'),
                             ),
-                            onPressed: () async {
-                              var isValid =
-                                  controller.formKey.currentState!.validate();
-                              if (isValid) {
-                                await controller.sendOtpForPasswordChange();
-                              }
-                            },
-                            child: const Text('Send Code'),
                           ),
                           const SizedBox(height: 20),
                           Visibility(

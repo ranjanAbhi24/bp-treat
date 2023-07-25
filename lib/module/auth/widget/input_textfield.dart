@@ -52,6 +52,7 @@ class InputTextField extends StatelessWidget {
           inputFormatters: inputFormatters,
           onTap: onPressed,
           onChanged: onChange,
+          cursorColor: kBlackColor,
           controller: controller,
           keyboardType: inputType,
           obscureText: isVisible,
@@ -59,6 +60,7 @@ class InputTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
+
             //filled: true,
             // fillColor: kSecondaryColor,
             contentPadding:

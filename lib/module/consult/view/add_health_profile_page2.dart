@@ -18,6 +18,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
     return SafeArea(
         child:
              Scaffold(
+                 backgroundColor: kWhiteColor,
               body: GetBuilder<AddHealthController>(
                 init: AddHealthController(),
                 builder: (controller){
@@ -174,6 +175,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
                                   height: 10.h
                               ),
                               PinCodeTextField(
+
                                   controller: controller.allergiesController,
                                   maxLine: 5,
                                   width: 360.w, validator: (value) {

@@ -19,6 +19,7 @@ class AddHealthProfilePage3 extends StatelessWidget {
     return SafeArea(
         child:
           Scaffold(
+            backgroundColor: kWhiteColor,
       body:GetBuilder<AddHealthController>(
             init: AddHealthController(),
             builder: (controller){

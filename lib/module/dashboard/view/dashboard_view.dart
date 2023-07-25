@@ -26,6 +26,7 @@ class DashBoardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(DashboardController());
     LandingController landingcontroller = Get.find<LandingController>();
     return GetBuilder<DashboardController>(
         init: DashboardController(),

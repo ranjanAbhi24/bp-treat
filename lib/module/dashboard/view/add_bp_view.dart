@@ -27,7 +27,7 @@ class _AddBPViewState extends State<AddBPView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
+backgroundColor: kWhiteColor,
         body: GetBuilder<AddBPController>(
             init: AddBPController(),
             builder: (controller) {

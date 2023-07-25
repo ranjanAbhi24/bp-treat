@@ -54,11 +54,12 @@ class DoctorController extends GetxController {
           titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
 
       await _prefs.setDoctorDetails(jsonEncode(_selectDoctor));
-      Get.find<LandingController>().getDoctorDetails();
-      await Get.find<AddHealthController>().addUserHealthDetail;
+
+   //   Get.put(AddHealthController());
+   //  Get.find<AddHealthController>().addUserHealthDetail();
+      // await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
+      Get.find<LandingController>().getUserDetails();
       Get.offAll(()=>const ReminderScreen());
-
-
       //Get.offAll(()=> const LandingPage());
       //Get.offAll(() => const DoctorConsultationConsent());
     } else {
@@ -71,6 +72,7 @@ class DoctorController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
     fetchDocList();
   }
 }

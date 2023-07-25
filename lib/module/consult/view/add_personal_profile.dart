@@ -19,7 +19,7 @@ class AddPersonalProfile extends StatelessWidget {
     return SafeArea(
         child:
         Scaffold(
-              backgroundColor: Colors.white,
+              backgroundColor: kWhiteColor,
               body: GetBuilder<AddProfileController>(
                 init: AddProfileController(),
                 builder: (controller){

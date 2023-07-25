@@ -1,3 +1,4 @@
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,10 +22,12 @@ class PinCodeTextField extends StatelessWidget {
 
       width: width,
       child: TextFormField(
+        cursorColor: kBlackColor,
         maxLines: maxLine,
         controller: controller,
         validator: validator,
         decoration: InputDecoration(
+           contentPadding: const EdgeInsets.all(10),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               //  borderSide: BorderSide.none,

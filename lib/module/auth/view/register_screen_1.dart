@@ -21,7 +21,8 @@ class RegisterScreen1 extends StatelessWidget {
     return SafeArea(
       child:
          Scaffold(
-            backgroundColor: Colors.white,
+           backgroundColor: kWhiteColor,
+
             resizeToAvoidBottomInset: false,
             body: GetBuilder<RegisterController>(
               init: RegisterController(),
@@ -97,7 +98,7 @@ class RegisterScreen1 extends StatelessWidget {
                                   ),
                                   InkWell(
                                     onTap: (){
-                                      Get.to(()=> const LoginScreen());
+                                      Get.offAll(()=> const LoginScreen());
                                     },
                                     child: Text("Already have an account?",
                                     style: Theme.of(context).textTheme.subtitle2!.copyWith(

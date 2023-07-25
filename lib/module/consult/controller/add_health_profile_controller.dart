@@ -10,8 +10,7 @@ import 'package:intl/intl.dart';
 import '../../../utils/prefs.dart';
 import '../../../utils/show_snackbar.dart';
 import '../model/add_consent.dart';
-import '../../dashboard/controller/landing_controller.dart';
-import '../../dashboard/view/landing_page.dart';
+
 
 class AddHealthController extends GetxController {
   bool isMale = false;
@@ -82,10 +81,8 @@ print(addConsent);
         isLoading = false;
         ApplicationUtils.showSnackBar(
             titleText: addConsent?.status, messageText: addConsent?.msg);
-
-
-        await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
-        Get.find<LandingController>().getUserDetails();
+        await _prefs.setUserDetails(jsonEncode(addConsent));
+     //   Get.find<LandingController>().getUserDetails();
         Get.to(() => const ProfileComplete());
      } else{
        isLoading=false;

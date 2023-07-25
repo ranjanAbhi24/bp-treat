@@ -19,6 +19,7 @@ class ReminderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: kWhiteColor,
           body: SingleChildScrollView(
             child: GetBuilder<AddReminderController>(
               init: AddReminderController(),
@@ -92,6 +93,7 @@ class ReminderScreen extends StatelessWidget {
                                   color: kGreyColor,
                                   child: Center(
                                     child: TextField(
+                                      cursorColor: kBlackColor,
                                       controller: controller.hourController,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -143,6 +145,7 @@ class ReminderScreen extends StatelessWidget {
                                   color: kGreyColor,
                                   child: Center(
                                     child: TextField(
+                                      cursorColor: kBlackColor,
                                       controller: controller.minuteController,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -303,8 +306,7 @@ class ReminderScreen extends StatelessWidget {
                             width: 180.w,
                             child: CommonElevatedButton(
                                 onTap: (){
-                                  Get.find<LandingController>().getUserDetails();
-                                  Get.to(()=>const LandingPage());
+                                  Get.offAll(()=>const LandingPage());
                                 },
                                 title: "Record BP",
                                 backgroundColor: kPrimaryColor,

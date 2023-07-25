@@ -142,7 +142,7 @@ class LoginScreen extends StatelessWidget {
                                 alignment: Alignment.center,
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.to(() => const RegisterScreen1());
+                                    Get.offAll(() => const RegisterScreen1());
                                   },
                                   child: Text("Create new account",
                                       style: Theme.of(context).textTheme.subtitle2!.copyWith(

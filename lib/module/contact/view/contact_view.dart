@@ -23,6 +23,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
     Get.put<DashboardController>(DashboardController());
     return
       Scaffold(
+        backgroundColor: kWhiteColor,
         // appBar: AppBar(
         //   title: const Text('How can we help? '),
         //   elevation: 0.0,
@@ -93,6 +94,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                 SizedBox(
                                   height: 30.h,
                                 ),
+
                                 Container(
                                   decoration: BoxDecoration(
                                       border: Border.all(color:  Colors.grey,),
