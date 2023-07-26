@@ -21,7 +21,7 @@ class AddBPView extends StatefulWidget {
 }
 
 class _AddBPViewState extends State<AddBPView> {
- var dashboardController= Get.find<DashboardController>();
+ var dashboardController= Get.put(DashboardController());
   bool valuee = false;
   @override
   Widget build(BuildContext context) {

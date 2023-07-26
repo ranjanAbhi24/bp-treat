@@ -2,10 +2,12 @@ import 'package:bp_treat/module/account/controller/health_detail_controller.dart
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:bp_treat/module/consult/widget/Drop_down_form_field.dart';
+import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class HealthDetailView extends StatelessWidget {
@@ -40,8 +42,8 @@ class HealthDetailView extends StatelessWidget {
                     ),
                   )
                 : Container(
-                    height: size.height,
-                    width: size.width,
+                    height: 690.h,
+                    width: 360.w,
                     color: Colors.white,
                     padding: const EdgeInsets.all(20.0),
                     child: SingleChildScrollView(
@@ -50,7 +52,25 @@ class HealthDetailView extends StatelessWidget {
                       child: Form(
                         key: controller.formKey,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Text('Diabetes',
+                            // style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            //   color: kBlackColor
+                            // ),
+                            // ),
+                            // SizedBox(height: 10.h,),
+                            // Container(
+                            //   padding: const EdgeInsets.only(left: 10,right: 10),
+                            //   decoration: BoxDecoration(
+                            //       border: Border.all(color: Colors.black),
+                            //       borderRadius: BorderRadius.circular(12),
+                            //   ),
+                            //   child: DropDownWidget(
+                            //       dropdownValue: controller.isDiabetic == true ? "Yes" : "No",
+                            //       items: controller.listOfOption,
+                            //       onChange:controller.onDiabetes ),
+                            // ),
                             DropDownFormField(
                               title: '',
                               text: 'Diabetes*',
@@ -66,140 +86,140 @@ class HealthDetailView extends StatelessWidget {
                               }).toList(),
                               onChange: controller.onDiabetes,
                             ),
-                            const SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             InputTextField(
                                 hintText: 'Enter disease separating with ";"',
                                 inputType: TextInputType.text,
                                 controller: controller.otherDiseaseController,
                                 validator: (value) {},
                                 text: "Other Diseases"),
-                            const SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             InputTextField(
                                 hintText: 'Medication detail',
                                 inputType: TextInputType.text,
                                 controller: controller.medicationController,
                                 validator: (value) {},
                                 text: "Medications"),
-                            const SizedBox(height: 10),
+                           SizedBox(height: 10.h),
                             InputTextField(
                                 hintText: 'Allergies details',
                                 inputType: TextInputType.text,
                                 controller: controller.allergiesController,
                                 validator: (value) {},
                                 text: "Allergies"),
-                            const SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: InputTextField(
-                                      hintText: '00',
-                                      inputType: TextInputType.number,
-                                      controller:
-                                          controller.hematocritController,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Required*';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      text: "Hematocrit"),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: InputTextField(
-                                      hintText: '00',
-                                      inputType: TextInputType.number,
-                                      controller:
-                                          controller.creatinineController,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Required*';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      text: "Creatinine"),
-                                ),
-                              ],
+                        SizedBox(height: 10.h),
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //       child: InputTextField(
+                            //           hintText: '00',
+                            //           inputType: TextInputType.number,
+                            //           controller:
+                            //               controller.hematocritController,
+                            //           validator: (value) {
+                            //             if (value.isEmpty) {
+                            //               return 'Required*';
+                            //             } else {
+                            //               return null;
+                            //             }
+                            //           },
+                            //           text: "Hematocrit"),
+                            //     ),
+                            //     const SizedBox(width: 10),
+                            //     Expanded(
+                            //       child: InputTextField(
+                            //           hintText: '00',
+                            //           inputType: TextInputType.number,
+                            //           controller:
+                            //               controller.creatinineController,
+                            //           validator: (value) {
+                            //             if (value.isEmpty) {
+                            //               return 'Required*';
+                            //             } else {
+                            //               return null;
+                            //             }
+                            //           },
+                            //           text: "Creatinine"),
+                            //     ),
+                            //   ],
+                            // ),
+                          //  const SizedBox(height: 10),
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //       child: InputTextField(
+                            //           hintText: '00',
+                            //           inputType: TextInputType.number,
+                            //           controller: controller.calciumController,
+                            //           validator: (value) {
+                            //             if (value.isEmpty) {
+                            //               return 'Required*';
+                            //             } else {
+                            //               return null;
+                            //             }
+                            //           },
+                            //           text: "Calcium"),
+                            //     ),
+                            //     const SizedBox(width: 10),
+                            //     Expanded(
+                            //       child: InputTextField(
+                            //           hintText: '00',
+                            //           inputType: TextInputType.number,
+                            //           controller: controller.albuminController,
+                            //           validator: (value) {
+                            //             if (value.isEmpty) {
+                            //               return 'Required*';
+                            //             } else {
+                            //               return null;
+                            //             }
+                            //           },
+                            //           text: "Albumin"),
+                            //     ),
+                            //   ],
+                            // ),
+                          //  const SizedBox(height: 10),
+                          //   Text('Narcotics',
+                          //     style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          //         color: kBlackColor
+                          //     ),
+                          //   ),
+                          //   SizedBox(height: 10.h),
+                          //   Container(
+                          //     padding: const EdgeInsets.only(left: 10,right: 10),
+                          //     decoration: BoxDecoration(
+                          //       border: Border.all(color: Colors.black),
+                          //       borderRadius: BorderRadius.circular(12),
+                          //     ),
+                          //     child: DropDownWidget(
+                          //         dropdownValue: controller.isNarcotics == true
+                          //                 ? "Yes"
+                          //                 : "No",
+                          //         items: controller.listOfOption, onChange:
+                          //     controller.onNarcotics,
+                          //     ),
+                          //   ),
+                            DropDownFormField(
+                              title: '',
+                              text: 'Narcotics?',
+                              value: controller.isNarcotics == true
+                                  ? "Yes"
+                                  : "No",
+                              isEmpty: true,
+                              items: controller.listOfOption
+                                  .map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChange: controller.onNarcotics,
                             ),
-                            const SizedBox(height: 10),
+                             SizedBox(height: 10.h),
                             Row(
                               children: [
                                 Expanded(
-                                  child: InputTextField(
-                                      hintText: '00',
-                                      inputType: TextInputType.number,
-                                      controller: controller.calciumController,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Required*';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      text: "Calcium"),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: InputTextField(
-                                      hintText: '00',
-                                      inputType: TextInputType.number,
-                                      controller: controller.albuminController,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Required*';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      text: "Albumin"),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: InputTextField(
-                                      hintText: '00',
-                                      inputType: TextInputType.number,
-                                      controller: controller.tshController,
-                                      validator: (value) {
-                                        if (value.isEmpty) {
-                                          return 'Required*';
-                                        } else {
-                                          return null;
-                                        }
-                                      },
-                                      text: "TSH"),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: DropDownFormField(
-                                    title: '',
-                                    text: 'Narcotics?',
-                                    value: controller.isNarcotics == true
-                                        ? "Yes"
-                                        : "No",
-                                    isEmpty: true,
-                                    items: controller.listOfOption
-                                        .map((String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value),
-                                      );
-                                    }).toList(),
-                                    onChange: controller.onNarcotics,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Expanded(
-                                    child: DropDownFormField(
+                                    child:
+                                    DropDownFormField(
                                   title: '',
                                   text: 'Tobacco?',
                                   value: controller.isTabacoo == true
@@ -214,8 +234,9 @@ class HealthDetailView extends StatelessWidget {
                                     );
                                   }).toList(),
                                   onChange: controller.onSmoke,
-                                )),
-                                const SizedBox(width: 10),
+                                )
+                                ),
+                                 SizedBox(width: 10.h),
                                 Expanded(
                                     child: DropDownFormField(
                                   title: '',
@@ -235,7 +256,7 @@ class HealthDetailView extends StatelessWidget {
                                 )),
                               ],
                             ),
-                            const SizedBox(height: 10),
+                             SizedBox(height: 10.h),
                             DropDownFormField(
                               title: '',
                               text: 'Alcohol?',
@@ -250,62 +271,41 @@ class HealthDetailView extends StatelessWidget {
                               }).toList(),
                               onChange: controller.onAlcoholicChange,
                             ),
-                            const SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: DropDownFormField(
-                                    title: '',
-                                    text: 'Amphetamine?',
-                                    value: controller.isAmphetamine == true
-                                        ? "Yes"
-                                        : "No",
-                                    isEmpty: true,
-                                    items: controller.listOfOption
-                                        .map((String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value),
-                                      );
-                                    }).toList(),
-                                    onChange: controller.onAmphetamine,
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                    child: DropDownFormField(
-                                  title: '',
-                                  text: 'Heroin?',
-                                  value: controller.isHeroin == true
-                                      ? "Yes"
-                                      : "No",
-                                  isEmpty: true,
-                                  items: controller.listOfOption
-                                      .map((String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-                                  onChange: controller.onHeroin,
-                                )),
-                              ],
+                            SizedBox(height: 20.h),
+                            DropDownFormField(
+                              title: '',
+                              text: 'Amphetamine?',
+                              value: controller.isAmphetamine == true
+                                  ? "Yes"
+                                  : "No",
+                              isEmpty: true,
+                              items: controller.listOfOption
+                                  .map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChange: controller.onAmphetamine,
                             ),
-                            const SizedBox(height: 20),
-                            CommonElevatedButton(
-                                onTap: () async {
-                                  if (controller.formKey.currentState!
-                                      .validate()) {
-                                    await EasyLoading.show();
-                                    await controller.updateHealthDetails();
-                                    await EasyLoading.dismiss();
-                                  }
-                                },
-                                title: 'Update',
-                              backgroundColor: kPrimaryColor,
-                              textColor: kWhiteColor,
+                           const SizedBox(height: 20),
+                            SizedBox(
+                              width: 200.w,
+                              child: CommonElevatedButton(
+                                  onTap: () async {
+                                    if (controller.formKey.currentState!
+                                        .validate()) {
+                                      await EasyLoading.show();
+                                      await controller.updateHealthDetails();
+                                      await EasyLoading.dismiss();
+                                    }
+                                  },
+                                  title: 'Update',
+                                backgroundColor: kPrimaryColor,
+                                textColor: kWhiteColor,
+                              ),
                             ),
-                            const SizedBox(height: 10),
+                           SizedBox(height: 10.h),
                           ],
                         ),
                       ),

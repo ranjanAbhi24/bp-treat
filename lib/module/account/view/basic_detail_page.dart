@@ -7,6 +7,7 @@ import 'package:bp_treat/utils/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
@@ -35,8 +36,8 @@ class EditBasicDetails extends StatelessWidget {
         ),
         body: Container(
           color: Colors.white,
-          height: size.height,
-          width: size.width,
+          height: 690.h,
+          width: 360.w,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GetBuilder<BasicDetailController>(
@@ -54,7 +55,7 @@ class EditBasicDetails extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            const SizedBox(height: 20.0),
+                            SizedBox(height: 20.h),
                             Form(
                               key: controller.formKey,
                               child: Column(
@@ -72,7 +73,7 @@ class EditBasicDetails extends StatelessWidget {
                                         }
                                       },
                                       text: 'Name*'),
-                                  const SizedBox(height: 10),
+                                   SizedBox(height: 10.h),
                                   InputTextField(
                                       controller: controller.emailController,
                                       inputType: TextInputType.emailAddress,
@@ -103,46 +104,25 @@ class EditBasicDetails extends StatelessWidget {
                                         }
                                       },
                                       text: 'Mobile*'),
-                                  const SizedBox(height: 10),
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        child: InputTextField(
-                                            controller:
-                                                controller.stateController,
-                                            inputType: TextInputType.text,
-                                            readOnly: true,
-                                            validator: (value) {
-                                              if (value == null) {
-                                                return "Required*";
-                                              } else {
-                                                return null;
-                                              }
-                                            },
-                                            text: 'State'),
-                                      ),
-                                      const SizedBox(width: 10),
-                                      Expanded(
-                                        child: InputTextField(
-                                            controller:
-                                                controller.zipCodeController,
-                                            inputType: TextInputType.number,
-                                            readOnly: true,
-                                            validator: (value) {
-                                              if (value == null) {
-                                                return "Required*";
-                                              } else if (value < 5 ||
-                                                  value > 6) {
-                                                return 'Enter correct zipcode';
-                                              } else {
-                                                return null;
-                                              }
-                                            },
-                                            text: 'Zip'),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 10),
+                                   SizedBox(height: 10.h),
+
+                                  InputTextField(
+                                      controller:
+                                          controller.zipCodeController,
+                                      inputType: TextInputType.number,
+                                      readOnly: true,
+                                      validator: (value) {
+                                        if (value == null) {
+                                          return "Required*";
+                                        } else if (value < 5 ||
+                                            value > 6) {
+                                          return 'Enter correct zipcode';
+                                        } else {
+                                          return null;
+                                        }
+                                      },
+                                      text: 'Zip'),
+                                  SizedBox(height: 10.h),
                                   Row(
                                     children: [
                                       Expanded(
@@ -166,7 +146,7 @@ class EditBasicDetails extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 10),
+                                   SizedBox(height: 10.h),
                                   Row(
                                     children: [
                                       Expanded(
@@ -184,7 +164,7 @@ class EditBasicDetails extends StatelessWidget {
                                             },
                                             text: 'Height (in feet)'),
                                       ),
-                                      const SizedBox(width: 10),
+                                      SizedBox(width: 10.h),
                                       Expanded(
                                         child: InputTextField(
                                             controller:
@@ -206,7 +186,7 @@ class EditBasicDetails extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(height: 10),
+                                   SizedBox(height: 10.h),
                                   InputTextField(
                                       hintText: '00:00',
                                       controller: controller.timeController,
@@ -221,17 +201,21 @@ class EditBasicDetails extends StatelessWidget {
                                         }
                                       },
                                       text: "Preferred Notification Time"),
-                                  const SizedBox(height: 10),
-                                  CommonElevatedButton(
-                                      onTap: () async{
-                                        await EasyLoading.show();
-                                              await controller.updateDetail();
-                                              await EasyLoading.dismiss();
-                                      },
-                                      title: 'Update',
-                                      backgroundColor: kPrimaryColor,
-                                      textColor: kWhiteColor
-                                  )
+                                  SizedBox(height: 10.h),
+                                  SizedBox(
+                                    width: 200.w,
+                                    child: CommonElevatedButton(
+                                        onTap: () async{
+                                          await EasyLoading.show();
+                                                await controller.updateDetail();
+                                                await EasyLoading.dismiss();
+                                        },
+                                        title: 'Update',
+                                        backgroundColor: kPrimaryColor,
+                                        textColor: kWhiteColor
+                                    ),
+                                  ),
+                                  SizedBox(height: 20.h,)
                                   // ElevatedButton(
                                   //     style: ElevatedButton.styleFrom(
                                   //         shape: RoundedRectangleBorder(

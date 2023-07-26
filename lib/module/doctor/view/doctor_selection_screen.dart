@@ -115,7 +115,7 @@ SizedBox(
                                      print("role-${controller.role}");
                                      print("contact-${controller.docContact}");
                                  Get.to(()=> const DoctorVirtualVisit(),
-                                 arguments: [controller.docName,controller.docContact],
+                                 arguments: [controller.docName??'Dr.Steven Goldstein',controller.docContact],
                                  );
 
                                    },
