@@ -37,7 +37,7 @@ class AddHealthController extends GetxController {
   bool isMarijuana = false;
  // bool istabacco=false;
   bool isAmphetamine = false;
-  List<String> dropdownList = ["Select a choice..", "1", '2', "3"];
+  List<String> dropdownList = ["Select a choice..", "1", '2', "3","more than 3"];
   List<String> list1 = ['Tobacco', 'Marijuana', 'None of these'];
   String selectValueL1 = '';
   String selectValueL2 = '';
@@ -73,15 +73,17 @@ class AddHealthController extends GetxController {
          isMarijuana: selectedIndexesL1.contains(1),
          isAmphetamine: selectedIndexesL2.contains(1),
          isCocaine: selectedIndexesL2.contains(2),
-         isTabacco: selectedIndexesL1.contains(0)
+         isSmoker: selectedIndexesL1.contains(0)
 
      );
+     print("isSmoker-${selectedIndexesL1.contains(0)}");
+     print("zipCode-${Get.find<AddProfileController>().zipCodeController.text}");
 print(addConsent);
      if(addConsent?.status == "Success"){
         isLoading = false;
         ApplicationUtils.showSnackBar(
             titleText: addConsent?.status, messageText: addConsent?.msg);
-        await _prefs.setUserDetails(jsonEncode(addConsent));
+       // await _prefs.setUserDetails(jsonEncode(addConsent));
      //   Get.find<LandingController>().getUserDetails();
         Get.to(() => const ProfileComplete());
      } else{

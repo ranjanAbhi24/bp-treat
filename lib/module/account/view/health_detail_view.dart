@@ -289,20 +289,22 @@ class HealthDetailView extends StatelessWidget {
                               onChange: controller.onAmphetamine,
                             ),
                            const SizedBox(height: 20),
-                            SizedBox(
-                              width: 200.w,
-                              child: CommonElevatedButton(
-                                  onTap: () async {
-                                    if (controller.formKey.currentState!
-                                        .validate()) {
-                                      await EasyLoading.show();
-                                      await controller.updateHealthDetails();
-                                      await EasyLoading.dismiss();
-                                    }
-                                  },
-                                  title: 'Update',
-                                backgroundColor: kPrimaryColor,
-                                textColor: kWhiteColor,
+                            Center(
+                              child: SizedBox(
+                                width: 200.w,
+                                child: CommonElevatedButton(
+                                    onTap: () async {
+                                      if (controller.formKey.currentState!
+                                          .validate()) {
+                                        await EasyLoading.show();
+                                        await controller.updateHealthDetails();
+                                        await EasyLoading.dismiss();
+                                      }
+                                    },
+                                    title: 'Update',
+                                  backgroundColor: kPrimaryColor,
+                                  textColor: kWhiteColor,
+                                ),
                               ),
                             ),
                            SizedBox(height: 10.h),

@@ -59,6 +59,7 @@ class RegisterController extends GetxController {
 
   reSendOtp() async {
     isLoading = true;
+    print(emailController.text);
     _sendOtp = await _auth.sendOtpToEmail(emailController.text);
     if (_sendOtp?.status == "Success") {
       isLoading = false;
@@ -66,7 +67,7 @@ class RegisterController extends GetxController {
       isLoading = false;
       ApplicationUtils.showSnackBar(
           titleText: 'Error',
-          messageText: _sendOtp!.msg ?? "Somthing wrong.Try again");
+          messageText: _sendOtp!.msg ?? "Something wrong.Try again");
     }
     update();
   }

@@ -59,6 +59,7 @@ update();
 
   @override
   void onInit() {
+
     super.onInit();
     getUserDetails();
     //getDoctorDetails();

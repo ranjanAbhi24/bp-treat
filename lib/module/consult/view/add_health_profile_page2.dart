@@ -73,6 +73,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
 
                                 children: [
                                   PinCodeTextField(controller: controller.feetController,
+                                    inputType: TextInputType.number,
                                     maxLine: 1,
                                     width: 50.w, validator: (value) {
                                      if(value!.isEmpty){
@@ -102,6 +103,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
                                       width: 10.w
                                   ),
                                   PinCodeTextField(
+inputType: TextInputType.number,
                                     controller: controller.inchesController,
                                     maxLine: 1, width: 50.w, validator: (value) {
                                       if(value!.isEmpty){
@@ -137,6 +139,7 @@ class AddHealthProfilePage2 extends StatelessWidget {
                               Row(
                                 children: [
                                   PinCodeTextField(controller: controller.poundsController,
+                                    inputType: TextInputType.number,
                                     maxLine: 1,
                                     width: 70.w, validator: (value) {
                                     if(value!.isEmpty){

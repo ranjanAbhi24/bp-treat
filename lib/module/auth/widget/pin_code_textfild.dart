@@ -9,11 +9,13 @@ class PinCodeTextField extends StatelessWidget {
    required this.maxLine,
     required this.width,
     required this.validator,
+    this.inputType
   }
 );
   final TextEditingController controller;
  final int maxLine;
   final double width;
+  final TextInputType? inputType;
   final FormFieldValidator validator;
 
   @override
@@ -22,6 +24,7 @@ class PinCodeTextField extends StatelessWidget {
 
       width: width,
       child: TextFormField(
+        keyboardType: inputType,
         cursorColor: kBlackColor,
         maxLines: maxLine,
         controller: controller,

@@ -88,9 +88,6 @@ class AuthService {
     required String userPassword,
     required String userFcmToken,
     required String userName,
-    // required String userMobile,
-    // required String userState,
-    // required String userZipCode,
     required bool privacyConsent,
   }) async {
     try {
@@ -101,9 +98,6 @@ class AuthService {
         'password': userPassword,
         'fcmToken': userFcmToken,
         'name': userName,
-        // 'mobile': userMobile,
-        // 'state': userState,
-        // 'zipcode': userZipCode,
         'privacyPolicyConsent': privacyConsent,
       };
       Map<String, String> header = {

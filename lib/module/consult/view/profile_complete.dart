@@ -18,6 +18,7 @@ class ProfileComplete extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(child:
        Scaffold(
+         backgroundColor: kWhiteColor,
           body: Container(
             padding: const EdgeInsets.all(32),
             child: Center(

@@ -128,19 +128,22 @@ class HealthDetailController extends GetxController {
             _patientDetails?.health?.otherDiseases ?? "";
         medicationController.text = _patientDetails?.health?.medication ?? "";
         allergiesController.text = _patientDetails?.health?.allergies ?? "";
-        hematocritController.text =
-            _patientDetails?.health?.hematocrit.toString() ?? "";
-        creatinineController.text =
-            _patientDetails?.health?.creatinine.toString() ?? "";
-        calciumController.text =
-            _patientDetails?.health?.calcium.toString() ?? "";
-        albuminController.text =
-            _patientDetails?.health?.albumin.toString() ?? "";
-        tshController.text = _patientDetails?.health?.tsh.toString() ?? "";
+        isTabacoo=_patientDetails?.health?.smoker;
+        isMarijuana=_patientDetails?.health?.marijuana;
+
+        // hematocritController.text =
+        //     _patientDetails?.health?.hematocrit.toString() ?? "";
+        // creatinineController.text =
+        //     _patientDetails?.health?.creatinine.toString() ?? "";
+        // calciumController.text =
+        //     _patientDetails?.health?.calcium.toString() ?? "";
+        // albuminController.text =
+        //     _patientDetails?.health?.albumin.toString() ?? "";
+        // tshController.text = _patientDetails?.health?.tsh.toString() ?? "";
         isNarcotics = _patientDetails?.health?.narcotics ?? false;
         alcoholic = _patientDetails?.health?.alcohol;
         isAmphetamine = _patientDetails?.health?.amphetamine ?? false;
-        isHeroin = _patientDetails?.health?.heroin ?? false;
+       // isHeroin = _patientDetails?.health?.heroin ?? false;
       } else {
         isLoading = false;
         ApplicationUtils.showSnackBar(
@@ -161,7 +164,7 @@ class HealthDetailController extends GetxController {
     try {
       isLoading = true;
       _updatedUser = await _apiService.updatePatientDetail(
-        albumin: albuminController.text,
+       // albumin: albuminController.text,
         allergic: allergiesController.text,
         calcium: calciumController.text,
         creatanine: creatinineController.text,
@@ -169,11 +172,11 @@ class HealthDetailController extends GetxController {
         alcoholic: alcoholic,
         isAmphetamine: isAmphetamine,
         isDiabetic: isDiabetic,
-        isHeroine: isHeroin,
+       // isHeroine: isHeroin,
         isNarcotics: isNarcotics,
         medication: medicationController.text,
         otherDisease: otherDiseaseController.text,
-        tsh: tshController.text,
+       // tsh: tshController.text,
         isSmoker: isTabacoo,
         isWeedUser: isMarijuana,
       );

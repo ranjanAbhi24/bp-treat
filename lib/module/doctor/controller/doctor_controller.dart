@@ -53,8 +53,8 @@ class DoctorController extends GetxController {
       ApplicationUtils.showSnackBar(
           titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
 
-      await _prefs.setDoctorDetails(jsonEncode(_selectDoctor));
-
+      //await _prefs.setDoctorDetails(jsonEncode(_selectDoctor));
+      await _prefs.setUserDetails(jsonEncode(_selectDoctor));
    //   Get.put(AddHealthController());
    //  Get.find<AddHealthController>().addUserHealthDetail();
       // await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
