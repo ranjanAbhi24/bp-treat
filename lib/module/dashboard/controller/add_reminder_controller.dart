@@ -1,7 +1,14 @@
+import 'package:bp_treat/module/dashboard/model/add_reminder.dart';
+import 'package:bp_treat/service/api_service.dart';
+import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+
+import '../view/landing_page.dart';
 
 class AddReminderController extends GetxController{
+  final ApiService _apiService = ApiService();
   String dropdown1 ="Daily";
   String dropdown2="Central Time";
   late TextEditingController hourController;
@@ -14,6 +21,7 @@ class AddReminderController extends GetxController{
   bool isInApp=false;
   List<String> items1= ["Daily","Weekly","Monthly"];
   List<String> items2= ["Central Time","1","2"];
+  SetReminder? _setReminder;
 
   onChangeValue1(String value) {
     dropdown1 = value;
@@ -41,7 +49,7 @@ class AddReminderController extends GetxController{
 
   selectMeridian(value){
     meridian=value;
-    if(meridian=="A.M"){
+    if(meridian=="AM"){
       am=true;
       pm=false;
     }else{
@@ -61,6 +69,22 @@ class AddReminderController extends GetxController{
       isText=false;
     }
     update();
+  }
+
+  setReminder() async {
+    // var time = "${hourController.text}:${minuteController.text}$meridian";
+    // print(meridian);
+    // DateTime date= DateFormat("hh:mm").parse(time);
+    // print("${date.hour}:${date.minute}");
+    var time = "${hourController.text}:${minuteController.text}$meridian";
+    print(time);
+    _setReminder =   await _apiService.addReminder(period: dropdown1,time: time,type: selected_value);
+  if(_setReminder?.status == "Success"){
+    ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
+    Get.offAll(()=>const LandingPage());
+  }else{
+    ApplicationUtils.showSnackBar(titleText: "Fail!!", messageText: _setReminder?.msg);
+  }
   }
 
   @override

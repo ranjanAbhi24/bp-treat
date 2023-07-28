@@ -2,14 +2,12 @@ import 'package:bp_treat/module/account/model/update_user.dart';
 import 'package:bp_treat/module/account/model/user_detail.dart';
 import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/extension.dart';
-// import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BasicDetailController extends GetxController {
   final ApiService _apiService = ApiService();
-  // final Prefrence _prefs = Prefrence();
   UserDetail? _userData;
   UserDetail? get userData => _userData;
   TimeOfDay time = const TimeOfDay(hour: 09, minute: 00);
@@ -47,7 +45,7 @@ class BasicDetailController extends GetxController {
     try {
       isLoading = true;
       _userData = await _apiService.getUserDetails();
-      print("ZIP Code ${_userData!.data!.zipcode}");
+
       nameController.text = _userData?.data?.name ?? "name";
       emailController.text = _userData?.data?.email ?? "email";
       dobController.text = _userData?.data?.dob ?? "dob";
@@ -77,9 +75,7 @@ class BasicDetailController extends GetxController {
       );
       if (updatedData?.status == "Success") {
         isLoading = false;
-        // String userData = jsonEncode(updatedData);
-        // await _prefs.setUserDetails(userData);
-        // Get.find<LandingController>().getUserDetails();
+
         Get.back();
         ApplicationUtils.showSnackBar(
             titleText: updatedData?.status, messageText: updatedData?.msg);

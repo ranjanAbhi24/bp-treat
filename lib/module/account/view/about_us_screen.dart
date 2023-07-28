@@ -1,5 +1,5 @@
 import 'package:bp_treat/utils/app_theme.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,36 +25,7 @@ class AboutUsView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Row(
-              //   children: [
-              //     Image.asset(
-              //       "assets/images/steven_image.png",
-              //       height: 100.0,
-              //       width: 100.0,
-              //     ),
-              //     const SizedBox(width: 5),
-              //     Expanded(
-              //       child: Column(
-              //         mainAxisAlignment: MainAxisAlignment.start,
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: const [
-              //           Text(
-              //             "Dr. Steven Goldstein",
-              //           ),
-              //           SizedBox(
-              //             height: 10,
-              //           ),
-              //           Text(
-              //             "Board Certified in Internal Medicine and in Neurology",
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 10.0,
-              // ),
+
               RichText(
                 text: TextSpan(
                     style: Theme.of(context)
@@ -102,14 +73,7 @@ class AboutUsView extends StatelessWidget {
                 ],
               ),
 
-              // const SizedBox(height: 6.0),
-              // Text(
-              //   "\u2022 Educating patients about how to shop for medical care.",
-              //   textAlign: TextAlign.start,
-              //   style: Theme.of(context).textTheme.subtitle2?.copyWith(
-              //       color: kBlackColor?.withOpacity(0.8),
-              //       fontWeight: FontWeight.w400),
-              // ),
+
               const SizedBox(height: 20.0),
               Align(
                 alignment: Alignment.center,

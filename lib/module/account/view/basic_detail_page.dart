@@ -3,7 +3,7 @@ import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -216,25 +216,7 @@ class EditBasicDetails extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 20.h,)
-                                  // ElevatedButton(
-                                  //     style: ElevatedButton.styleFrom(
-                                  //         shape: RoundedRectangleBorder(
-                                  //             borderRadius:
-                                  //                 BorderRadius.circular(8)),
-                                  //         backgroundColor: kPrimaryColor,
-                                  //         fixedSize: const Size(200, 50)),
-                                  //     onPressed: () async {
-                                  //       await EasyLoading.show();
-                                  //       await controller.updateDetail();
-                                  //       await EasyLoading.dismiss();
-                                  //     },
-                                  //     child: const Text(
-                                  //       'Update',
-                                  //       style: TextStyle(
-                                  //         fontWeight: FontWeight.bold,
-                                  //         fontSize: 17,
-                                  //       ),
-                                  //     ))
+
                                 ],
                               ),
                             ),

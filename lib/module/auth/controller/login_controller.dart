@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bp_treat/module/auth/model/user.dart';
-import 'package:bp_treat/module/consult/view/add_personal_profile.dart';
+
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/service/auth_service.dart';
 import 'package:bp_treat/utils/prefs.dart';
@@ -46,15 +46,11 @@ class LoginController extends GetxController {
         token = _loginUser?.data?.loginToken;
         userData = json.encode(_loginUser);
 
-        // patientID = loginUser?.data?.sId;
         await _prefs.setToken(token);
          await _prefs.setUserDetails(userData);
-       // await _prefs.setDoctorDetails(jsonEncode(_loginUser!.data!.doctorId));
-     //   print("${_loginUser!.data!.doctorId}-> login doctor info");
-      //  await _prefs.setDoctorDetails(jsonEncode(_loginUser));
+
         Get.find<LandingController>().getUserDetails();
-       // Get.find<LandingController>().getDoctorDetails();
-        print(userData);
+
        Get.offAll(() => const LandingPage());
 
       } else {

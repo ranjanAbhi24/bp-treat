@@ -4,27 +4,21 @@ import 'package:bp_treat/module/account/model/health_detail.dart';
 import 'package:bp_treat/module/account/model/update_user.dart';
 import 'package:bp_treat/module/account/model/user_detail.dart';
 import 'package:bp_treat/module/consult/model/add_consent.dart';
-import 'package:bp_treat/module/consult/model/get_disease.dart';
-import 'package:bp_treat/module/contact/model/change_prescription.dart';
-import 'package:bp_treat/module/contact/model/post_med.dart';
+import 'package:bp_treat/module/contact/model/contact_doctor_model.dart';
 import 'package:bp_treat/module/dashboard/model/add_record.dart';
+import 'package:bp_treat/module/dashboard/model/add_reminder.dart';
 import 'package:bp_treat/module/dashboard/model/all_record.dart';
 import 'package:bp_treat/module/dashboard/model/graph.dart';
 import 'package:bp_treat/module/dashboard/model/notification.dart';
 import 'package:bp_treat/module/dashboard/model/user_record.dart';
 import 'package:bp_treat/module/doctor/model/doctor_model.dart';
 import 'package:bp_treat/module/doctor/model/select_doc.dart';
-import 'package:bp_treat/module/medicine/model/medicine.dart';
-import 'package:bp_treat/module/medicine/model/prescribtion_status.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
   Prefrence prefs = Prefrence.instance;
-  // String base_url = 'http://3.109.121.178:8080/api';
-
-  // String base_url = 'http://54.238.218.186:5000/api';
 
   String base_url = 'https://api.houstonepilepsy.com/api';
 
@@ -117,18 +111,44 @@ class ApiService {
     }
   }
 
-  getDisease() async {
-    try {
-      Uri url = Uri.parse('$base_url/get-disease');
-      http.Response response = await http.get(url);
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        GetDisease disease = GetDisease.fromJson(jsonDecode(response.body));
-        return disease;
+
+  contactDoctor({
+    String? docId,
+    String? medication,
+    String? sideEffect,
+    String? medicationAllergy,
+    String? other,
+    String? description,
+  }) async{
+    Uri url = Uri.parse("$base_url/contact-doctor");
+    var token = prefs.getToken();
+    try{
+      Map<String, dynamic> body = {
+        "doctorId": docId,
+        "medication": medication,
+        "sideEffet": sideEffect,
+        "medicationAllergy": medicationAllergy,
+        "other": other,
+        "description": description
+      };
+      Map<String, String> header = {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": 'Bearer $token',
+      };
+      http.Response response = await http.post(url,headers: header,body: jsonEncode(body));
+      if(response.statusCode == 200 || response.statusCode == 201){
+        ContactDoctor contactDetails= ContactDoctor.fromJson(jsonDecode(response.body));
+        debugPrint(response.body);
+        return contactDetails;
       }
-    } catch (e) {
-      throw Error();
+
+    }catch(e){
+      throw Exception(e);
     }
   }
+
 
   updateUserRecord({dynamic weight, String? time}) async {
     var token = prefs.getToken();
@@ -394,55 +414,9 @@ class ApiService {
     }
   }
 
-  fetchPrescribtion(String patientID) async {
-    var token = prefs.getToken();
-    Uri url = Uri.parse("$base_url/get-user-prescription?patientId=$patientID");
-    try {
-      Map<String, String> header = {
-        'Content-type': 'application/json',
-        'Accept': 'application/json',
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": 'Bearer $token',
-      };
-      http.Response response =
-          await http.get(url, headers: header).catchError((err) {
-        debugPrint(err);
-      });
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        MedicineReport report =
-            MedicineReport.fromJson(jsonDecode(response.body));
-        return report;
-      }
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
 
-  changePrescriptionStatus(String prescriptionId) async {
-    var token = prefs.getToken();
-    Uri url = Uri.parse(
-        '$base_url/prescription-viewed?prescriptionId=$prescriptionId');
-    try {
-      Map<String, String> header = {
-        'Content-type': 'application/json',
-        'Accept': 'application/json',
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": 'Bearer $token',
-      };
 
-      http.Response response =
-          await http.post(url, headers: header).catchError((err) {
-        debugPrint(err);
-      });
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        PrescribtionStatus status =
-            PrescribtionStatus.fromJson(jsonDecode(response.body));
-        return status;
-      }
-    } catch (e) {
-      debugPrint("catch error $e");
-    }
-  }
+
 
   viewAllRecord({required String patientID, required String intervals}) async {
     var token = prefs.getToken();
@@ -469,6 +443,7 @@ class ApiService {
       debugPrint(e.toString());
     }
   }
+
 
   Future<DoctorModel> fetchDoctorList() async {
     var token = prefs.getToken();
@@ -518,7 +493,7 @@ class ApiService {
       debugPrint("Body : $body");
       if (response.statusCode == 200 || response.statusCode == 201) {
         SelectDoctor docRes = SelectDoctor.fromJson(jsonDecode(response.body));
-        print("docRes - ${response.body}");
+
         return docRes;
 
       }
@@ -527,69 +502,31 @@ class ApiService {
     }
   }
 
-  Future<ChangePrescription> listMedicineForChange() async {
-    var token = prefs.getToken();
-    Uri url = Uri.parse('$base_url/get-latest-prescription');
-    try {
-      Map<String, String> header = {
-        'Content-type': 'application/json',
-        'Accept': 'application/json',
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": 'Bearer $token',
-      };
 
-      http.Response response = await http.get(
-        url,
-        headers: header,
-      );
+   addReminder({String? period,String? time,String? type}) async {
+     var token = prefs.getToken();
+     Uri url = Uri.parse('$base_url/set-reminder');
+     Map<String, String> header = {
+       'Content-type': 'application/json',
+       'Accept': 'application/json',
+       "Access-Control-Allow-Origin": "*",
+       "Authorization": 'Bearer $token',
+     };
+     Map<String, dynamic> body = {
+       "period": period,
+       "time": time,
+       "type": type
+     };
+     try{
+          http.Response response = await http.post(url,body: jsonEncode(body),headers: header);
+          if(response.statusCode == 200||response.statusCode == 201){
+           var reminder = SetReminder.fromJson(jsonDecode(response.body));
+            debugPrint(response.body);
+            return reminder;
+          }
+     } catch(e){
+throw Exception(e);
+     }
+   }
 
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        ChangePrescription changePrescription =
-            ChangePrescription.fromJson(jsonDecode(response.body));
-        return changePrescription;
-      } else {
-        return ChangePrescription();
-      }
-    } catch (e) {
-      throw e.toString();
-    }
-  }
-
-  postMedicineForChange({
-    String? prescriptionID,
-    String? doctorID,
-    List? medicine,
-    String? otherIssue,
-  }) async {
-    var token = prefs.getToken();
-    Uri url = Uri.parse('$base_url/save-side-effect');
-    try {
-      Map<String, String> header = {
-        'Content-type': 'application/json',
-        'Accept': 'application/json',
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": 'Bearer $token',
-      };
-      Map<String, dynamic> body = {
-        "prescriptionId": prescriptionID,
-        "doctorId": doctorID,
-        "medicine": medicine,
-        "description": otherIssue,
-      };
-
-      http.Response response = await http
-          .post(url, body: jsonEncode(body), headers: header)
-          .catchError((err) {
-        print("ERR : $err");
-      });
-      print("Body : $body");
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        print("Response: ${response.body}");
-        PostMed postMed = PostMed.fromJson(jsonDecode(response.body));
-        return postMed;
-      }
-    } catch (e) {
-      throw e.toString();
-    }
-  }
 }

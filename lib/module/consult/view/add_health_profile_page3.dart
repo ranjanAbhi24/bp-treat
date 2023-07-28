@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
-import '../../../utils/size.dart';
+
 import '../../auth/widget/common_elevated_button.dart';
 import '../../auth/widget/pin_code_textfild.dart';
 import 'add_health_profile_page4.dart';

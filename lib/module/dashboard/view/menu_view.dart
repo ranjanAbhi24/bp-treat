@@ -37,9 +37,7 @@ class MenuDialog {
 SizedBox(
   width: 50.w,
 ),
-// SizedBox(
-//   width: 100.w,
-// ),
+
                 Container(
                   decoration: BoxDecoration(
                     color: kWhiteColor,

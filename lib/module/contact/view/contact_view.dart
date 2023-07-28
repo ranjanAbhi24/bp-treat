@@ -2,8 +2,9 @@ import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
 import 'package:bp_treat/utils/app_theme.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../auth/widget/common_elevated_button.dart';
@@ -24,19 +25,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
     return
       Scaffold(
         backgroundColor: kWhiteColor,
-        // appBar: AppBar(
-        //   title: const Text('How can we help? '),
-        //   elevation: 0.0,
-        //   backgroundColor: kPrimaryColor,
-        //   centerTitle: false,
-        //   leading: Padding(
-        //     padding: const EdgeInsets.all(6.0),
-        //     child: CircleAvatar(
-        //       backgroundColor: kWhiteColor,
-        //       child: const Text('BP'),
-        //     ),
-        //   ),
-        // ),
+
         body: GetBuilder<ContactController>(
             init: ContactController(),
             builder: (controller) {
@@ -85,12 +74,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                     )
                                   ],
                                 ),
-                                // Text(
-                                //   controller.changePrescription.data?.title ??
-                                //       "",
-                                //   style:
-                                //       Theme.of(context).textTheme.headline2,
-                                // ),
+
                                 SizedBox(
                                   height: 30.h,
                                 ),
@@ -122,8 +106,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                     Text(
                                         "${Get.find<LandingController>().userInfo['data']['doctorId']['fname']}"
                                          " ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}",
-                                        // "${Get.find<LandingController>().doctorInfo['data']['doctorId']['fname']}"
-                                        // " ${Get.find<LandingController>().doctorInfo['data']['doctorId']['lname']}",
+
                                         style: TextStyle(
                                             color:
                                             //isSelected ? kWhiteColor : kBlackColor, fontSize: 16
@@ -154,42 +137,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                       items: controller.items, onChange: controller.onChanged
                                   ),
                                 ),
-                                // Column(
-                                //   children: controller.listOfMedicine
-                                //       .map<Widget>(
-                                //         (item) => Container(
-                                //           padding: const EdgeInsets.all(2),
-                                //           margin: const EdgeInsets.symmetric(
-                                //               vertical: 2),
-                                //           decoration: BoxDecoration(
-                                //               borderRadius:
-                                //                   BorderRadius.circular(12),
-                                //               border: Border.all(
-                                //                   color: controller
-                                //                           .selectedMedicines
-                                //                           .isEmpty
-                                //                       ? Colors.grey
-                                //                       : kPrimaryColor!)),
-                                //           child: CheckboxListTile(
-                                //             value: controller
-                                //                 .selectedMedicines
-                                //                 .contains(item.name),
-                                //             controlAffinity:
-                                //                 ListTileControlAffinity
-                                //                     .trailing,
-                                //             onChanged: (bool? isSelect) {
-                                //               controller.onMedSelect(
-                                //                   item.name,
-                                //                   isSelect ?? false);
-                                //             },
-                                //             title: Text(item.name ?? ""),
-                                //             activeColor: kPrimaryColor,
-                                //             checkColor: kWhiteColor,
-                                //           ),
-                                //         ),
-                                //       )
-                                //       .toList(),
-                                // ),
+
                                 SizedBox(height: 20.h),
                             Align(
                                     alignment: Alignment.centerLeft,
@@ -203,7 +151,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                 TextField(
 
                                   controller: controller.descriptionController,
-                                  onChanged: (value) {},
+
                                   maxLines: 5,
                                   cursorColor: kBlackColor,
                                   decoration: InputDecoration(
@@ -222,60 +170,18 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                           borderSide: BorderSide(
                                               color: kPrimaryColor!))),
                                 ),
-                                // ValueListenableBuilder<TextEditingValue>(
-                                //     valueListenable:
-                                //         controller.otherIssueController,
-                                //     builder: (context, value, child) {
-                                //       return
-                                //           // const SizedBox(height: 10),
-                                //           ElevatedButton(
-                                //         style: ElevatedButton.styleFrom(
-                                //           backgroundColor: kPrimaryColor,
-                                //         ),
-                                //         onPressed: controller
-                                //                     .selectedMedicines
-                                //                     .isNotEmpty ||
-                                //                 controller
-                                //                     .otherIssueController
-                                //                     .text
-                                //                     .isNotEmpty
-                                //             ? () async => await controller
-                                //                 .sendMedicineForChange(
-                                //                     controller
-                                //                             .prescriptionID ??
-                                //                         "")
-                                //             : null,
-                                //         child: const Text('Submit Request'),
-                                //       );
-                                //     }),
-                         //     const SizedBox(height: 10),
-                                // RichText(
-                                //   text: TextSpan(
-                                //       text: 'or connect with ',
-                                //       style: Theme.of(context)
-                                //           .textTheme
-                                //           .subtitle1!
-                                //           .copyWith(),
-                                //       children: [
-                                //         TextSpan(
-                                //             style: Theme.of(context)
-                                //                 .textTheme
-                                //                 .subtitle1!
-                                //                 .copyWith(
-                                //                     color: kPrimaryColor,
-                                //                     fontSize: 15),
-                                //             text:
-                                //                 "${Get.find<LandingController>().userInfo['data']['doctorId']['fname']} ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}")
-                                //       ]),
-                                // ),
+
+
                        SizedBox(height: 20.h),
                                 Center(
                                   child: SizedBox(
                                     width: 150.w,
                                     child: CommonElevatedButton(
-                                      onTap: () {
-
-
+                                      onTap: () async {
+                                        await EasyLoading.show();
+                                        await controller.addContactDetails(
+                                            doctorId:Get.find<LandingController>().userInfo['data']['doctorId']["id"]);
+                                        await EasyLoading.dismiss();
                                       },
                                       title: 'Send',
                                       backgroundColor: kPrimaryColor,
@@ -284,14 +190,6 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                   ),
                                 ),
 
-                                // ElevatedButton(
-                                //     style: ElevatedButton.styleFrom(
-                                //       backgroundColor: kPrimaryColor,
-                                //     ),
-                                //     onPressed: () => controller.makePhoneCall(
-                                //         Uri.parse(
-                                //             'tel:${Get.find<LandingController>().userInfo['data']['doctorId']['contact']}')),
-                                //     child: const Text('Call'))
                               ],
                             ),
                           ),

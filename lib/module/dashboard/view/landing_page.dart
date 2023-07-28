@@ -23,71 +23,7 @@ class LandingPage extends StatelessWidget {
   }
 
   buildBottomNavigationMenu(context, LandingController controller) {
-    // return GetPlatform.isAndroid
-    //     ? BottomNavigationBar(
-    //         unselectedItemColor: Colors.white.withOpacity(0.6),
-    //         selectedItemColor: Colors.white,
-    //         backgroundColor: kGreyColor,
-    //         currentIndex: controller.tabIndex,
-    //         onTap: controller.changeTabIndex,
-    //         type: BottomNavigationBarType.fixed,
-    //         items: const [
-    //           BottomNavigationBarItem(
-    //             backgroundColor: Colors.red,
-    //             label: "Record BP",
-    //             icon: Icon(Icons.add),
-    //           ),
-    //           BottomNavigationBarItem(
-    //             label: "View BP History",
-    //             backgroundColor: Colors.red,
-    //             icon: Icon(Icons.search),
-    //           ),
-    //           BottomNavigationBarItem(
-    //             label: "Contact Doctor",
-    //             backgroundColor: Colors.red,
-    //             icon: Icon(Icons.chat),
-    //           ),
-    //           BottomNavigationBarItem(
-    //             label: "View Profile",
-    //             backgroundColor: Colors.red,
-    //             icon: Icon(Icons.account_box),
-    //           ),
-    //         ],
-    //       )
-    //     : CupertinoTabScaffold(
-    //         backgroundColor: kWhiteColor,
-    //         tabBar: CupertinoTabBar(
-    //             height: 54,
-    //             activeColor: kWhiteColor,
-    //             inactiveColor: kWhiteColor!.withOpacity(0.6),
-    //             backgroundColor: kPrimaryColor,
-    //             onTap: controller.changeTabIndex,
-    //             currentIndex: controller.tabIndex,
-    //             items: const [
-    //               BottomNavigationBarItem(
-    //                 label: "Record BP",//Dashboard
-    //                 icon: Icon(Icons.add),
-    //               ),
-    //               BottomNavigationBarItem(
-    //                 label: "View BP History",
-    //                 icon: Icon(Icons.medication),
-    //               ),
-    //               BottomNavigationBarItem(
-    //                 label: "Contact Doctor",
-    //                 icon: Icon(Icons.chat),
-    //               ),
-    //               BottomNavigationBarItem(
-    //                 label: "View Profile",
-    //                 icon: Icon(Icons.account_box),
-    //               ),
-    //             ]),
-    //         tabBuilder: ((context, index) {
-    //           return CupertinoTabView(
-    //             builder: (context) {
-    //               return controller.getPage(index);
-    //             },
-    //           );
-    //         }));
+
     return Container(
       height: 90.h,
       decoration: BoxDecoration(

@@ -61,8 +61,7 @@ class InputTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hintText,
 
-            //filled: true,
-            // fillColor: kSecondaryColor,
+
             contentPadding:
             const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
             focusedBorder: OutlineInputBorder(

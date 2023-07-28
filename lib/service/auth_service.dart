@@ -11,9 +11,7 @@ import 'package:http/http.dart' as http;
 
 class AuthService {
   final Prefrence _prefs = Prefrence.instance;
-  // static String base_url = 'http://3.109.121.178:8080/api';
 
-  // static String base_url = 'http://54.238.218.186:5000/api';
 
   String base_url = 'https://api.houstonepilepsy.com/api';
 

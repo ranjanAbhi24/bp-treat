@@ -91,17 +91,7 @@ class ViewAllRecord extends StatelessWidget {
                                 ),
                                 itemCount: controller.list.length,
                                 itemBuilder: ((context, index) {
-                                  // DateTime parseDate =
-                                  //     DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                                  //         .parse(controller
-                                  //             .list[index].createdAt
-                                  //             .toString());
-                                  // var inputDate =
-                                  //     DateTime.parse(parseDate.toString());
-                                  // var outputFormat =
-                                  //     DateFormat('MM/dd/yyyy hh:mm a');
-                                  // var outputDate =
-                                  //     outputFormat.format(inputDate);
+
                                   return buildRecordTile(
                                     dateTime: controller.list[index].createdAt!
                                         .substring(0, 16),

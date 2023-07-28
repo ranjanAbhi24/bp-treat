@@ -1,11 +1,10 @@
 import 'dart:async';
-
-import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
-import 'package:bp_treat/module/welcome/views/welcom_screen.dart';
+
 import 'package:bp_treat/utils/prefs.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../auth/view/register_screen_1.dart';
@@ -37,7 +36,7 @@ class _WrapperState extends State<Wrapper> {
     } else {
       Timer(const Duration(seconds: 3), () {
         Get.offAll(() => const LandingPage());
-        //Get.to(()=>const ReminderScreen());
+
       });
     }
   }
@@ -52,18 +51,18 @@ class _WrapperState extends State<Wrapper> {
         children: [
           Image.asset(
             "assets/images/app_logo.png",
-            height: size.height * 0.2,
-            width: size.height * 0.4,
+            height: 100.h,
+            width: 100.w,
           ),
-          const SizedBox(
-            height: 10,
+           SizedBox(
+            height: 10.h,
           ),
           const Text(
             "Control Your Hypertension",
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: size.height * 0.1,
+            height: 10.h,
           ),
           const Center(
             child: CircularProgressIndicator(

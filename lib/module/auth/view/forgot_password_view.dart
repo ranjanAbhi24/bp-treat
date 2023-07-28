@@ -1,7 +1,7 @@
 import 'package:bp_treat/module/auth/controller/forgot_password_controller.dart';
 import 'package:bp_treat/module/auth/widget/input_textfield.dart';
 import 'package:bp_treat/utils/app_theme.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -18,7 +18,6 @@ class ForgotPasswordView extends StatelessWidget {
     return SafeArea(
         child:
             Scaffold(
-      // resizeToAvoidBottomInset: false,
       appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.white,
@@ -38,8 +37,8 @@ class ForgotPasswordView extends StatelessWidget {
                 return SingleChildScrollView(
                   child: Container(
                     color: Colors.white,
-                    height: size.height,
-                    width: size.width,
+                    height: 690.h,
+                    width: 360.w,
                     padding: const EdgeInsets.all(12.0),
                     child: Form(
                       key: controller.formKey,
@@ -73,7 +72,7 @@ class ForgotPasswordView extends StatelessWidget {
                                 ),
                                 backgroundColor: kPrimaryColor,
                                 fixedSize: Size(
-                                  size.width,
+                                 360.w,
                                   50,
                                 ),
                               ),
@@ -212,7 +211,7 @@ class ForgotPasswordView extends StatelessWidget {
                                         ),
                                         backgroundColor: kPrimaryColor,
                                         fixedSize: Size(
-                                          size.width,
+                                          360.w,
                                           50,
                                         ),
                                       ),

@@ -2,17 +2,12 @@ import 'package:bp_treat/module/consult/controller/add_health_profile_controller
 import 'package:bp_treat/module/consult/view/add_health_profile_page2.dart';
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
-
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
-
-
 import '../../../utils/app_theme.dart';
-import '../../../utils/size.dart';
+
 
 
 class AddHealthProfile extends StatelessWidget {
@@ -43,7 +38,7 @@ class AddHealthProfile extends StatelessWidget {
                             fontSize: 25.sp
                           ),
                         ),
-                        SizedBox(height: size.height * 0.01),
+                        SizedBox(height: 10.h),
                         Text("Please continue your health profile to get better recommendations.",
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headline4!.copyWith(

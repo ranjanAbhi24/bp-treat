@@ -1,5 +1,5 @@
 import 'package:bp_treat/module/account/view/health_detail_view.dart';
-import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
+
 import 'package:bp_treat/module/consult/view/add_health_profile.dart';
 import 'package:bp_treat/module/contact/binding/chat_binding.dart';
 import 'package:bp_treat/module/contact/view/contact_view.dart';
@@ -24,15 +24,11 @@ import 'package:bp_treat/module/dashboard/view/add_bp_view.dart';
 import 'package:bp_treat/module/dashboard/view/dashboard_view.dart';
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/module/dashboard/view/view_all_record.dart';
-import 'package:bp_treat/module/welcome/views/welcom_screen.dart';
+
 
 class AppRoute {
   AppRoute._();
   static final routes = [
-    GetPage(
-      name: "/welcome",
-      page: () => WelcomeScreen(),
-    ),
     GetPage(
       name: '/login',
       page: () => const LoginScreen(),

@@ -52,14 +52,12 @@ class AddBPController extends GetxController {
       if (_record?.status == "Success") {
         isLoading = false;
         DashboardController controller = Get.find<DashboardController>();
-        // controller.record.clear();
-        // controller.listOfGraphData.clear();
+
         await controller.userRecord();
         await controller.getGraphData();
         await controller.fetchNotification();
-        controller.badgeStatusFn();
-        // Get.offAll(() => const LandingPage());
-      //  Get.back();
+
+
         ApplicationUtils.showSnackBar(
             titleText: _record?.status, messageText: _record?.msg);
       } else {

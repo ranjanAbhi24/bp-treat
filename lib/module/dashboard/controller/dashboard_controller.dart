@@ -78,7 +78,7 @@ class DashboardController extends GetxController {
   Future userRecord() async {
     isLoading = true;
     final patientID = Get.find<LandingController>().userInfo['data']['_id'];
-    print(patientID);
+
     try {
       _patientRecord = await _apiService.getUserRecord(patientID);
       if (_patientRecord?.status == "Success") {
@@ -92,15 +92,14 @@ class DashboardController extends GetxController {
             messageText: _patientRecord?.msg);
       }
     } catch (e) {
-      return print(e.toString());
+    throw Exception(e);
     }
     update();
   }
 
   Future getGraphData({String? dropDownValue}) async {
     final patientID = Get.find<LandingController>().userInfo['data']['_id'];
-    print(patientID);
-    print(dropDownValue);
+
     _graphModel =
         await _apiService.fetchGraph(dropDownValue ?? 'week', patientID);
     if (_graphModel?.status == "Success") {
@@ -132,4 +131,6 @@ class DashboardController extends GetxController {
     userRecord();
     getGraphData();
   }
+
+
 }

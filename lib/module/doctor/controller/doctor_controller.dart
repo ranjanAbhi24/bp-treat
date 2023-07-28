@@ -1,10 +1,6 @@
 import 'dart:convert';
-
-import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
-
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
-import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/module/doctor/model/doctor_model.dart';
 import 'package:bp_treat/module/doctor/model/select_doc.dart';
 import 'package:bp_treat/service/api_service.dart';
@@ -12,7 +8,7 @@ import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:get/get.dart';
 
-import '../view/doctor_virtual_visit.dart';
+
 
 class DoctorController extends GetxController {
   final ApiService _apiService = ApiService();
@@ -41,9 +37,9 @@ class DoctorController extends GetxController {
     update();
   }
 
+
   selectDoc({required String doctorID, required String docRole}) async {
-    print(doctorID);
-    print(docRole);
+
 
     _selectDoctor =
         await _apiService.selectDoctor(doctorID: doctorID, role: docRole);
@@ -53,15 +49,11 @@ class DoctorController extends GetxController {
       ApplicationUtils.showSnackBar(
           titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
 
-      //await _prefs.setDoctorDetails(jsonEncode(_selectDoctor));
+print(_selectDoctor);
       await _prefs.setUserDetails(jsonEncode(_selectDoctor));
-   //   Get.put(AddHealthController());
-   //  Get.find<AddHealthController>().addUserHealthDetail();
-      // await _prefs.setUserDetails(jsonEncode(Get.find<AddHealthController>().addConsent));
       Get.find<LandingController>().getUserDetails();
       Get.offAll(()=>const ReminderScreen());
-      //Get.offAll(()=> const LandingPage());
-      //Get.offAll(() => const DoctorConsultationConsent());
+
     } else {
       ApplicationUtils.showSnackBar(
           titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);

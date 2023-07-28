@@ -1,6 +1,7 @@
 import 'package:bp_treat/utils/app_theme.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommonElevatedButton extends StatelessWidget {
   final String title;
@@ -23,7 +24,7 @@ class CommonElevatedButton extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(32)),
         ),
-        fixedSize: Size(size.width, 50),
+        fixedSize: Size(200.w,50.h),
         textStyle: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.bold,

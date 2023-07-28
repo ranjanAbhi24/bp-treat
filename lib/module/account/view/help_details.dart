@@ -2,7 +2,7 @@ import 'package:bp_treat/module/account/controller/faq_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 
 class HelpView extends StatelessWidget {
   const HelpView({super.key});

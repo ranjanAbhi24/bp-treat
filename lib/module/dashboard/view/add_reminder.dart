@@ -1,15 +1,11 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/dashboard/controller/add_reminder_controller.dart';
-import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../utils/app_theme.dart';
 import 'landing_page.dart';
-
 
 
 class ReminderScreen extends StatelessWidget {
@@ -177,8 +173,8 @@ class ReminderScreen extends StatelessWidget {
                                   children: [
                                     InkWell(
                                       onTap: (){
-                                        controller.selectMeridian("A.M");
-                                        print(controller.meridian);
+                                        controller.selectMeridian("AM");
+
                                       },
                                       child: Container(
                                         height: 30.h,
@@ -186,19 +182,19 @@ class ReminderScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(2),
                                             border: Border.all(color: kGreyColor!),
-                                            color: controller.meridian=="A.M"?Colors.pink[50]:kGreyColor
+                                            color: controller.meridian=="AM"?Colors.pink[50]:kGreyColor
                                         ),
                                         child:  Center(child: Text("AM",
                                           style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                                             color: controller.meridian=="A.M"?kPrimaryColor:kBlackColor
+                                             color: controller.meridian=="AM"?kPrimaryColor:kBlackColor
                                           )
                                         ),),),
                                     ),
                                     SizedBox(width: 5.w,),
                                     InkWell(
                                       onTap: (){
-                                        controller.selectMeridian("P.M");
-                                        print(controller.meridian);
+                                        controller.selectMeridian("PM");
+
                                       },
                                       child: Container(
                                         height: 30.h,
@@ -206,11 +202,11 @@ class ReminderScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(2),
                                             border: Border.all(color: kGreyColor!),
-                                            color: controller.meridian=="P.M"?Colors.pink[50]:kGreyColor
+                                            color: controller.meridian=="Pm"?Colors.pink[50]:kGreyColor
                                         ),
                                         child: Center(child: Text("PM",
                                         style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                                            color: controller.meridian=="P.M"?kPrimaryColor:kBlackColor
+                                            color: controller.meridian=="PM"?kPrimaryColor:kBlackColor
                                         )
                                         ),),),
                                     ),
@@ -306,7 +302,8 @@ class ReminderScreen extends StatelessWidget {
                             width: 180.w,
                             child: CommonElevatedButton(
                                 onTap: (){
-                                  Get.offAll(()=>const LandingPage());
+                                  controller.setReminder();
+
                                 },
                                 title: "Record BP",
                                 backgroundColor: kPrimaryColor,

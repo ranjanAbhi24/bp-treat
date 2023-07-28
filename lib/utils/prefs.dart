@@ -24,11 +24,7 @@ class Prefrence {
 
   }
 
- String getDrDetails() {
-     String? data =  _prefs!.getString('drDetails');
-     debugPrint(data);
-     return data??'';
-  }
+
 
   Future setToken(String? token) async {
     await _prefs!.setString('token', token!);
@@ -68,7 +64,7 @@ class Prefrence {
 
   String? getUserDetails() {
     String? user = _prefs!.getString("userDetails");
-    print('Userrrr $user');
+
 
     return user??'';
   }

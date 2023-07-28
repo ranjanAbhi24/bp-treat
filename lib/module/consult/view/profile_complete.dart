@@ -1,12 +1,11 @@
-import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utils/app_theme.dart';
-import '../../../utils/size.dart';
+
 import '../../doctor/view/doctor_selection_screen.dart';
 import '../../auth/widget/common_elevated_button.dart';
 

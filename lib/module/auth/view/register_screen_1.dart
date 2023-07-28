@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
 
-import '../../../utils/size.dart';
+
 import '../widget/common_elevated_button.dart';
 import '../widget/input_textfield.dart';
 

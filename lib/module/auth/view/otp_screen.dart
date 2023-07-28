@@ -4,9 +4,10 @@ import 'package:bp_treat/module/auth/controller/register_controller.dart';
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -89,13 +90,17 @@ class _OTPScreenState extends State<OTPScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: size.height * 0.1),
-                  CommonElevatedButton(
-                      onTap: () async {
-                        await controller.verifyAndRegister();
-                      },
-                      title: "Get started", backgroundColor: kPrimaryColor,
-                    textColor: kWhiteColor,
+                  SizedBox(height: 20.h),
+                  SizedBox(
+                  width: 200.w,
+                    height: 50.h,
+                    child: CommonElevatedButton(
+                        onTap: () async {
+                          await controller.verifyAndRegister();
+                        },
+                        title: "Get started", backgroundColor: kPrimaryColor,
+                      textColor: kWhiteColor,
+                    ),
                   )
                 ],
               ),

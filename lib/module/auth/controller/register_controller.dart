@@ -1,9 +1,7 @@
-import 'dart:convert';
 
 import 'package:bp_treat/module/auth/model/register.dart';
 import 'package:bp_treat/module/auth/model/send_otp.dart';
 import 'package:bp_treat/module/auth/view/otp_screen.dart';
-import 'package:bp_treat/module/doctor/view/doctor_selection_screen.dart';
 import 'package:bp_treat/service/auth_service.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
@@ -82,16 +80,14 @@ class RegisterController extends GetxController {
         userPassword: passwordController.text,
         userFcmToken: fcmToken,
         userName: "${firstName.text} ${lastName.text}",
-        // userMobile: userPhoneNumberController.text,
-        // userState: userStateController.text,
-        // userZipCode: userZipcodeController.text,
+
         privacyConsent: isChecked ?? true,
       );
 print(_registerUser);
       if (_registerUser?.status == "Success") {
         isLoading = false;
         token = _registerUser?.data?.loginToken;
-        // patientID = _registerUser?.data?.sId;
+
         await _prefs.setToken(token);
 
         await ApplicationUtils.showSnackBar(

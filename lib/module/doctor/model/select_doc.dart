@@ -1,14 +1,15 @@
+
 class SelectDoctor {
   String? msg;
   String? status;
-  Doc? data;
+  Data? data;
 
   SelectDoctor({this.msg, this.status, this.data});
 
   SelectDoctor.fromJson(Map<String, dynamic> json) {
     msg = json['msg'];
     status = json['status'];
-    data = json['data'] != null ? Doc.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -22,20 +23,64 @@ class SelectDoctor {
   }
 }
 
-class Doc {
+class Data {
+  String? sId;
+  Null? zipcode;
+  String? email;
+  Null? consultationConsent;
+  bool? privacyPolicyConsent;
+  String? notificationTime;
+  String? fcmToken;
+  String? loginToken;
+  String? name;
+  String? mobile;
+  Null? state;
   DoctorId? doctorId;
 
-  Doc({
-    this.doctorId,
-  });
+  Data(
+      {this.sId,
+        this.zipcode,
+        this.email,
+        this.consultationConsent,
+        this.privacyPolicyConsent,
+        this.notificationTime,
+        this.fcmToken,
+        this.loginToken,
+        this.name,
+        this.mobile,
+        this.state,
+        this.doctorId});
 
-  Doc.fromJson(Map<String, dynamic> json) {
-    doctorId =
-        json['doctorId'] != null ? DoctorId.fromJson(json['doctorId']) : null;
+  Data.fromJson(Map<String, dynamic> json) {
+    sId = json['_id'];
+    zipcode = json['zipcode'];
+    email = json['email'];
+    consultationConsent = json['consultationConsent'];
+    privacyPolicyConsent = json['privacyPolicyConsent'];
+    notificationTime = json['notificationTime'];
+    fcmToken = json['fcmToken'];
+    loginToken = json['loginToken'];
+    name = json['name'];
+    mobile = json['mobile'];
+    state = json['state'];
+    doctorId = json['doctorId'] != null
+        ? DoctorId.fromJson(json['doctorId'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['zipcode'] = zipcode;
+    data['email'] = email;
+    data['consultationConsent'] = consultationConsent;
+    data['privacyPolicyConsent'] = privacyPolicyConsent;
+    data['notificationTime'] = notificationTime;
+    data['fcmToken'] = fcmToken;
+    data['loginToken'] = loginToken;
+    data['name'] = name;
+    data['mobile'] = mobile;
+    data['state'] = state;
     if (doctorId != null) {
       data['doctorId'] = doctorId!.toJson();
     }
@@ -48,19 +93,19 @@ class DoctorId {
   String? fname;
   String? lname;
   String? email;
-  String? contact;
   String? role;
+  String? contact;
 
   DoctorId(
-      {this.sId, this.fname, this.lname, this.email, this.contact, this.role});
+      {this.sId, this.fname, this.lname, this.email, this.role, this.contact});
 
   DoctorId.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     fname = json['fname'];
     lname = json['lname'];
     email = json['email'];
-    contact = json['contact'];
     role = json['role'];
+    contact = json['contact'];
   }
 
   Map<String, dynamic> toJson() {
@@ -69,8 +114,8 @@ class DoctorId {
     data['fname'] = fname;
     data['lname'] = lname;
     data['email'] = email;
-    data['contact'] = contact;
     data['role'] = role;
+    data['contact'] = contact;
     return data;
   }
 }

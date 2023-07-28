@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
-import '../../../utils/size.dart';
+
 
 
 class AddHealthProfilePage2 extends StatelessWidget {

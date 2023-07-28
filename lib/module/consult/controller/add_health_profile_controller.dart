@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:bp_treat/module/consult/controller/add_profile_controller.dart';
 import 'package:bp_treat/module/consult/view/profile_complete.dart';
@@ -7,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../../utils/prefs.dart';
+
 import '../../../utils/show_snackbar.dart';
 import '../model/add_consent.dart';
 
@@ -17,7 +16,7 @@ class AddHealthController extends GetxController {
   bool isFemale = false;
   AddConsent? addConsent;
   DateTime selectDate = DateTime.now();
-  final Prefrence _prefs = Prefrence.instance;
+
   late TextEditingController feetController;
   late TextEditingController inchesController;
   late TextEditingController allergiesController;
@@ -76,9 +75,7 @@ class AddHealthController extends GetxController {
          isSmoker: selectedIndexesL1.contains(0)
 
      );
-     print("isSmoker-${selectedIndexesL1.contains(0)}");
-     print("zipCode-${Get.find<AddProfileController>().zipCodeController.text}");
-print(addConsent);
+
      if(addConsent?.status == "Success"){
         isLoading = false;
         ApplicationUtils.showSnackBar(
@@ -190,11 +187,11 @@ update();
   void selectGender(value) {
     select_gender = value;
     if (select_gender == "male") {
-      print(select_gender);
+
       isMale = true;
       isFemale = false;
     } else if (select_gender == "Female") {
-      print(select_gender);
+
       isFemale = true;
       isMale = false;
     }

@@ -4,12 +4,12 @@ import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/model/user_record.dart';
 import 'package:bp_treat/module/dashboard/view/add_bp_view.dart';
 import 'package:bp_treat/module/dashboard/view/graph_widget.dart';
-import 'package:bp_treat/module/dashboard/view/notification_view.dart';
+
 import 'package:bp_treat/module/dashboard/view/view_all_record.dart';
 import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/prefs.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,124 +47,7 @@ class DashBoardView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // Row(
-                          //   children: [
-                          //     // Text(
-                          //     //     "Hello, ${landingcontroller.userInfo['data']['name'] ?? "user"}",
-                          //     //     style: Theme.of(context)
-                          //     //         .textTheme
-                          //     //         .headline2
-                          //     //         ?.copyWith(fontSize: 14)),
-                          //     const SizedBox(width: 6),
-                          //     Image.asset('assets/images/waving_hand.png'),
-                          //     const Spacer(),
-                          //     GestureDetector(
-                          //         onTap: () async {
-                          //           await _prefs.setBadgeStatus(false);
-                          //           Get.to(() => const NotificationView());
-                          //         },
-                          //         child: badge.Badge(
-                          //           showBadge: controller.badgeStatus == true
-                          //               ? true
-                          //               : false,
-                          //           position:
-                          //               badge.BadgePosition.topEnd(top: 0, end: 1),
-                          //           animationType: badge.BadgeAnimationType.scale,
-                          //           badgeContent: null,
-                          //           child: Image.asset(
-                          //               'assets/images/notification.png'),
-                          //         )),
-                          //   ],
-                          // ),
-                        //  Divider(color: Colors.black.withOpacity(0.5)),
-                        //   Row(
-                        //     children: [
-                        //       Text(
-                        //         'Tracker',
-                        //         style: Theme.of(context).textTheme.headline2,
-                        //       ),
-                        //       const SizedBox(width: 10),
-                        //       Container(
-                        //         padding: const EdgeInsets.symmetric(horizontal: 10),
-                        //         decoration: BoxDecoration(
-                        //           color: kPrimaryColor?.withOpacity(0.15),
-                        //           borderRadius: const BorderRadius.all(
-                        //             Radius.circular(12),
-                        //           ),
-                        //         ),
-                        //         child: Row(
-                        //           mainAxisAlignment: MainAxisAlignment.center,
-                        //           children: [
-                        //             DropdownButton<String>(
-                        //                 elevation: 0,
-                        //                 value: controller.dropDownValue,
-                        //                 underline: const SizedBox.shrink(),
-                        //                 icon: CircleAvatar(
-                        //                   backgroundColor: const Color(0XFFF49DA2)
-                        //                       .withOpacity(0.4),
-                        //                   radius: 14,
-                        //                   child: const Icon(
-                        //                     Icons.keyboard_arrow_down,
-                        //                     color: Colors.black,
-                        //                   ),
-                        //                 ),
-                        //                 items: controller.items.map((String items) {
-                        //                   return DropdownMenuItem(
-                        //                     value: items,
-                        //                     child: Text(
-                        //                       items,
-                        //                     ),
-                        //                   );
-                        //                 }).toList(),
-                        //                 onChanged: (value) => controller
-                        //                     .onChangeValue(value ?? 'hour')),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //       const Spacer(),
-                        //       FittedBox(
-                        //         child: ElevatedButton(
-                        //           style: ElevatedButton.styleFrom(
-                        //             backgroundColor: kPrimaryColor,
-                        //             shape: const RoundedRectangleBorder(
-                        //               borderRadius:
-                        //                   BorderRadius.all(Radius.circular(8)),
-                        //             ),
-                        //           ),
-                        //           onPressed: () {
-                        //             Get.to(() => const AddBPView());
-                        //           },
-                        //           child: Row(
-                        //             children: const [
-                        //               Icon(Icons.add),
-                        //               Text(
-                        //                 'Add',
-                        //               ),
-                        //             ],
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        //  const SizedBox(height: 14),
-                          // Row(
-                          //   mainAxisSize: MainAxisSize.min,
-                          //   children: const [
-                          //     CircleAvatar(
-                          //       radius: 8,
-                          //       backgroundColor: Color(0xff53e422),
-                          //     ),
-                          //     SizedBox(width: 4),
-                          //     Text('Systolic'),
-                          //     SizedBox(width: 40),
-                          //     CircleAvatar(
-                          //       radius: 8,
-                          //       backgroundColor: Color(0xffff5722),
-                          //     ),
-                          //     SizedBox(width: 4),
-                          //     Text('Diastolic'),
-                          //   ],
-                          // ),
+
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -373,9 +256,9 @@ class DashBoardView extends StatelessWidget {
                           const SizedBox(height: 10),
                           Expanded(
                             child: Container(
-                              // padding: const EdgeInsets.symmetric(horizontal: 8),
+
                               decoration: BoxDecoration(
-                               // color: const Color(0XFFF49DA2).withOpacity(0.15),
+
                                 borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(12),
                                   topRight: Radius.circular(12),
@@ -386,13 +269,12 @@ class DashBoardView extends StatelessWidget {
                                 children: [
                                   Container(
                                     height: 50,
-                                    width: size.width,
+                                    width: 360.w,
                                     padding:
                                         const EdgeInsets.symmetric(horizontal: 10),
                                     decoration: BoxDecoration(
                                       border: Border.all(color: kGreyColor!),
-                                    //  color:
-                                          //const Color(0XFFF49DA2).withOpacity(0.5),
+
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(12),
                                         topRight: Radius.circular(12),
@@ -419,25 +301,6 @@ class DashBoardView extends StatelessWidget {
                                             itemBuilder: ((context, index) {
                                               Record record =
                                                   controller.record[index];
-
-                                                print(record.createdAt);
-
-                                              // DateTime parseDate = DateFormat(
-                                              //                                               //         "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                                              //                                               //     .parse(
-                                              //                                               //         record.createdAt.toString());
-                                              // DateTime parseDate = DateFormat(
-                                              //         'M-DD-YY HH:MI:SS')
-                                              //     .parse(
-                                              //         record.createdAt.toString());
-                                              // print(
-                                              //     "PD : ${record.createdAt.toString().split(':')}");
-                                              // var inputDate = DateTime.parse(
-                                              //     parseDate.toString());
-                                              // var outputFormat =
-                                              //     DateFormat('MM/dd/yyyy hh:mm a');
-                                              // var outputDate =
-                                              //     outputFormat.format(inputDate);
                                               return buildRecordTile(
                                                 dateTime: record.createdAt!
                                                     .substring(0, 16),

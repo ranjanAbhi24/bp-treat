@@ -1,9 +1,9 @@
 import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/dashboard/controller/add_bp_controller.dart';
-import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
+
 import 'package:bp_treat/module/dashboard/view/menu_view.dart';
 import 'package:bp_treat/utils/app_theme.dart';
-import 'package:bp_treat/utils/size.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +22,7 @@ class AddBPView extends StatefulWidget {
 
 class _AddBPViewState extends State<AddBPView> {
  var dashboardController= Get.put(DashboardController());
+
   bool valuee = false;
   @override
   Widget build(BuildContext context) {
@@ -37,31 +38,8 @@ backgroundColor: kWhiteColor,
                 child: ListView(
                   // crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Row(
-                    //   children: [
-                    //     IconButton(
-                    //       icon: const Icon(Icons.arrow_back),
-                    //       onPressed: () {
-                    //         Get.back();
-                    //       },
-                    //     ),
-                    //     // Text(
-                    //     //     "Hello, ${Get.find<LandingController>().userInfo['data']['name']}",
-                    //     //     style: Theme.of(context).textTheme.headline2),
-                    //     const SizedBox(width: 6),
-                    //     Image.asset('assets/images/waving_hand.png'),
-                    //     const Spacer(),
-                    //     IconButton(
-                    //       icon: const Icon(Icons.info_rounded),
-                    //       onPressed: () {
-                    //         showAlertDialog(context);
-                    //       },
-                    //     ),
-                    //   ],
-                    // ),
-                    // Divider(
-                    //   color: Colors.black38.withOpacity(0.4),
-                    // ),
+
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,9 +95,7 @@ textAlign: TextAlign.center,
                       padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
                       height: 230.h,
                       decoration: BoxDecoration(
-                        // color: valuee == true
-                        //     ? kBlackColor
-                        //     : const Color(0XFFE2F5F6),
+
                         border: Border.all(color: kGreyColor!),
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -315,47 +291,7 @@ textAlign: TextAlign.center,
                         ],
                       ),
                     ),
-                 //   const SizedBox(height: 20),
-                    // Text('Note',
-                    //     style: Theme.of(context)
-                    //         .textTheme
-                    //         .headline2
-                    //         ?.copyWith(color: kBlackColor?.withOpacity(0.7))),
-                   // const SizedBox(height: 10),
-                    // TextField(
-                    //   controller: controller.noteController,
-                    //   decoration: InputDecoration(
-                    //       enabled: true,
-                    //       enabledBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color: kTealColor!),
-                    //       ),
-                    //       focusedBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color: kTealColor!),
-                    //       ),
-                    //       hintText: 'Description',
-                    //       hintStyle: Theme.of(context)
-                    //           .textTheme
-                    //           .subtitle1
-                    //           ?.copyWith(
-                    //               fontSize: 13,
-                    //               fontWeight: FontWeight.w500,
-                    //               color: kBlackColor?.withOpacity(0.4)),
-                    //       suffixIcon: Container(
-                    //         margin: const EdgeInsets.all(8),
-                    //         decoration: BoxDecoration(
-                    //           color: kTealColor,
-                    //           borderRadius: BorderRadius.circular(8),
-                    //         ),
-                    //         child: Image.asset(
-                    //           'assets/images/notes-medical.png',
-                    //           color: kWhiteColor,
-                    //         ),
-                    //       ),
-                    //       border: OutlineInputBorder(
-                    //         borderRadius: BorderRadius.circular(6),
-                    //       )),
-                    // ),
-                   // SizedBox(height: size.height * 0.2),
+
                     SizedBox(height: 90.h,),
                     Center(
                       child: SizedBox(

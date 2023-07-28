@@ -1,5 +1,5 @@
 import 'package:bp_treat/module/auth/controller/login_controller.dart';
-import 'package:bp_treat/module/auth/view/register_screen.dart';
+
 import 'package:bp_treat/module/auth/view/register_screen_1.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/size.dart';
+
 import '../widget/common_elevated_button.dart';
 import '../widget/email_form_field.dart';
 import '../widget/password_form_field.dart';
