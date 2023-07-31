@@ -17,6 +17,9 @@ import 'package:bp_treat/utils/prefs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
+import '../module/medicine/model/medicine.dart';
+import '../module/medicine/model/prescribtion_status.dart';
+
 class ApiService {
   Prefrence prefs = Prefrence.instance;
 
@@ -499,6 +502,56 @@ class ApiService {
       }
     } catch (e) {
       throw e.toString();
+    }
+  }
+
+  fetchPrescribtion(String patientID) async {
+    var token = prefs.getToken();
+    Uri url = Uri.parse("$base_url/get-user-prescription?patientId=$patientID");
+    try {
+      Map<String, String> header = {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": 'Bearer $token',
+      };
+      http.Response response =
+      await http.get(url, headers: header).catchError((err) {
+        debugPrint(err);
+      });
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        MedicineReport report =
+        MedicineReport.fromJson(jsonDecode(response.body));
+        return report;
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  changePrescriptionStatus(String prescriptionId) async {
+    var token = prefs.getToken();
+    Uri url = Uri.parse(
+        '$base_url/prescription-viewed?prescriptionId=$prescriptionId');
+    try {
+      Map<String, String> header = {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": 'Bearer $token',
+      };
+
+      http.Response response =
+      await http.post(url, headers: header).catchError((err) {
+        debugPrint(err);
+      });
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        PrescribtionStatus status =
+        PrescribtionStatus.fromJson(jsonDecode(response.body));
+        return status;
+      }
+    } catch (e) {
+      debugPrint("catch error $e");
     }
   }
 

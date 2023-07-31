@@ -23,7 +23,6 @@ final Function() onTap;
           border: Border.all(color: kGreyColor!)
       ),
       child: ListTile(
-
         onTap: onTap,
         leading: Image.asset(
           fit: BoxFit.cover,

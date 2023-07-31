@@ -68,6 +68,7 @@ class AuthService {
       http.Response response =
           await http.post(url, body: jsonEncode(body), headers: header);
       if (response.statusCode == 200 || response.statusCode == 201) {
+        debugPrint(response.body);
         SendOtp otpData = SendOtp.fromJson(jsonDecode(response.body));
         debugPrint("otpData : ${otpData.msg}");
         return otpData;

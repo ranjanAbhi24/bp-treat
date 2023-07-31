@@ -27,6 +27,7 @@ import 'package:bp_treat/module/dashboard/view/view_all_record.dart';
 
 
 class AppRoute {
+
   AppRoute._();
   static final routes = [
     GetPage(

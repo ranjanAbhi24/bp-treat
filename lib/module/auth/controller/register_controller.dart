@@ -42,7 +42,7 @@ class RegisterController extends GetxController {
   sendOtp() async {
     isLoading = true;
     _sendOtp = await _auth.sendOtpToEmail(emailController.text);
-    print("email---${emailController.text}");
+
     if (_sendOtp?.status == "Success") {
       isLoading = false;
       Get.to(() => const OTPScreen());

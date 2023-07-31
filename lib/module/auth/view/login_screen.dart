@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                     left: 16,
                     right: 16,
-                    top: 16,
+                    top: 15,
                     bottom: MediaQuery.of(context).viewInsets.bottom.h
                 ),
                 child: Center(
@@ -106,19 +106,7 @@ class LoginScreen extends StatelessWidget {
                                 ],
                               ),
 
-                               SizedBox(height: 40.h),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Text("Did you forgot your email?",
-                                    style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                                        decoration: TextDecoration.underline,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: kBlackColor
 
-                                    )
-                                ),
-                              ),
                              SizedBox(height: 20.h),
                               Align(
                                 alignment: Alignment.center,

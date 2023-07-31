@@ -202,7 +202,7 @@ class ReminderScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(2),
                                             border: Border.all(color: kGreyColor!),
-                                            color: controller.meridian=="Pm"?Colors.pink[50]:kGreyColor
+                                            color: controller.meridian=="PM"?Colors.pink[50]:kGreyColor
                                         ),
                                         child: Center(child: Text("PM",
                                         style: Theme.of(context).textTheme.subtitle1!.copyWith(
@@ -230,72 +230,72 @@ class ReminderScreen extends StatelessWidget {
 
                           ],
                         ),
+                        // SizedBox(
+                        //   height: 20.h,
+                        // ),
+                        // Text("How would you like to receive your reminders?",
+                        //     style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        //         color: kBlackColor,
+                        //         fontSize: 13.sp
+                        //     )),
+                        // SizedBox(height: 10.h,),
+                        // Row(
+                        //   children: [
+                        //     Row(
+                        //       crossAxisAlignment: CrossAxisAlignment.center,
+                        //       mainAxisAlignment: MainAxisAlignment.center,
+                        //       children: [
+                        //         InkWell(
+                        //           onTap: (){
+                        //             controller.selectValue("Text");
+                        //           },
+                        //           child: Container(
+                        //             width: 100.w,
+                        //             height: 50.h,
+                        //             decoration: BoxDecoration(
+                        //               borderRadius: BorderRadius.circular(12),
+                        //               color: controller.selected_value=="Text"?kPrimaryColor:kGreyColor,
+                        //             ),
+                        //
+                        //             child:   Center(
+                        //               child: Text("Text",
+                        //               style: TextStyle(
+                        //                 color: controller.selected_value=="Text"?kWhiteColor:kBlackColor
+                        //               ),
+                        //               ),
+                        //             ),
+                        //           ),
+                        //         ),
+                        //
+                        //         SizedBox(width: 20.w,),
+                        //         InkWell(
+                        //           onTap: (){
+                        //             controller.selectValue("In app");
+                        //           },
+                        //           child: Container(
+                        //             width: 100.w,
+                        //             height: 50.h,
+                        //             decoration: BoxDecoration(
+                        //               borderRadius: BorderRadius.circular(12),
+                        //
+                        //               color: controller.selected_value=="In app"?kPrimaryColor:kGreyColor,
+                        //             ),
+                        //
+                        //             child:   Center(
+                        //               child: Text("In app",
+                        //               style: TextStyle(
+                        //                   color: controller.selected_value=="In app"?kWhiteColor:kBlackColor
+                        //               ),
+                        //               ),
+                        //             ),
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ],
+                        // ),
                         SizedBox(
-                          height: 20.h,
-                        ),
-                        Text("How would you like to receive your reminders?",
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                color: kBlackColor,
-                                fontSize: 13.sp
-                            )),
-                        SizedBox(height: 10.h,),
-                        Row(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                InkWell(
-                                  onTap: (){
-                                    controller.selectValue("Text");
-                                  },
-                                  child: Container(
-                                    width: 100.w,
-                                    height: 50.h,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-                                      color: controller.selected_value=="Text"?kPrimaryColor:kGreyColor,
-                                    ),
-
-                                    child:   Center(
-                                      child: Text("Text",
-                                      style: TextStyle(
-                                        color: controller.selected_value=="Text"?kWhiteColor:kBlackColor
-                                      ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                                SizedBox(width: 20.w,),
-                                InkWell(
-                                  onTap: (){
-                                    controller.selectValue("In app");
-                                  },
-                                  child: Container(
-                                    width: 100.w,
-                                    height: 50.h,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-
-                                      color: controller.selected_value=="In app"?kPrimaryColor:kGreyColor,
-                                    ),
-
-                                    child:   Center(
-                                      child: Text("In app",
-                                      style: TextStyle(
-                                          color: controller.selected_value=="In app"?kWhiteColor:kBlackColor
-                                      ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
+                          height: 40.h,
                         ),
                         Center(
                           child: SizedBox(
@@ -303,7 +303,6 @@ class ReminderScreen extends StatelessWidget {
                             child: CommonElevatedButton(
                                 onTap: (){
                                   controller.setReminder();
-
                                 },
                                 title: "Record BP",
                                 backgroundColor: kPrimaryColor,

@@ -78,7 +78,7 @@ class AddReminderController extends GetxController{
     // print("${date.hour}:${date.minute}");
     var time = "${hourController.text}:${minuteController.text}$meridian";
     print(time);
-    _setReminder =   await _apiService.addReminder(period: dropdown1,time: time,type: selected_value);
+    _setReminder =   await _apiService.addReminder(period: dropdown1,time: time,type: "In App");
   if(_setReminder?.status == "Success"){
     ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
     Get.offAll(()=>const LandingPage());
