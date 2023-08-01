@@ -1,3 +1,4 @@
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,7 +24,11 @@ final Color selectedColor;
           border: Border.all(color: selectedColor),
         ),
         child:  Center(
-          child: Text(text),
+          child: Text(text,
+          style: Theme.of(context)!.textTheme.bodyText1!.copyWith(
+            color: kBlackColor
+          ),
+          ),
         ),
       ),
     );

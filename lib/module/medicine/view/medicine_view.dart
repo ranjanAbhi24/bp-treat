@@ -23,20 +23,27 @@ class MedicineView extends StatelessWidget {
                 )
               : SafeArea(
                 child: Scaffold(
+
                     backgroundColor: kPrimaryColor?.withOpacity(0.1),
                     body: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 12),
-                              child: Text(
-                                'Medication',
-                                style: Theme.of(context).textTheme.headline1,
-                              ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  padding:EdgeInsets.zero,
+                                    onPressed: (){
+                                    Get.back();
+                                    }, icon: const Icon(Icons.arrow_back)),
+                                Text(
+                                  'Medication',
+                                  style: Theme.of(context).textTheme.headline1,
+                                ),
+                              ],
                             ),
-                            const SizedBox(height: 10),
+                          //  const SizedBox(height: 10),
                             Expanded(
                               child: controller.reportList.isEmpty
                                   ? Container(

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
 
-import '../../auth/widget/common_elevated_button.dart';
+import '../../../widget/common_elevated_button.dart';
 
 class AddHealthProfilePage4 extends StatefulWidget {
   const AddHealthProfilePage4({super.key});
@@ -23,13 +23,24 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
     return SafeArea(
         child:
             Scaffold(
+              appBar: AppBar(
+                backgroundColor: kWhiteColor,
+                elevation: 0,
+                leading: IconButton(
+                  onPressed: (){
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.arrow_back),
+                  color: kBlackColor,
+                ),
+              ),
               backgroundColor: kWhiteColor,
       body: GetBuilder<AddHealthController>(
               init: AddHealthController(),
               builder: (controller) {
                 return SingleChildScrollView(
                     child: Container(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.only(left: 30,right: 30,bottom: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

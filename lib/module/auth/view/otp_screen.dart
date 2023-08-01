@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bp_treat/module/auth/controller/register_controller.dart';
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
 

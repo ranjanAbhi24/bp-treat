@@ -1,6 +1,6 @@
 import 'package:bp_treat/module/account/controller/basic_detail_controller.dart';
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
-import 'package:bp_treat/module/auth/widget/input_textfield.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/input_textfield.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
 

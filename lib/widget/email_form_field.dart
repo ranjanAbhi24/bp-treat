@@ -1,3 +1,4 @@
+import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,9 @@ class EmailFormField extends StatelessWidget {
         return null;
       },
       decoration: InputDecoration(
-
+errorStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+  color: kPrimaryColor
+),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
         enabledBorder: OutlineInputBorder(

@@ -8,9 +8,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 
-import '../widget/common_elevated_button.dart';
-import '../widget/email_form_field.dart';
-import '../widget/password_form_field.dart';
+import '../../../widget/common_elevated_button.dart';
+import '../../../widget/email_form_field.dart';
+import '../../../widget/password_form_field.dart';
 import 'forgot_password_view.dart';
 
 

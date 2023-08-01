@@ -1,5 +1,5 @@
 import 'package:bp_treat/module/auth/controller/forgot_password_controller.dart';
-import 'package:bp_treat/module/auth/widget/input_textfield.dart';
+import 'package:bp_treat/widget/input_textfield.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
 import 'package:flutter/material.dart';

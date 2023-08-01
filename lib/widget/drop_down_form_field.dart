@@ -26,7 +26,10 @@ class DropDownFormField extends StatelessWidget {
       children: [
         Text(
           text,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme!.bodyText1!.copyWith(
+            color: kBlackColor,
+          )
+
         ),
         const SizedBox(height: 10),
         FormField<String>(
@@ -37,15 +40,13 @@ class DropDownFormField extends StatelessWidget {
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 5.0, horizontal: 10.0),
-                    filled: true,
-                    fillColor: kSecondaryColor,
-                    // labelStyle: textStyle,
-                    errorStyle: const TextStyle(
-                        color: Colors.redAccent, fontSize: 16.0),
+                    errorStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+                      color: kPrimaryColor
+                    ),
                     hintText: title,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: BorderSide(color: kBlackColor!),
                     ),
                   ),
                   isEmpty: isEmpty,

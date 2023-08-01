@@ -1,7 +1,7 @@
 import 'package:bp_treat/module/consult/controller/add_profile_controller.dart';
 import 'package:bp_treat/module/consult/view/add_health_profile.dart';
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
-import 'package:bp_treat/module/auth/widget/input_textfield.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/input_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -19,18 +19,29 @@ class AddPersonalProfile extends StatelessWidget {
     return SafeArea(
         child:
         Scaffold(
+            appBar: AppBar(
+              backgroundColor: kWhiteColor,
+              elevation: 0,
+              leading: IconButton(
+                onPressed: (){
+                  Get.back();
+                },
+                icon: const Icon(Icons.arrow_back),
+                color: kBlackColor,
+              ),
+            ),
               backgroundColor: kWhiteColor,
               body: GetBuilder<AddProfileController>(
                 init: AddProfileController(),
                 builder: (controller){
                   return SingleChildScrollView(
                     child: Container(
-                      padding: const EdgeInsets.all(30),
+                      padding: const EdgeInsets.only(left: 30,right: 30),
                       child: Center(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            SizedBox(height: 20.h),
+
                             Image.asset(
                               "assets/images/app_icon2.png",
                                 height: 90.h,

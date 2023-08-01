@@ -39,13 +39,9 @@ class InputTextField extends StatelessWidget {
       children: [
         Text(
           text,
-          style: const TextStyle(
-            // color: kBlackColor?.withOpacity(0.6),
-            color: Colors.black,
-            fontSize: 15,
-            fontWeight: FontWeight.w600,
-            fontFamily: "Montserrat",
-          ),
+          style: Theme.of(context).textTheme!.bodyText1!.copyWith(
+            color: kBlackColor
+          )
         ),
         const SizedBox(height: 10),
         TextFormField(
@@ -60,8 +56,9 @@ class InputTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
-
-
+            errorStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
+              color: kPrimaryColor,
+            ),
             contentPadding:
             const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
             focusedBorder: OutlineInputBorder(

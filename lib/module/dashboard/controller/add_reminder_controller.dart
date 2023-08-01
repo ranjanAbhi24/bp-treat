@@ -80,7 +80,7 @@ class AddReminderController extends GetxController{
     print(time);
     _setReminder =   await _apiService.addReminder(period: dropdown1,time: time,type: "In App");
   if(_setReminder?.status == "Success"){
-    ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
+    //ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
     Get.offAll(()=>const LandingPage());
   }else{
     ApplicationUtils.showSnackBar(titleText: "Fail!!", messageText: _setReminder?.msg);

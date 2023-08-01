@@ -1,4 +1,4 @@
-import 'package:bp_treat/module/dashboard/widget/common_list_tile.dart';
+import 'package:bp_treat/widget/common_list_tile.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,24 +18,24 @@ class MenuDialog {
       return SafeArea(
         child: Container(
           color: Colors.red[100],
-           padding: const EdgeInsets.all(10),
+          padding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
               Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(width: 110.w,),
                 Image.asset(
-                    "assets/images/app_logo.png",
-                    height: 110.h,
+                    "assets/icons/app_logo2.png",
+                    height: 150.h,
                     width: 100.w,
 
                 ),
 SizedBox(
-  width: 50.w,
+  width: 60.w,
 ),
 
                 Container(
@@ -46,34 +46,35 @@ SizedBox(
                   child: IconButton(onPressed: (){
                     Get.back();
                   },
+                      padding: const EdgeInsets.all(2),
                       icon: const Icon(Icons.close)
                   ),
                 )
                 ],
               ),
 
-              buildListTile(
+              BuildListTile(
                   title: "About BP Treat",
                   image: "assets/icons/about_us.png",
                   onTap: (){
                     Get.to(() => const AboutUsView());
                   }),
               SizedBox(height: 5.h,),
-              buildListTile(
+              BuildListTile(
                   title: "FAQ",
                   image: "assets/icons/help_icon.png",
                   onTap: (){
                     Get.to(() => const HelpView());
                   }),
               SizedBox(height: 5.h,),
-              buildListTile(
+              BuildListTile(
                   title: "Videos",
                   image: "assets/icons/video.png",
                   onTap: (){
                     Get.to(() => const VideoList());
                   }),
               SizedBox(height: 5.h,),
-              buildListTile(
+              BuildListTile(
                   title: "Privacy Policy",
                   image: "assets/icons/privacy.png",
                   onTap: (){
@@ -83,7 +84,7 @@ SizedBox(
                                   mode: LaunchMode.platformDefault);
                   }),
               SizedBox(height: 5.h,),
-              buildListTile(
+              BuildListTile(
                   title: "Terms of Service",
                   image: "assets/icons/privacy.png",
                   onTap: (){

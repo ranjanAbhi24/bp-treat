@@ -1,7 +1,7 @@
 import 'package:bp_treat/module/account/controller/health_detail_controller.dart';
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
-import 'package:bp_treat/module/auth/widget/input_textfield.dart';
-import 'package:bp_treat/module/consult/widget/Drop_down_form_field.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/input_textfield.dart';
+
 
 import 'package:bp_treat/utils/app_theme.dart';
 
@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../../../widget/drop_down_form_field.dart';
 
 class HealthDetailView extends StatelessWidget {
   const HealthDetailView({super.key});
@@ -73,7 +75,7 @@ class HealthDetailView extends StatelessWidget {
                             // ),
                             DropDownFormField(
                               title: '',
-                              text: 'Diabetes*',
+                              text: 'Diabetes',
                               value:
                                   controller.isDiabetic == true ? "Yes" : "No",
                               isEmpty: true,
@@ -108,96 +110,7 @@ class HealthDetailView extends StatelessWidget {
                                 validator: (value) {},
                                 text: "Allergies"),
                         SizedBox(height: 10.h),
-                            // Row(
-                            //   children: [
-                            //     Expanded(
-                            //       child: InputTextField(
-                            //           hintText: '00',
-                            //           inputType: TextInputType.number,
-                            //           controller:
-                            //               controller.hematocritController,
-                            //           validator: (value) {
-                            //             if (value.isEmpty) {
-                            //               return 'Required*';
-                            //             } else {
-                            //               return null;
-                            //             }
-                            //           },
-                            //           text: "Hematocrit"),
-                            //     ),
-                            //     const SizedBox(width: 10),
-                            //     Expanded(
-                            //       child: InputTextField(
-                            //           hintText: '00',
-                            //           inputType: TextInputType.number,
-                            //           controller:
-                            //               controller.creatinineController,
-                            //           validator: (value) {
-                            //             if (value.isEmpty) {
-                            //               return 'Required*';
-                            //             } else {
-                            //               return null;
-                            //             }
-                            //           },
-                            //           text: "Creatinine"),
-                            //     ),
-                            //   ],
-                            // ),
-                          //  const SizedBox(height: 10),
-                            // Row(
-                            //   children: [
-                            //     Expanded(
-                            //       child: InputTextField(
-                            //           hintText: '00',
-                            //           inputType: TextInputType.number,
-                            //           controller: controller.calciumController,
-                            //           validator: (value) {
-                            //             if (value.isEmpty) {
-                            //               return 'Required*';
-                            //             } else {
-                            //               return null;
-                            //             }
-                            //           },
-                            //           text: "Calcium"),
-                            //     ),
-                            //     const SizedBox(width: 10),
-                            //     Expanded(
-                            //       child: InputTextField(
-                            //           hintText: '00',
-                            //           inputType: TextInputType.number,
-                            //           controller: controller.albuminController,
-                            //           validator: (value) {
-                            //             if (value.isEmpty) {
-                            //               return 'Required*';
-                            //             } else {
-                            //               return null;
-                            //             }
-                            //           },
-                            //           text: "Albumin"),
-                            //     ),
-                            //   ],
-                            // ),
-                          //  const SizedBox(height: 10),
-                          //   Text('Narcotics',
-                          //     style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                          //         color: kBlackColor
-                          //     ),
-                          //   ),
-                          //   SizedBox(height: 10.h),
-                          //   Container(
-                          //     padding: const EdgeInsets.only(left: 10,right: 10),
-                          //     decoration: BoxDecoration(
-                          //       border: Border.all(color: Colors.black),
-                          //       borderRadius: BorderRadius.circular(12),
-                          //     ),
-                          //     child: DropDownWidget(
-                          //         dropdownValue: controller.isNarcotics == true
-                          //                 ? "Yes"
-                          //                 : "No",
-                          //         items: controller.listOfOption, onChange:
-                          //     controller.onNarcotics,
-                          //     ),
-                          //   ),
+
                             DropDownFormField(
                               title: '',
                               text: 'Narcotics?',

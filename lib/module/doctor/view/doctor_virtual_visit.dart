@@ -1,4 +1,4 @@
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,11 +15,23 @@ class DoctorVirtualVisit extends StatelessWidget {
     var arguments= Get.arguments;
     return SafeArea(
         child: Scaffold(
+          backgroundColor: kWhiteColor,
+            appBar: AppBar(
+              backgroundColor: kWhiteColor,
+              elevation: 0,
+              leading: IconButton(
+                onPressed: (){
+                  Get.back();
+                },
+                icon: const Icon(Icons.arrow_back),
+                color: kBlackColor,
+              ),
+            ),
           body: GetBuilder<DoctorController>(
             init: DoctorController(),
             builder: (controller){
               return Container(
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.only(left: 30,right: 30,bottom: 20),
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

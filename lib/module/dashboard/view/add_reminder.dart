@@ -1,6 +1,6 @@
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/dashboard/controller/add_reminder_controller.dart';
-import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
+import 'package:bp_treat/widget/common_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -15,17 +15,29 @@ class ReminderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: kWhiteColor,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: (){
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back),
+            color: kBlackColor,
+          ),
+        ),
         backgroundColor: kWhiteColor,
           body: SingleChildScrollView(
             child: GetBuilder<AddReminderController>(
               init: AddReminderController(),
               builder: (controller){
                 return Container(
-                  padding: const EdgeInsets.all(30),
+                  padding: const EdgeInsets.only(left: 30,right: 30),
                   child: Center(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+
                         Center(
                           child: Image.asset(
                               "assets/images/app_icon2.png",
@@ -89,6 +101,7 @@ class ReminderScreen extends StatelessWidget {
                                   color: kGreyColor,
                                   child: Center(
                                     child: TextField(
+                                      keyboardType: TextInputType.number,
                                       cursorColor: kBlackColor,
                                       controller: controller.hourController,
                                       textAlign: TextAlign.center,
@@ -141,6 +154,7 @@ class ReminderScreen extends StatelessWidget {
                                   color: kGreyColor,
                                   child: Center(
                                     child: TextField(
+                                      keyboardType: TextInputType.number,
                                       cursorColor: kBlackColor,
                                       controller: controller.minuteController,
                                       textAlign: TextAlign.center,

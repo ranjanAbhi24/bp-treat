@@ -9,8 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../utils/app_theme.dart';
 import '../../../utils/show_snackbar.dart';
 
-import '../widget/common_elevated_button.dart';
-import '../widget/input_textfield.dart';
+import '../../../widget/common_elevated_button.dart';
+import '../../../widget/input_textfield.dart';
 
 
 class RegisterScreen extends StatelessWidget {
@@ -20,6 +20,17 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 //
     return SafeArea(child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: kWhiteColor,
+          elevation: 0,
+          leading: IconButton(
+            onPressed: (){
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back),
+            color: kBlackColor,
+          ),
+        ),
       backgroundColor: kWhiteColor,
       resizeToAvoidBottomInset: false,
       body:
@@ -31,7 +42,6 @@ class RegisterScreen extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: 16,
                       right: 16,
-                      top: 16,
                       bottom: MediaQuery.of(context).viewInsets.bottom.h
                   ),
                   child: Center(
@@ -39,7 +49,7 @@ class RegisterScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 40.h),
+                        //SizedBox(height: 40.h),
                         Image.asset(
                           "assets/images/app_icon2.png",
                             height: 90.h,
@@ -216,10 +226,10 @@ class RegisterScreen extends StatelessWidget {
                                     title: 'Continue',
                                     onTap: controller.isChecked == false
                                         ? () {
-                                      ApplicationUtils.showSnackBar(
-                                          titleText: 'Error',
-                                          messageText:
-                                          'Please accept our terms and Privacy Policy to continue.');
+                                      // ApplicationUtils.showSnackBar(
+                                      //     titleText: 'Error',
+                                      //     messageText:
+                                      //     'Please accept our terms and Privacy Policy to continue.');
                                     }
                                         : () async {
                                       if (controller.formKey.currentState!
@@ -228,7 +238,8 @@ class RegisterScreen extends StatelessWidget {
                                         await controller.sendOtp();
                                         EasyLoading.dismiss();
                                       }
-                                    }, backgroundColor: kPrimaryColor, textColor: kWhiteColor,
+                                    }, backgroundColor: controller.isChecked!?
+                                   kPrimaryColor:kGreyColor, textColor: kWhiteColor
                                   ),
                                 ),
                               ],

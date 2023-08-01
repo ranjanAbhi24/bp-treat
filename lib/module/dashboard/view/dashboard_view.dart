@@ -6,7 +6,7 @@ import 'package:bp_treat/module/dashboard/view/add_bp_view.dart';
 import 'package:bp_treat/module/dashboard/view/graph_widget.dart';
 
 import 'package:bp_treat/module/dashboard/view/view_all_record.dart';
-import 'package:bp_treat/module/dashboard/widget/common_dropdown.dart';
+import 'package:bp_treat/widget/common_dropdown.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/prefs.dart';
 
@@ -18,6 +18,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../widget/common_header.dart';
 import 'menu_view.dart';
 
 class DashBoardView extends StatelessWidget {
@@ -40,38 +41,39 @@ class DashBoardView extends StatelessWidget {
                 )
               : SingleChildScrollView(
                 child: Padding(
-                    padding: const EdgeInsets.only(top: 12, left: 15, right: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                     child: SizedBox(
                       height: 690.h,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 250.w,
-                                child: Text("View Blood Pressure History",
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context).textTheme.headline1!.copyWith(
-                                        color: kBlackColor,
-                                        fontSize: 25.sp
-                                    )
-                                ),
-                              ),
-
-                              IconButton(
-                                onPressed: (){
-                                  MenuDialog().openMenuDialog();
-                                }, icon: const Icon(Icons.menu,
-                                size: 40,),
-
-                              )
-                            ],
-                          ),
+                          const CommonHeader(title: 'View Blood Pressure History',),
+                          //
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   crossAxisAlignment: CrossAxisAlignment.start,
+                          //   children: [
+                          //     SizedBox(
+                          //       width: 250.w,
+                          //       child: Text("View Blood Pressure History",
+                          //           textAlign: TextAlign.center,
+                          //           style: Theme.of(context).textTheme.headline1!.copyWith(
+                          //               color: kBlackColor,
+                          //               fontSize: 25.sp
+                          //           )
+                          //       ),
+                          //     ),
+                          //
+                          //     IconButton(
+                          //       onPressed: (){
+                          //         MenuDialog().openMenuDialog();
+                          //       }, icon: const Icon(Icons.menu,
+                          //       size: 40,),
+                          //
+                          //     )
+                          //   ],
+                          // ),
                          SizedBox(height: 20.h),
                           Row(
 

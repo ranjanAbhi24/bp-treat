@@ -1,7 +1,8 @@
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'doctor_virtual_visit.dart';
@@ -20,13 +21,23 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
     return SafeArea(
       child:
           Scaffold(
-
+              appBar: AppBar(
+                backgroundColor: kWhiteColor,
+                elevation: 0,
+                leading: IconButton(
+                  onPressed: (){
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.arrow_back),
+                  color: kBlackColor,
+                ),
+              ),
               backgroundColor: kWhiteColor,
               body: GetBuilder<DoctorController>(
                   init: DoctorController(),
                   builder: (controller) {
                     return Container(
-                      padding: const EdgeInsets.all(12),
+                      padding: const EdgeInsets.only(left: 12,right: 12,bottom: 20),
                       child: Column(
                         children: [
 
@@ -63,6 +74,7 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
 SizedBox(
   height: 20.h,
 ),
+                          controller.listOfDoctor.isEmpty? const Center(child: CircularProgressIndicator()):
                           Expanded(
                             child: ListView.builder(
                               shrinkWrap: true,

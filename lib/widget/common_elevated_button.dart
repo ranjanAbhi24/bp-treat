@@ -34,12 +34,9 @@ class CommonElevatedButton extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         title,
-       style: TextStyle(
-          fontSize: 16.0,
-          fontWeight: FontWeight.bold,
-          color: textColor,
-        ),
-      ),
+       style: Theme.of(context).textTheme.bodyText1!.copyWith(
+         color: kWhiteColor
+       ))
     );
   }
 }

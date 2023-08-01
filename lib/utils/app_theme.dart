@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 
 Color? kPrimaryColor = const Color(0xFFDF1721);
 Color? kWhiteColor = const Color(0XFFFFFFFF);
@@ -8,7 +10,10 @@ Color? kTealColor = const Color(0XFF28B59D);
 Color? kGreyColor = const Color(0xFFE0E0E0);
 Color? kOrangeAccentColor = const Color(0xFFFFD0B3);
 
+
+
 ThemeData themeData() {
+
   return ThemeData(
     fontFamily: 'Montserrat',
     primaryColor: kBlackColor,

@@ -128,13 +128,19 @@ class AboutUsView extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Text(
-                'Created by Steven Goldstein, MD',
-                style: Theme.of(context).textTheme.bodyText1,
+              Center(
+                child: Text(
+                  'Created by Steven Goldstein, MD',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
               ),
-              Text(
-                'Board Certified in Internal Medicine and Neurology',
-                style: Theme.of(context).textTheme.bodyText2,
+              Center(
+                child: Text(
+                  'Board Certified in Internal Medicine and Neurology',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
               ),
               const SizedBox(height: 20),
             ],

@@ -1,7 +1,6 @@
-import 'package:bp_treat/module/auth/widget/common_elevated_button.dart';
+import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/dashboard/controller/add_bp_controller.dart';
 
-import 'package:bp_treat/module/dashboard/view/menu_view.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../widget/common_header.dart';
 import '../controller/dashboard_controller.dart';
 
 class AddBPView extends StatefulWidget {
@@ -36,33 +36,11 @@ backgroundColor: kWhiteColor,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 child: ListView(
-                  // crossAxisAlignment: CrossAxisAlignment.stretch,
+
                   children: [
+                    const CommonHeader(title: 'Record Blood Pressure',
+                      ),
 
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: 250.w,
-                          child: Text("Record Blood Pressure",
-textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline1!.copyWith(
-                            color: kBlackColor,
-                            fontSize: 25.sp
-                          )
-                          ),
-                        ),
-                        IconButton(
-                            onPressed: (){
-                              MenuDialog().openMenuDialog();
-                            }, icon: const Icon(Icons.menu,
-                        size: 40,),
-
-                        )
-                      ],
-                    ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +57,7 @@ textAlign: TextAlign.center,
                           child: Text(
                             "Learn how to take your blood pressure",
 
-                            style: Theme.of(context).textTheme!.bodyText2!.copyWith(
+                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               color: kBlackColor,
                               fontWeight: FontWeight.w400,
                               decoration: TextDecoration.underline

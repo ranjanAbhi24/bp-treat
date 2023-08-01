@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../utils/app_theme.dart';
+import '../utils/app_theme.dart';
 
 
-class buildListTile extends StatelessWidget {
-  const buildListTile({super.key,
+class BuildListTile extends StatelessWidget {
+  const BuildListTile({super.key,
     required this.title,
     required this.image,
     required  this.onTap
@@ -31,13 +32,12 @@ final Function() onTap;
         ),
         title: Text(
           title,
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.w500,
+          style: Theme.of(context).textTheme!.bodyText2!.copyWith(
             color: kBlackColor,
-          ),
-        ),
-
+            fontSize: 15.sp,
+            fontWeight: FontWeight.w500
+          )
+        )
       ),
     );
   }

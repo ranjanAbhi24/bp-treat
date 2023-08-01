@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 
 import '../../../utils/app_theme.dart';
 
-import '../../auth/widget/common_elevated_button.dart';
-import '../../auth/widget/pin_code_textfild.dart';
+import '../../../widget/common_elevated_button.dart';
+import '../../../widget/pin_code_textfild.dart';
 import 'add_health_profile_page4.dart';
 
 
@@ -19,13 +19,24 @@ class AddHealthProfilePage3 extends StatelessWidget {
     return SafeArea(
         child:
           Scaffold(
+              appBar: AppBar(
+                backgroundColor: kWhiteColor,
+                elevation: 0,
+                leading: IconButton(
+                  onPressed: (){
+                    Get.back();
+                  },
+                  icon: const Icon(Icons.arrow_back),
+                  color: kBlackColor,
+                ),
+              ),
             backgroundColor: kWhiteColor,
       body:GetBuilder<AddHealthController>(
             init: AddHealthController(),
             builder: (controller){
               return SingleChildScrollView(
                 child: Container(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.only(left: 30,right: 30,bottom: 20),
                   child: Center(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
