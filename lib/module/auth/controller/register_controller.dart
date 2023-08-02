@@ -13,7 +13,7 @@ import '../../consult/view/add_personal_profile.dart';
 class RegisterController extends GetxController {
   final AuthService _auth = AuthService();
   final Prefrence _prefs = Prefrence.instance;
-  late TextEditingController userNameController;
+//  late TextEditingController userNameController;
   late TextEditingController emailController;
   late TextEditingController userPhoneNumberController;
   late TextEditingController userZipcodeController;
@@ -72,6 +72,7 @@ class RegisterController extends GetxController {
 
   verifyAndRegister() async {
     String fcmToken = _prefs.getFCMToken();
+
     try {
       isLoading = true;
       _registerUser = await _auth.verifyOtpAndRegister(
@@ -128,7 +129,7 @@ print(_registerUser);
     super.onInit();
     firstName=TextEditingController();
     lastName=TextEditingController();
-    userNameController = TextEditingController();
+    //userNameController = TextEditingController();
 
     emailController = TextEditingController();
     userPhoneNumberController = TextEditingController();
@@ -145,7 +146,7 @@ print(_registerUser);
   @override
   void dispose() {
     super.dispose();
-    userNameController.dispose();
+   // userNameController.dispose();
     emailController.dispose();
     firstName.dispose();
     lastName.dispose();

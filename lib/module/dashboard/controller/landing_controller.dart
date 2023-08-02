@@ -35,9 +35,11 @@ dynamic doctorInfo;
 
   getUserDetails() {
     final jsonData = _prefs.getUserDetails();
+    print("data--$jsonData");
     if(jsonData!.isNotEmpty){
       userInfo = json.decode(jsonData);
     }
+    print(userInfo);
    // print("prefs data : ${userInfo['data']["_id"]}");
 update();
   }

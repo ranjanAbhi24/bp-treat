@@ -90,6 +90,7 @@ class AuthService {
     required bool privacyConsent,
   }) async {
     try {
+      debugPrint(userFcmToken);
       final Uri uri = Uri.parse("$base_url/register");
       Map<String, dynamic> body = {
         'email': userEmail,

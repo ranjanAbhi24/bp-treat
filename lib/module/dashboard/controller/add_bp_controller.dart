@@ -45,7 +45,7 @@ class AddBPController extends GetxController {
         systolicBPValue,
         diastolicBPValue,
         pulseValue,
-        noteController.text,
+       // noteController.text,
         'IOS',
         deviceToken,
       );

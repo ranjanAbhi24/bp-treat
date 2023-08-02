@@ -78,7 +78,7 @@ class DashboardController extends GetxController {
   Future userRecord() async {
     isLoading = true;
     final patientID = Get.find<LandingController>().userInfo['data']['_id'];
-
+     print("patient id -$patientID");
     try {
       _patientRecord = await _apiService.getUserRecord(patientID);
       if (_patientRecord?.status == "Success") {
@@ -92,6 +92,7 @@ class DashboardController extends GetxController {
             messageText: _patientRecord?.msg);
       }
     } catch (e) {
+      print("patient --$_patientRecord");
     throw Exception(e);
     }
     update();

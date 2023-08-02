@@ -57,6 +57,7 @@ class ApiService {
 
   Future<UserRecord> getUserRecord(String patientID) async {
     var token = prefs.getToken();
+    print("user -$token");
     try {
       Uri url = Uri.parse("$base_url/get-record?patientId=$patientID");
 
@@ -71,19 +72,23 @@ class ApiService {
           await http.get(url, headers: header).catchError((err) {
         debugPrint("error :$err");
       });
-
+      print("userRecord - ${response.body}");
       if (response.statusCode == 200 || response.statusCode == 201) {
         UserRecord record = UserRecord.fromJson(jsonDecode(response.body));
+        print("userRecord - ${response.body}");
         return record;
       } else {
+
         return UserRecord();
       }
     } catch (e) {
+
       throw Exception(e);
     }
   }
 
-  postUserRecord(int systolic, int diastolic, int pulse, String note,
+  postUserRecord(int systolic, int diastolic, int pulse,
+      //String note,
       String deviceType, String deviceToken) async {
     var token = prefs.getToken();
     Uri url = Uri.parse("$base_url/add-record");
@@ -92,7 +97,7 @@ class ApiService {
         "systolic": systolic,
         "diastolic": diastolic,
         "pulse": pulse,
-        "note": note,
+        "note": "",
         "deviceType": deviceType = "IOS",
         "deviceToken": deviceToken,
       };
@@ -106,9 +111,13 @@ class ApiService {
           await http.post(url, headers: header, body: jsonEncode(body));
       if (response.statusCode == 200 || response.statusCode == 201) {
         AddRecord addRecord = AddRecord.fromJson(jsonDecode(response.body));
+        debugPrint("add record - ${response.body}");
         return addRecord;
+      }else{
+        debugPrint("${response.statusCode}");
       }
     } catch (e) {
+
       debugPrint(e.toString());
       return e;
     }
@@ -179,6 +188,7 @@ class ApiService {
         return newData;
       }
     } catch (e) {
+
       debugPrint("catch Errorrrr : ${e.toString()}");
     }
   }
@@ -496,7 +506,7 @@ class ApiService {
       debugPrint("Body : $body");
       if (response.statusCode == 200 || response.statusCode == 201) {
         SelectDoctor docRes = SelectDoctor.fromJson(jsonDecode(response.body));
-
+         debugPrint(response.body);
         return docRes;
 
       }

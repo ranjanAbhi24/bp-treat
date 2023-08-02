@@ -114,7 +114,7 @@ SizedBox(
                                    onTap: ()  async {
 
                                  Get.to(()=> const DoctorVirtualVisit(),
-                                 arguments: [controller.docName??'Dr.Steven Goldstein',controller.docContact],
+                                 arguments: [controller.docName??'Dr.Steven Goldstein',controller.docContact??'281-481-4236'],
                                  );
                                    },
                                    title: "Continue",

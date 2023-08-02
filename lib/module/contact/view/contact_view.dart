@@ -186,6 +186,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                           await controller.addContactDetails(
                                               doctorId:Get.find<LandingController>().userInfo['data']['doctorId']["id"]);
                                           await EasyLoading.dismiss();
+                                          controller.descriptionController.clear();
                                         },
                                         title: 'Send',
                                         backgroundColor: kPrimaryColor,
