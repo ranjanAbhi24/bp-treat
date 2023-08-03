@@ -78,8 +78,8 @@ class ApiService {
         print("userRecord - ${response.body}");
         return record;
       } else {
-
         return UserRecord();
+
       }
     } catch (e) {
 

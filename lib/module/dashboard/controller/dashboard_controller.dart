@@ -36,7 +36,7 @@ class DashboardController extends GetxController {
   final List<Record> _record = [];
   List<Record> get record => _record;
 
-  String dropDownValue = '24 hour';
+  String dropDownValue = '7 days';
   bool badgeStatus = false;
 
   List<String> items = [

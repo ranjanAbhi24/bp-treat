@@ -107,9 +107,11 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                         ),
                                       ),
                                       title:
+                                      // Get.find<LandingController>().userInfo['data']['doctorID'] != ""?
+                                      //     const Text(""):
                                       Text(
-                                          "${Get.find<LandingController>().userInfo['data']['doctorId']['fname']}"
-                                           " ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}",
+                                         " ${Get.find<LandingController>().userInfo['data']['doctorId']['fname']}"
+                                           " ${Get.find<LandingController>().userInfo['data']['doctorId']['lname']}"??"",
 
                                           style: TextStyle(
                                               color:
@@ -187,6 +189,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                               doctorId:Get.find<LandingController>().userInfo['data']['doctorId']["id"]);
                                           await EasyLoading.dismiss();
                                           controller.descriptionController.clear();
+                                          FocusManager.instance.primaryFocus?.unfocus();
                                         },
                                         title: 'Send',
                                         backgroundColor: kPrimaryColor,

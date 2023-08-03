@@ -72,7 +72,7 @@ class RegisterController extends GetxController {
 
   verifyAndRegister() async {
     String fcmToken = _prefs.getFCMToken();
-
+debugPrint(fcmToken);
     try {
       isLoading = true;
       _registerUser = await _auth.verifyOtpAndRegister(
@@ -88,6 +88,7 @@ print(_registerUser);
       if (_registerUser?.status == "Success") {
         isLoading = false;
         token = _registerUser?.data?.loginToken;
+print(token);
 
         await _prefs.setToken(token);
 

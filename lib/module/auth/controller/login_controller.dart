@@ -12,6 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../consult/view/add_personal_profile.dart';
 import '../../dashboard/controller/landing_controller.dart';
 
 class LoginController extends GetxController {
@@ -49,9 +50,19 @@ class LoginController extends GetxController {
         await _prefs.setToken(token);
          await _prefs.setUserDetails(userData);
 
-        Get.find<LandingController>().getUserDetails();
 
-       Get.offAll(() => const LandingPage());
+     Get.find<LandingController>().getUserDetails();
+        Get.offAll(() => const LandingPage());
+    // if(Get.find<LandingController>().userInfo['data']['doctorId'] != {
+    //
+    // })
+
+     // if(userData['data']!=){
+     //   Get.offAll(() => const LandingPage());
+     // }
+     //   else {
+     //     Get.to(()=>const AddPersonalProfile());
+     // }
 
       } else {
         isLoading = false;
