@@ -26,7 +26,8 @@ class HealthDetailController extends GetxController {
   late TextEditingController tshController;
   late GlobalKey<FormState> formKey;
   List<String> listOfOption = ['Yes', 'No'];
-  List<String> alcoholOption = ['0/day', '1/day', '2/day', 'more than 2/day'];
+  //List<String> alcoholOption = ['0/day', '1/day', '2/day','3/day' ,'more than 3/day'];
+  List<String> alcoholOption = ["0/day", "1/day", '2/day', "3/day","more than 3/day"];
 
   bool? isHeroin = false;
   String? heroineValue = 'No';
@@ -82,8 +83,22 @@ class HealthDetailController extends GetxController {
 
   onAlcoholicChange(String? value) {
     alcoholic = value;
-    debugPrint('$alcoholic || $value');
+   // alcoholic = value;
+    if (alcoholic == "0/day") {
+      alcoholic = "0/day";
+    } else if (alcoholic == "1/day") {
+      alcoholic = "1/day";
+    } else if (alcoholic == '2/day') {
+      alcoholic = "2/day";
+    } else if(alcoholic == '3/day'){
+      alcoholic = "3/day";
+    }
+    else {
+      alcoholic= "more than 3/day";
+    }
     update();
+    debugPrint('$alcoholic || $value');
+
   }
 
   onNarcotics(String? value) {

@@ -36,7 +36,7 @@ class Doctor {
   String? email;
   String? contact;
   String? state;
-  String? zipcode;
+  dynamic zipcode;
 
   Doctor(
       {this.sId,

@@ -359,7 +359,7 @@ class ApiService {
         "consultationConsent": isConsent,
         "mobile": mobile,
         "state": state,
-        "zip": zipcode,
+        "zipcode": zipcode,
       };
       Map<String, String> header = {
         'Content-type': 'application/json',

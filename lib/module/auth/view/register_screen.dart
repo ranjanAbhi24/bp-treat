@@ -56,14 +56,12 @@ class RegisterScreen extends StatelessWidget {
                             width: 100.w
                         ),
                         Text("Hello ${controller.firstName.text}!",
-                          style: Theme.of(context).textTheme.headline1!.copyWith(
-                              fontSize: 22.sp
-                          ),
+                          style: Theme.of(context).textTheme.headline1!
                         ),
                         Text("Let's create your account.",
-                          style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                          style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Colors.black,
-                            fontSize: 14.sp
+                           // fontSize: 14.sp
                           ),
                         ),
                         SizedBox(
@@ -168,9 +166,9 @@ class RegisterScreen extends StatelessWidget {
                                                 text: "I agree to",
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .bodyText2
+                                                    .subtitle2
                                                     ?.copyWith(
-                                                    fontSize: 12,
+                                                 //   fontSize: 12,
                                                     color:
                                                     kBlackColor?.withOpacity(0.8)),
                                                 children: [
@@ -178,10 +176,10 @@ class RegisterScreen extends StatelessWidget {
                                                       text: "\tTerms and Conditions",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .bodyText2
+                                                          .subtitle2
                                                           ?.copyWith(
                                                           decoration: TextDecoration.underline,
-                                                          fontSize: 13,
+                                                        //  fontSize: 13,
                                                           color: kBlackColor?.withOpacity(0.8)
                                                       )
                                                   ),
@@ -189,10 +187,10 @@ class RegisterScreen extends StatelessWidget {
                                                       text: "\tand\t",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .bodyText2
+                                                          .subtitle2
                                                           ?.copyWith(
 
-                                                          fontSize: 12,
+                                                       //   fontSize: 12,
                                                           color: kBlackColor?.withOpacity(0.8)
                                                       )),
                                                   TextSpan(
@@ -206,10 +204,10 @@ class RegisterScreen extends StatelessWidget {
                                                       text: " Privacy Policy",
                                                       style: Theme.of(context)
                                                           .textTheme
-                                                          .bodyText2
+                                                          .subtitle2
                                                           ?.copyWith(
                                                           decoration: TextDecoration.underline,
-                                                          fontSize: 13,
+                                                         // fontSize: 13,
                                                           color: kBlackColor?.withOpacity(0.8)
                                                       ))
                                                 ])),

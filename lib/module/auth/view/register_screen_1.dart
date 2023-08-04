@@ -49,9 +49,9 @@ class RegisterScreen1 extends StatelessWidget {
                               " monitor your blood pressure to get "
                               "treatment,should you need it",
                          textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline4!.copyWith(
+                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 15.sp,
+                               // fontSize: 15.sp,
                                 color: kBlackColor
                             ),
                           ),
@@ -103,7 +103,7 @@ class RegisterScreen1 extends StatelessWidget {
                                     child: Text("Already have an account?",
                                     style: Theme.of(context).textTheme.subtitle2!.copyWith(
                                       decoration: TextDecoration.underline,
-                                      fontSize: 14,
+                                     // fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                       color: kBlackColor
 

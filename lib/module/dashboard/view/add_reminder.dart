@@ -48,7 +48,7 @@ class ReminderScreen extends StatelessWidget {
                         Center(
                           child: Text("Reminders",
                             style: Theme.of(context).textTheme.headline1!.copyWith(
-                                fontSize: 25.sp
+                                //fontSize: 25.sp
                             ),
                           ),
                         ),
@@ -56,9 +56,9 @@ class ReminderScreen extends StatelessWidget {
                         Center(
                           child: Text("Let's set a reminder for when you are past due for taking your blood pressure.",
                             textAlign: TextAlign.start,
-                            style: Theme.of(context).textTheme.headline4!.copyWith(
+                            style: Theme.of(context).textTheme.subtitle2!.copyWith(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 14.sp,
+                               // fontSize: 14.sp,
                                 color: kBlackColor?.withOpacity(0.9)
                             ),
                           ),

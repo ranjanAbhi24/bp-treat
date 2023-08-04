@@ -41,23 +41,20 @@ class AddPersonalProfile extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-
                             Image.asset(
                               "assets/images/app_icon2.png",
                                 height: 90.h,
                                 width: 100.w
                             ),
                             Text("Your Personal Profile",
-                              style: Theme.of(context).textTheme.headline1!.copyWith(
-                                  fontSize: 25.sp
-                              ),
+                              style: Theme.of(context).textTheme.headline1
                             ),
                             SizedBox(height: 10.h),
                             Text("Let's complete your personal profile so that a doctor may contact you.",
                               textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.headline4!.copyWith(
+                              style: Theme.of(context).textTheme.subtitle1!.copyWith(
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 14.sp,
+                                //  fontSize: 14.sp,
                                   color: kBlackColor?.withOpacity(0.8)
                               ),
                             ),

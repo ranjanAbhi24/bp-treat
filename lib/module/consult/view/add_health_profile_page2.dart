@@ -50,17 +50,15 @@ class AddHealthProfilePage2 extends StatelessWidget {
                         ),
                         Center(
                           child: Text("Health Profile (2 of 4)",
-                            style: Theme.of(context).textTheme.headline1!.copyWith(
-                                fontSize: 25.sp
-                            ),
+                            style: Theme.of(context).textTheme.headline1!
                           ),
                         ),
                         SizedBox(height: 5.h),
                         Text("Please continue your health profile to get better recommendations.",
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline4!.copyWith(
+                          style: Theme.of(context).textTheme.subtitle1!.copyWith(
                               fontWeight: FontWeight.w600,
-                              fontSize: 13.sp,
+                              //fontSize: 13.sp,
                               color: kBlackColor?.withOpacity(0.8)
                           ),
                         ),

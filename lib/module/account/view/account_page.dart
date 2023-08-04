@@ -4,6 +4,7 @@ import 'package:bp_treat/module/account/controller/account_controller.dart';
 import 'package:bp_treat/module/account/view/basic_detail_page.dart';
 import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
 import 'package:bp_treat/module/dashboard/view/menu_view.dart';
+import 'package:bp_treat/module/doctor/view/doctor_view.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -63,14 +64,14 @@ class AccountPage extends StatelessWidget {
                             title: 'Blood Pressure Prescriptions',
                             image: "assets/icons/about_us.png",
                             onTap: () {
-Get.to(()=>const MedicineView());
+                              Get.to(()=>const MedicineView());
                             }),
                         SizedBox(height: 10.h,),
                         BuildListTile(
                             title: 'Doctor',
                             image: "assets/icons/help_icon.png",
                             onTap: () {
-                             // Get.to(() => const HelpView());
+                              Get.to(() => const ListOfDoctors());
                             }),
 
                         SizedBox(height: 10.h,),

@@ -26,7 +26,7 @@ class CommonElevatedButton extends StatelessWidget {
         ),
         fixedSize: Size(200.w,50.h),
         textStyle: TextStyle(
-          fontSize: 16.0,
+
           fontWeight: FontWeight.bold,
           color: textColor
         ),

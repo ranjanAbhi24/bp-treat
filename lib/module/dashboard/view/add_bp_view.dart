@@ -300,11 +300,11 @@ backgroundColor: kWhiteColor,
         builder: (BuildContext context) {
           return const AlertDialog(
             content: Text(
-              "If you have any type of emergency or you are feeling unconsious then you should call 911 or seek immediate help of physician.",
+              "If you have any type of emergency or you are feeling unconscious then you should call 911 or seek immediate help of physician.",
               style: TextStyle(
                   color: Colors.black,
                   fontFamily: "Montserrat-Medium",
-                  fontSize: 12,
+                  //fontSize: 12,
                   fontWeight: FontWeight.bold),
             ),
           );

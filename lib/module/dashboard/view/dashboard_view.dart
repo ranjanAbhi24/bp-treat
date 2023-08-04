@@ -83,9 +83,9 @@ class DashBoardView extends StatelessWidget {
                               ),
                               SizedBox(width: 10.w,),
                               GestureDetector(
-                                onTap: ()  {
-                                  // await launchUrl(Uri.parse(
-                                  //     ""));
+                                onTap: ()  async {
+                                  await launchUrl(Uri.parse(
+                                      "https://youtube.com/watch?v=WTz0nARAxpA&feature=sharec"));
                                 },
                                 child: Text(
                                   "What is high blood pressure?",

@@ -110,12 +110,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Montserrat
+    - family: Roboto
       fonts:
-         - asset: fonts/Montserrat-Bold.otf
-         - asset: fonts/Montserrat-Medium.otf
-         - asset: fonts/Montserrat-Regular.otf
-         - asset: fonts/Montserrat-Thin.otf
+         - asset: fonts/Roboto-Bold.ttf
+         - asset: fonts/Roboto-Medium.ttf
+         - asset: fonts/Roboto-Regular.ttf
+         - asset: fonts/Roboto-Thin.ttf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

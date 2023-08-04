@@ -38,7 +38,7 @@ class CommonHeader extends StatelessWidget {
             textAlign: TextAlign.center,
                             style: Theme.of(context).textTheme.headline1!.copyWith(
                               color: kBlackColor,
-                              fontSize: 25.sp
+                             // fontSize: 25.sp
                             )
           ),
         ),

@@ -25,7 +25,6 @@ class SelectDoctor {
 
 class Data {
   String? sId;
-  Null? zipcode;
   String? email;
   Null? consultationConsent;
   bool? privacyPolicyConsent;
@@ -33,13 +32,13 @@ class Data {
   String? fcmToken;
   String? loginToken;
   String? name;
+  DoctorId? doctorId;
   String? mobile;
   Null? state;
-  DoctorId? doctorId;
+  int? zipcode;
 
   Data(
       {this.sId,
-        this.zipcode,
         this.email,
         this.consultationConsent,
         this.privacyPolicyConsent,
@@ -47,13 +46,13 @@ class Data {
         this.fcmToken,
         this.loginToken,
         this.name,
+        this.doctorId,
         this.mobile,
         this.state,
-        this.doctorId});
+        this.zipcode});
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
-    zipcode = json['zipcode'];
     email = json['email'];
     consultationConsent = json['consultationConsent'];
     privacyPolicyConsent = json['privacyPolicyConsent'];
@@ -61,17 +60,17 @@ class Data {
     fcmToken = json['fcmToken'];
     loginToken = json['loginToken'];
     name = json['name'];
-    mobile = json['mobile'];
-    state = json['state'];
     doctorId = json['doctorId'] != null
         ? DoctorId.fromJson(json['doctorId'])
         : null;
+    mobile = json['mobile'];
+    state = json['state'];
+    zipcode = json['zipcode'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['_id'] = sId;
-    data['zipcode'] = zipcode;
     data['email'] = email;
     data['consultationConsent'] = consultationConsent;
     data['privacyPolicyConsent'] = privacyPolicyConsent;
@@ -79,11 +78,12 @@ class Data {
     data['fcmToken'] = fcmToken;
     data['loginToken'] = loginToken;
     data['name'] = name;
-    data['mobile'] = mobile;
-    data['state'] = state;
     if (doctorId != null) {
       data['doctorId'] = doctorId!.toJson();
     }
+    data['mobile'] = mobile;
+    data['state'] = state;
+    data['zipcode'] = zipcode;
     return data;
   }
 }
@@ -93,19 +93,19 @@ class DoctorId {
   String? fname;
   String? lname;
   String? email;
-  String? role;
   String? contact;
+  String? role;
 
   DoctorId(
-      {this.sId, this.fname, this.lname, this.email, this.role, this.contact});
+      {this.sId, this.fname, this.lname, this.email, this.contact, this.role});
 
   DoctorId.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     fname = json['fname'];
     lname = json['lname'];
     email = json['email'];
-    role = json['role'];
     contact = json['contact'];
+    role = json['role'];
   }
 
   Map<String, dynamic> toJson() {
@@ -114,8 +114,8 @@ class DoctorId {
     data['fname'] = fname;
     data['lname'] = lname;
     data['email'] = email;
-    data['role'] = role;
     data['contact'] = contact;
+    data['role'] = role;
     return data;
   }
 }

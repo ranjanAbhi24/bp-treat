@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bp_treat/module/auth/model/user.dart';
+import 'package:bp_treat/module/consult/view/profile_complete.dart';
 
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/service/auth_service.dart';
@@ -50,12 +51,21 @@ class LoginController extends GetxController {
         await _prefs.setToken(token);
          await _prefs.setUserDetails(userData);
 
+        if(Get.find<LandingController>().userInfo != null){
+          debugPrint("kkk-${jsonEncode(Get.find<LandingController>().userInfo['data'])}");
+            Get.find<LandingController>().getUserDetails();
+            Get.offAll(() => const LandingPage());
+          print("not null");
+        }else{
+          print("null");
+          Get.to(()=>const AddPersonalProfile());
+        }
 
-     Get.find<LandingController>().getUserDetails();
-        Get.offAll(() => const LandingPage());
-    // if(Get.find<LandingController>().userInfo['data']['doctorId'] != {
-    //
-    // })
+   //  Get.find<LandingController>().getUserDetails();
+
+
+     //   Get.offAll(() => const LandingPage());
+
 
      // if(userData['data']!=){
      //   Get.offAll(() => const LandingPage());

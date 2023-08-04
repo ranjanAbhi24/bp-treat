@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                           height: 90.h,
                           width: 100.w
                       ),
-                      Text("Log in to BP Treat",
+                      Text("Login to BP Treat",
                         style: Theme.of(context).textTheme.headline1!.copyWith(
                           fontSize: 25.sp
                         ),
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline4!.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: 15.sp,
+                          //  fontSize: 15.sp,
                             color: kBlackColor?.withOpacity(0.8)
                         ),
                       ),
@@ -74,7 +74,9 @@ class LoginScreen extends StatelessWidget {
                                   Text(
                                     "Email",
 
-                                    style: Theme.of(context).textTheme.headline2,
+                                    style: Theme.of(context).textTheme.headline2!.copyWith(
+                                      fontSize: 16.sp
+                                    ),
                                   ),
                                   const SizedBox(height: 10),
                                   SizedBox(
@@ -92,7 +94,9 @@ class LoginScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     "Password",
-                                    style: Theme.of(context).textTheme.headline2,
+                                    style: Theme.of(context).textTheme.headline2!.copyWith(
+                                        fontSize: 16.sp
+                                    ),
                                   ),
                                    SizedBox(height: 10.h),
                                   SizedBox(
@@ -114,10 +118,10 @@ class LoginScreen extends StatelessWidget {
                                   onPressed: () {
                                     Get.to(() => const ForgotPasswordView());
                                   },
-                                  child: Text("Did you forgot your password?",
+                                  child: Text("Did you forget your password?",
                                       style: Theme.of(context).textTheme.subtitle2!.copyWith(
                                           decoration: TextDecoration.underline,
-                                          fontSize: 14,
+                                         // fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                           color: kBlackColor
 
@@ -135,10 +139,9 @@ class LoginScreen extends StatelessWidget {
                                   child: Text("Create new account",
                                       style: Theme.of(context).textTheme.subtitle2!.copyWith(
                                           decoration: TextDecoration.underline,
-                                          fontSize: 14,
+                                        //  fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                           color: kBlackColor
-
                                       )
                                   ),
                                 ),
@@ -149,7 +152,7 @@ class LoginScreen extends StatelessWidget {
                                 child: SizedBox(
                                   width: 200.w,
                                    child: CommonElevatedButton(
-                                    title: 'Log In',
+                                    title: 'Login',
                                     onTap: () async {
                                       if (controller.loginFormKey.currentState!.validate()) {
                                         EasyLoading.show(status: 'Logging');
@@ -160,7 +163,7 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-
+SizedBox(height: 20.h,)
                             ],
                           )
                       )

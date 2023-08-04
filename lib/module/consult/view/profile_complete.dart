@@ -44,14 +44,14 @@ class ProfileComplete extends StatelessWidget {
                     ),
                     Text("Profile Complete",
                       style: Theme.of(context).textTheme.headline1!.copyWith(
-                          fontSize: 25.sp
+                         // fontSize: 25.sp
                       ),
                     ),
                     Image.asset(
                       "assets/images/welcome_three.png",
                     ),
                      Text("Now that you have created a profile.\nyou will need to:",
-                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                     style: Theme.of(context).textTheme.subtitle1!.copyWith(
                        color: Colors.black,
                        fontWeight: FontWeight.w600
                      ),
@@ -72,7 +72,7 @@ class ProfileComplete extends StatelessWidget {
                             width: 240.w,
                             child: Text(
                                 "Purchase a blood pressure cuff",
-                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                style: Theme.of(context).textTheme.subtitle1!.copyWith(
                                     color: Colors.black
                                 )),
                           )
@@ -89,7 +89,7 @@ class ProfileComplete extends StatelessWidget {
                             width: 240.w,
                             child: Text(
                                 "Schedule a virtual visit with a doctor",
-                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                style: Theme.of(context).textTheme.subtitle1!.copyWith(
                                     color: Colors.black
                                 )),
                           ),
@@ -113,7 +113,7 @@ class ProfileComplete extends StatelessWidget {
                                     "Watch a video on how to take your blood pressure",
                                     overflow: TextOverflow.visible,
                                     textAlign: TextAlign.start,
-                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
                                         color: Colors.black,
                                         decoration: TextDecoration.underline,
 

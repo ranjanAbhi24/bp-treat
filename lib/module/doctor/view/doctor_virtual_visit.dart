@@ -47,7 +47,7 @@ class DoctorVirtualVisit extends StatelessWidget {
                         child: Text(
                           'Initiate Virtual Visit',
                           style: Theme.of(context).textTheme.headline1!.copyWith(
-                            fontSize: 20.h,
+                          //  fontSize: 20.h,
                           ),
                         ),
                       ),
@@ -55,9 +55,9 @@ class DoctorVirtualVisit extends StatelessWidget {
                         'To be able to receive treatment, you must call '
                             'your doctor to schedule a virtual visit',
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                        style: Theme.of(context).textTheme.subtitle1!.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: 12.sp,
+                           // fontSize: 12.sp,
                             color: kBlackColor?.withOpacity(0.8)
                         ),
                       ),

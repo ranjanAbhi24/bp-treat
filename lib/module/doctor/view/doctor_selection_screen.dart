@@ -49,17 +49,17 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
                           Text(
                             'Choose your Doctor',
                             style: Theme.of(context).textTheme.headline1!.copyWith(
-                              fontSize: 20.h,
+                            //  fontSize: 20.h,
                             ),
                           ),
                           Text(
                             'This doctor will have access to your record '
                                 'and you may contact them for a virtual visit',
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline4!.copyWith(
+                            style: Theme.of(context).textTheme.subtitle2!.copyWith(
 
                                 fontWeight: FontWeight.w600,
-                                fontSize: 12.sp,
+                               // fontSize: 12.sp,
                                 color: kBlackColor?.withOpacity(0.8)
                             ),
                           ),
@@ -85,7 +85,7 @@ SizedBox(
                                   docName:
                                       '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
                                   docAddress:
-                                      controller.listOfDoctor[index].zipcode??"not available",
+                                      "${controller.listOfDoctor[index].zipcode}",
                                   onTap: () {
                                     setState(() {
                                       isSelected = index;

@@ -65,7 +65,7 @@ class Prefrence {
   String? getUserDetails() {
     String? user = _prefs!.getString("userDetails");
 
-
+    debugPrint('Userrrr $user');
     return user??'';
   }
 

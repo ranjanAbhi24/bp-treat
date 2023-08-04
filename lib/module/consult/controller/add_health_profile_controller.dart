@@ -40,6 +40,7 @@ class AddHealthController extends GetxController {
   List<String> list1 = ['Tobacco', 'Marijuana', 'None of these'];
   String selectValueL1 = '';
   String selectValueL2 = '';
+  String alcholic = "";
 
   // String select_list1_value = "";
   // String select_list2_value = '';
@@ -72,8 +73,8 @@ class AddHealthController extends GetxController {
          isMarijuana: selectedIndexesL1.contains(1),
          isAmphetamine: selectedIndexesL2.contains(1),
          isCocaine: selectedIndexesL2.contains(2),
-         isSmoker: selectedIndexesL1.contains(0)
-
+         isSmoker: selectedIndexesL1.contains(0),
+         alcohol: alcholic
      );
 
      if(addConsent?.status == "Success"){
@@ -102,12 +103,20 @@ update();
     dropDownValue = value;
     if (dropDownValue == "Select a choice..") {
       dropDownValue = "Select a choice..";
+      alcholic = "0/day";
     } else if (dropDownValue == "1") {
       dropDownValue = "1";
+      alcholic = "1/day";
     } else if (dropDownValue == '2') {
       dropDownValue = "2";
-    } else {
+      alcholic = "2/day";
+    } else if(dropDownValue == '3'){
       dropDownValue = "3";
+      alcholic = "3/day";
+    }
+    else {
+      dropDownValue = "more than 3";
+      alcholic= "more than 3/day";
     }
     update();
   }

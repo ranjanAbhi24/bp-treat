@@ -34,7 +34,7 @@ final Function() onTap;
           title,
           style: Theme.of(context).textTheme!.bodyText2!.copyWith(
             color: kBlackColor,
-            fontSize: 15.sp,
+         //   fontSize: 1.sp,
             fontWeight: FontWeight.w500
           )
         )

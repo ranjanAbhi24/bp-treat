@@ -55,9 +55,7 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                         child: Text(
                           "Health Profile (4 of 4)",
                           maxLines: 1,
-                          style: Theme.of(context).textTheme.headline1!.copyWith(
-                                fontSize: 25.sp,
-                              ),
+                          style: Theme.of(context).textTheme.headline1
                         ),
                       ),
                       SizedBox(height:5.h),
@@ -66,7 +64,7 @@ class _AddHealthProfilePage4State extends State<AddHealthProfilePage4> {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline4!.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: 13.sp,
+                            //fontSize: 13.sp,
                             color: kBlackColor?.withOpacity(0.8)),
                       ),
                       SizedBox(height: 30.h),
