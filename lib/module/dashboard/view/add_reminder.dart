@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../../utils/app_theme.dart';
-import 'landing_page.dart';
+
 
 
 class ReminderScreen extends StatelessWidget {

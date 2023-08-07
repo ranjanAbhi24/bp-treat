@@ -3,7 +3,6 @@ import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 import '../view/landing_page.dart';
 

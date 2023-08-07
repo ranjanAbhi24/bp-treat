@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:bp_treat/module/auth/model/user.dart';
-import 'package:bp_treat/module/consult/view/profile_complete.dart';
+
 
 import 'package:bp_treat/module/dashboard/view/landing_page.dart';
 import 'package:bp_treat/service/auth_service.dart';

@@ -1,11 +1,11 @@
-import 'package:badges/badges.dart' as badge;
+
 import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/dashboard/model/user_record.dart';
-import 'package:bp_treat/module/dashboard/view/add_bp_view.dart';
+
 import 'package:bp_treat/module/dashboard/view/graph_widget.dart';
 
-import 'package:bp_treat/module/dashboard/view/view_all_record.dart';
+
 import 'package:bp_treat/widget/common_dropdown.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:bp_treat/utils/prefs.dart';
@@ -15,11 +15,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../widget/common_header.dart';
-import 'menu_view.dart';
+
 
 class DashBoardView extends StatelessWidget {
   DashBoardView({super.key});

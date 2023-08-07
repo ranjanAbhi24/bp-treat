@@ -3,9 +3,9 @@ import 'package:bp_treat/module/account/view/health_detail_view.dart';
 import 'package:bp_treat/module/account/controller/account_controller.dart';
 import 'package:bp_treat/module/account/view/basic_detail_page.dart';
 import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
-import 'package:bp_treat/module/dashboard/view/menu_view.dart';
+
 import 'package:bp_treat/module/doctor/view/doctor_view.dart';
-import 'package:bp_treat/utils/app_theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

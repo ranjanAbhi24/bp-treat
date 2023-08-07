@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:bp_treat/module/auth/model/user.dart';
-import 'package:bp_treat/module/dashboard/controller/dashboard_controller.dart';
+
 import 'package:bp_treat/module/dashboard/controller/landing_controller.dart';
 import 'package:bp_treat/module/medicine/model/medicine.dart';
 import 'package:bp_treat/module/medicine/model/prescribtion_status.dart';

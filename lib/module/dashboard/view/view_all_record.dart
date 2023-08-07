@@ -2,7 +2,7 @@ import 'package:bp_treat/module/dashboard/controller/view_all_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
+
 
 class ViewAllRecord extends StatelessWidget {
   const ViewAllRecord({super.key});

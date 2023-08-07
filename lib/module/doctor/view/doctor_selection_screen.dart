@@ -2,7 +2,7 @@ import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'doctor_virtual_visit.dart';
