@@ -71,7 +71,7 @@ backgroundColor: kWhiteColor,
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
-                      height: 230.h,
+                      height: 250.h,
                       decoration: BoxDecoration(
 
                         border: Border.all(color: kGreyColor!),

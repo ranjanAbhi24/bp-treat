@@ -102,7 +102,6 @@ class DashBoardView extends StatelessWidget {
                             height: 10.h,
                           ),
                           Row(
-
                             children: [
                               Icon(Icons.video_camera_back_outlined,
                                 color: kBlackColor,

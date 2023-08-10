@@ -228,7 +228,7 @@ class ReminderScreen extends StatelessWidget {
                                 ),
                                 SizedBox(height: 10.h,),
                                 Container(
-                                  width: 130.w,
+                                  width: 120.w,
                                   height: 40.h,
                                   padding: const EdgeInsets.only(left: 10,right: 10),
                                   decoration: BoxDecoration(
