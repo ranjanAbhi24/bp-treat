@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
@@ -19,10 +20,12 @@ class DropDownWidget extends StatelessWidget {
       icon: const Icon(Icons.keyboard_arrow_up_sharp),
       elevation: 0,
       value: dropdownValue,
-      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+      style: Theme.of(context).textTheme.subtitle1!.copyWith(
           fontStyle: FontStyle.italic,
-          fontWeight: FontWeight.w500,
+          fontSize: 13.sp,
+          fontWeight: FontWeight.w400,
           color: Colors.black
+
       ),
       underline: const SizedBox.shrink(),
       items: items.map((e) {

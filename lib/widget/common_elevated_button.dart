@@ -33,9 +33,11 @@ class CommonElevatedButton extends StatelessWidget {
       ),
       onPressed: onTap,
       child: Text(
+        maxLines:1,
         title,
        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-         color: textColor
+         color: textColor,
+
        ))
     );
   }

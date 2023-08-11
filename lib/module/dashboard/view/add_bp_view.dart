@@ -70,8 +70,9 @@ backgroundColor: kWhiteColor,
                       height: 30.h,
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 10),
-                      height: 250.h,
+                      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      height: 270.h,
+
                       decoration: BoxDecoration(
 
                         border: Border.all(color: kGreyColor!),
@@ -165,107 +166,113 @@ backgroundColor: kWhiteColor,
                           SizedBox(
                            height:10.h
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              NumberPicker(
-                                textStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 22,
-                                        color:
-                                        // valuee == true
-                                        //     ? kWhiteColor:
-                                            kBlackColor),
-                                selectedTextStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 28,
-                                        color: kPrimaryColor),
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color:
-                                        // valuee == true
-                                        //     ? kTealColor!
-                                        //    :
-                                        kBlackColor!)),
-                                minValue: 70,
-                                maxValue: 220,
-                                step: 1,
-                                haptics: true,
-                                value: controller.systolicBPValue,
-                                onChanged: controller.onSystolicValueChange,
-                              ),
-                              NumberPicker(
-                                minValue: 50,
-                                maxValue: 120,
-                                step: 1,
-                                value: controller.diastolicBPValue,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color:
-                                        // valuee == true
-                                        //     ? kTealColor! :
-                                        kBlackColor!)),
-                                onChanged: controller.onDiastolicValueChange,
-                                textStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 22,
-                                        color:
-                                        // valuee == true
-                                        //     ? kWhiteColor:
-                                             kBlackColor),
-                                selectedTextStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 28,
-                                        color: kPrimaryColor),
-                              ),
+                           Row(
 
-                              NumberPicker(
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                        color:
-                                        // valuee == true
-                                        //     ? kTealColor!:
-                                             kBlackColor!)),
-                                minValue: 44,
-                                maxValue: 152,
-                                step: 1,
-                                value: controller.pulseValue,
-                                onChanged: controller.onPulseValueChange,
-                                textStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 22,
-                                        color:
-                                        // valuee == true
-                                        //     ? kWhiteColor:
-                                             kBlackColor),
-                                selectedTextStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 28,
-                                        color: kPrimaryColor),
-                              ),
-                            ],
-                          ),
+                             children: [
+                               Expanded(
+                                 child: NumberPicker(
+                                   textStyle: Theme.of(context)
+                                       .textTheme
+                                       .bodySmall
+                                       ?.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           fontSize: 20.sp,
+                                           color:
+                                           // valuee == true
+                                           //     ? kWhiteColor:
+                                               kBlackColor),
+                                   selectedTextStyle: Theme.of(context)
+                                       .textTheme
+                                       .bodySmall
+                                       ?.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           fontSize: 25.sp,
+                                           color: kPrimaryColor),
+                                   decoration: BoxDecoration(
+                                       shape: BoxShape.circle,
+                                       border: Border.all(
+                                           color:
+                                           // valuee == true
+                                           //     ? kTealColor!
+                                           //    :
+                                           kBlackColor!)),
+                                   minValue: 70,
+                                   maxValue: 220,
+                                   step: 1,
+                                   haptics: true,
+                                   value: controller.systolicBPValue,
+                                   onChanged: controller.onSystolicValueChange,
+                                 ),
+                               ),
+                                Expanded(
+                                  child: NumberPicker(
+                                   minValue: 50,
+                                   maxValue: 120,
+                                   step: 1,
+                                   value: controller.diastolicBPValue,
+                                   decoration: BoxDecoration(
+                                       shape: BoxShape.circle,
+                                       border: Border.all(
+                                           color:
+                                           // valuee == true
+                                           //     ? kTealColor! :
+                                           kBlackColor!)),
+                                   onChanged: controller.onDiastolicValueChange,
+                                   textStyle: Theme.of(context)
+                                       .textTheme
+                                       .bodySmall
+                                       ?.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           fontSize: 20.sp,
+                                           color:
+                                           // valuee == true
+                                           //     ? kWhiteColor:
+                                                kBlackColor),
+                                   selectedTextStyle: Theme.of(context)
+                                       .textTheme
+                                       .bodySmall
+                                       ?.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           fontSize: 25.sp,
+                                           color: kPrimaryColor),
+                               ),
+                                ),
+
+                                Expanded(
+                                  child: NumberPicker(
+                                   decoration: BoxDecoration(
+                                       shape: BoxShape.circle,
+                                       border: Border.all(
+                                           color:
+                                           // valuee == true
+                                           //     ? kTealColor!:
+                                                kBlackColor!)),
+                                   minValue: 44,
+                                   maxValue: 152,
+                                   step: 1,
+                                   value: controller.pulseValue,
+                                   onChanged: controller.onPulseValueChange,
+                                   textStyle: Theme.of(context)
+                                       .textTheme
+                                       .bodySmall
+                                       ?.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           fontSize: 20.sp,
+                                           color:
+                                           // valuee == true
+                                           //     ? kWhiteColor:
+                                                kBlackColor),
+                                   selectedTextStyle: Theme.of(context)
+                                       .textTheme
+                                       .bodySmall
+                                       ?.copyWith(
+                                           fontWeight: FontWeight.w600,
+                                           fontSize: 25.sp,
+                                           color: kPrimaryColor),
+                               ),
+                                ),
+                             ],
+                           ),
                         ],
                       ),
                     ),

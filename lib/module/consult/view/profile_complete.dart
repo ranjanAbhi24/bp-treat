@@ -50,7 +50,7 @@ class ProfileComplete extends StatelessWidget {
                     Image.asset(
                       "assets/images/welcome_three.png",
                     ),
-                     Text("Now that you have created a profile.\nyou will need to:",
+                     Text("Now that you have created a profile.You will need to:",
                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
                        color: Colors.black,
                        fontWeight: FontWeight.w600

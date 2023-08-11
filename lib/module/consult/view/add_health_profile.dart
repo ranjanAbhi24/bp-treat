@@ -119,26 +119,21 @@ class AddHealthProfile extends StatelessWidget {
                           ),
                           SizedBox(
                             height: 240.h,
+                            width: 290.w,
                             child: ScrollDatePicker(
                                indicator: const Text(""),
-                               scrollViewOptions: const DatePickerScrollViewOptions(
+                               scrollViewOptions: DatePickerScrollViewOptions(
                                  year: ScrollViewDetailOptions(
-                                   margin: EdgeInsets.all(5),
-                                   textStyle: TextStyle(
-                                     color: Colors.black
-                                   )
+                                   margin: const EdgeInsets.all(5),
+                                   textStyle: Theme.of(context).textTheme.headline2!
                                  ),
                                  month: ScrollViewDetailOptions(
-                                     margin: EdgeInsets.all(5),
-                                     textStyle: TextStyle(
-                                         color: Colors.black
-                                     )
+                                     margin: const EdgeInsets.all(5),
+                                     textStyle: Theme.of(context).textTheme.headline2!
                                  ),
                                  day: ScrollViewDetailOptions(
-                                     margin: EdgeInsets.all(5),
-                                     textStyle: TextStyle(
-                                         color: Colors.black
-                                     )
+                                     margin: const EdgeInsets.all(5),
+                                     textStyle: Theme.of(context).textTheme.headline2!
                                  ),
                                ),
                                 selectedDate: controller.selectDate,
