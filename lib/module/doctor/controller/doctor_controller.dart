@@ -7,6 +7,7 @@ import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:get/get.dart';
+import 'package:phone_number/phone_number.dart';
 
 
 
@@ -24,8 +25,20 @@ class DoctorController extends GetxController {
   SelectDoctor? _selectDoctor;
   SelectDoctor? get selectDoctor => _selectDoctor;
   String? docData;
+  String? formattedPhone;
 
   bool isLoading = false;
+
+
+  formatPhoneNumber(phone){
+    // RegionInfo region = const RegionInfo(name: 'US', code: '1', prefix: 0);
+    // var formatted = await PhoneNumberUtil().format(phone, region.code);
+    // return formatted.toString();
+   String text= phone.split(RegExp(r"/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/"));
+   return text;
+  }
+  //
+
 
   fetchDocList() async {
     isLoading = true;
@@ -46,8 +59,8 @@ class DoctorController extends GetxController {
 
     if (_selectDoctor?.status == "Success") {
       docData = json.encode(_selectDoctor);
-      ApplicationUtils.showSnackBar(
-          titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
+      // ApplicationUtils.showSnackBar(
+      //     titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
 
 print(_selectDoctor);
       await _prefs.setUserDetails(jsonEncode(_selectDoctor));

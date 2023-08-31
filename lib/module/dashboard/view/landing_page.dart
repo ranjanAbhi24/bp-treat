@@ -38,11 +38,11 @@ class LandingPage extends StatelessWidget {
               controller.changeTabIndex(0);
             },
             child: Container(
-              height: 80.h,
+             // height: 80.h,
               width: 90.w,
               decoration: BoxDecoration(
                   color: controller.tabIndex==0?kPrimaryColor:kGreyColor,
-                  borderRadius: BorderRadius.circular(9)
+
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,11 +63,11 @@ class LandingPage extends StatelessWidget {
               controller.changeTabIndex(1);
             },
             child: Container(
-              height: 80.h,
+
               width: 90.w,
               decoration: BoxDecoration(
                   color: controller.tabIndex==1?kPrimaryColor:kGreyColor,
-                  borderRadius: BorderRadius.circular(10)
+
               ),
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -88,11 +88,11 @@ class LandingPage extends StatelessWidget {
               controller.changeTabIndex(2);
             },
             child: Container(
-              height: 80.h,
+
               width: 90.w,
               decoration: BoxDecoration(
                   color: controller.tabIndex==2?kPrimaryColor:kGreyColor,
-                  borderRadius: BorderRadius.circular(10)
+
               ),
               child:  Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,11 +113,11 @@ class LandingPage extends StatelessWidget {
             },
             child: Container(
 
-              height: 80.h,
+            //  height: 80.h,
               width: 90.w,
               decoration: BoxDecoration(
                   color: controller.tabIndex==3?kPrimaryColor:kGreyColor,
-                borderRadius: BorderRadius.circular(10)
+              //  borderRadius: BorderRadius.circular(10)
               ),
 
               child: Column(

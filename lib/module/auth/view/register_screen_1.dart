@@ -31,30 +31,42 @@ class RegisterScreen1 extends StatelessWidget {
                   child: Padding(
                     padding:
                     EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      top: 16,
+                      left: 25,
+                      right: 25,
+                      top: 20,
                       bottom: MediaQuery.of(context).viewInsets.bottom
                     ),
                     child: Center(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(height: 10.h),
-                          Image.asset(
-                            "assets/images/app_logo.png",
-                              height: 110.h,
-                              width: 100.w
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "assets/images/app_icon2.png",
+                                  height: 100.h,
+                                  width: 100.w
+                              ),
+                              Text("BP Treat",
+                              style:Theme.of(context).textTheme.headline1!.copyWith(
+                                color: const Color.fromRGBO(193, 65, 66, 1),
+                                fontSize: 40
+                              )
+                              )
+                            ],
                           ),
-                           Text("Welcome to the app that helps you"
-                              " monitor your blood pressure to get "
-                              "treatment,should you need it",
-                         textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                fontWeight: FontWeight.w500,
-                               // fontSize: 15.sp,
-                                color: kBlackColor
-                            ),
+                           Center(
+                             child: Text("Welcome to the app that tracks your blood pressure and connects you to a doctor",
+                         textAlign: TextAlign.left,
+                              style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                 // fontSize: 15.sp,
+                                  color: kBlackColor
+                              ),
                           ),
+                           ),
                            SizedBox(
                             height: 40.h,
                           ),
@@ -64,37 +76,31 @@ class RegisterScreen1 extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  SizedBox(
-                                    width: 250.w,
-                                    child: InputTextField(
-                                        text: 'Please tell us your first name',
-                                        controller: controller.firstName,
-                                        inputType: TextInputType.name,
-                                        validator: (value) {
-                                          if (value!.isEmpty) {
-                                            return 'Required*';
-                                          }
-                                          return null;
-                                        }),
-                                  ),
+                                  InputTextField(
+                                      text: 'Please tell us your first name',
+                                      controller: controller.firstName,
+                                      inputType: TextInputType.name,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return 'Required*';
+                                        }
+                                        return null;
+                                      }),
                                   SizedBox(
                                     height: 25.h,
                                   ),
-                                  SizedBox(
-                                    width:250.w,
-                                    child: InputTextField(
-                                        text: 'Please tell us your last name',
-                                        controller: controller.lastName,
-                                        inputType: TextInputType.name,
-                                        validator: (value) {
-                                          if (value!.isEmpty) {
-                                            return 'Required*';
-                                          }
-                                          return null;
-                                        }),
-                                  ),
+                                  InputTextField(
+                                      text: 'Please tell us your last name',
+                                      controller: controller.lastName,
+                                      inputType: TextInputType.name,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return 'Required*';
+                                        }
+                                        return null;
+                                      }),
                                  SizedBox(
-                                    height: 40.h,
+                                    height: 100.h,
                                   ),
                                   InkWell(
                                     onTap: (){
@@ -104,7 +110,7 @@ class RegisterScreen1 extends StatelessWidget {
                                     style: Theme.of(context).textTheme.subtitle2!.copyWith(
                                       decoration: TextDecoration.underline,
                                      // fontSize: 14,
-                                      fontWeight: FontWeight.w500,
+                                      fontWeight: FontWeight.w400,
                                       color: kBlackColor
 
                                     )

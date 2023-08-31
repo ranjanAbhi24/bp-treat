@@ -50,17 +50,15 @@ class RegisterScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         //SizedBox(height: 40.h),
-                        Image.asset(
-                          "assets/images/app_icon2.png",
-                            height: 90.h,
-                            width: 100.w
-                        ),
                         Text("Hello ${controller.firstName.text}!",
-                          style: Theme.of(context).textTheme.headline1!
+                          style: Theme.of(context).textTheme.headline1!.copyWith(
+                            color: const Color.fromRGBO(193, 65, 66, 1)
+                          )
                         ),
                         Text("Let's create your account.",
                           style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               color: Colors.black,
+                           fontWeight: FontWeight.normal
                            // fontSize: 14.sp
                           ),
                         ),
@@ -168,6 +166,7 @@ class RegisterScreen extends StatelessWidget {
                                                     .textTheme
                                                     .subtitle2
                                                     ?.copyWith(
+                                                    fontWeight: FontWeight.normal,
                                                  //   fontSize: 12,
                                                     color:
                                                     kBlackColor?.withOpacity(0.8)),
@@ -179,6 +178,7 @@ class RegisterScreen extends StatelessWidget {
                                                           .subtitle2
                                                           ?.copyWith(
                                                           decoration: TextDecoration.underline,
+                                                        fontWeight: FontWeight.normal,
                                                         //  fontSize: 13,
                                                           color: kBlackColor?.withOpacity(0.8)
                                                       )
@@ -189,6 +189,7 @@ class RegisterScreen extends StatelessWidget {
                                                           .textTheme
                                                           .subtitle2
                                                           ?.copyWith(
+                                                          fontWeight: FontWeight.normal,   decoration: TextDecoration.underline,
 
                                                        //   fontSize: 12,
                                                           color: kBlackColor?.withOpacity(0.8)
@@ -206,6 +207,7 @@ class RegisterScreen extends StatelessWidget {
                                                           .textTheme
                                                           .subtitle2
                                                           ?.copyWith(
+                                                          fontWeight: FontWeight.normal,
                                                           decoration: TextDecoration.underline,
                                                          // fontSize: 13,
                                                           color: kBlackColor?.withOpacity(0.8)
@@ -213,6 +215,20 @@ class RegisterScreen extends StatelessWidget {
                                                 ])),
                                       )
                                     ],
+                                  ),
+                                ),
+SizedBox(
+  height: 30.h,
+),
+                                SizedBox(
+                                  width: 260.w,
+                                  child: Text("Next, we will email you a "
+                                      "verification code to confirm your email",
+                                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                                    color: kBlackColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal
+                                  ),
                                   ),
                                 ),
                                 SizedBox(
@@ -230,11 +246,15 @@ class RegisterScreen extends StatelessWidget {
                                       //     'Please accept our terms and Privacy Policy to continue.');
                                     }
                                         : () async {
-                                      if (controller.formKey.currentState!
-                                          .validate()) {
-                                        EasyLoading.show(status: 'Generating Otp...');
-                                        await controller.sendOtp();
-                                        EasyLoading.dismiss();
+                                      FocusScopeNode currentFocus = FocusScope.of(context);
+                                      if(!currentFocus.hasPrimaryFocus){
+                                        currentFocus.unfocus();
+                                        if (controller.formKey.currentState!
+                                            .validate()) {
+                                          EasyLoading.show(status: 'Generating Otp...');
+                                          await controller.sendOtp();
+                                          EasyLoading.dismiss();
+                                        }
                                       }
                                     }, backgroundColor: controller.isChecked!?
                                    kPrimaryColor:kGreyColor, textColor: kWhiteColor

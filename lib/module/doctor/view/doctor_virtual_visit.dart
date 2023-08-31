@@ -37,27 +37,23 @@ class DoctorVirtualVisit extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                          child: Image.asset(
-                              "assets/images/app_icon2.png",
-                              height: 90.h,
-                              width: 100.w
+
+                        Text(
+                          'Initiate Virtual Visit',
+                          style: Theme.of(context).textTheme.headline1!.copyWith(
+                          //  fontSize: 20.h,
+                              color: const Color.fromRGBO(193, 65, 66, 1)
                           ),
                         ),
-                        Center(
-                          child: Text(
-                            'Initiate Virtual Visit',
-                            style: Theme.of(context).textTheme.headline1!.copyWith(
-                            //  fontSize: 20.h,
-                            ),
-                          ),
+                        SizedBox(
+                          height: 10.h,
                         ),
                         Text(
                           'To be able to receive treatment, you must call '
                               'your doctor to schedule a virtual visit',
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                           style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.normal,
                              // fontSize: 12.sp,
                               color: kBlackColor?.withOpacity(0.8)
                           ),
@@ -72,7 +68,7 @@ class DoctorVirtualVisit extends StatelessWidget {
                           ),
                           child: ListTile(
                             contentPadding:
-                            const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                            const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
 
                             leading: CircleAvatar(
                               radius: 40,
@@ -83,26 +79,46 @@ class DoctorVirtualVisit extends StatelessWidget {
                                 style: TextStyle(color: kBlackColor),
                               ),
                             ),
-                            title: Text("${arguments[0]}",
-                                style: TextStyle(
-                                    color:
-                                    //isSelected ? kWhiteColor : kBlackColor, fontSize: 16
-                                    kBlackColor,
-                                    fontSize: 16
-                                )),
-                            subtitle:
-                            Text(
-                              'Call: ${arguments[1]}',
-
-                              style: TextStyle(
-                                color: kBlackColor,
-                                //isSelected ? kWhiteColor : kBlackColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
+                            title: Padding(
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: Text(
+                                //controller.formatPhoneNumber(arguments[0]),
+                                  "${arguments[0]}",
+                                  style:Theme.of(context).textTheme.bodyText1!.copyWith(
+                                    color: kBlackColor,
+                                      fontWeight: FontWeight.normal
+                                  )
                               ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
                             ),
+                            subtitle:RichText(
+                              text: TextSpan(
+                                text: "Call:",
+                                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                                    color: kBlackColor,
+                                  fontWeight: FontWeight.normal
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: '${arguments[1]}',
+                                    //text: controller.formatPhoneNumber(arguments[1]),
+                                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                                        color: kBlackColor,
+                                      fontWeight: FontWeight.bold
+                                    )
+                                  )
+                                ]
+                              ),
+
+                            )
+                            // Text(
+                            //   'Call: ${arguments[1]}',
+                            //
+                            //   style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            //
+                            //   ),
+                            //   maxLines: 2,
+                            //   overflow: TextOverflow.ellipsis,
+                            // ),
 
                           ),
                         ),
@@ -113,7 +129,8 @@ class DoctorVirtualVisit extends StatelessWidget {
 
                           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               color: Colors.black,
-                              fontWeight: FontWeight.w600
+                              fontWeight: FontWeight.normal,
+
                           ),
                         ),
                         SizedBox(
@@ -132,7 +149,8 @@ class DoctorVirtualVisit extends StatelessWidget {
                                     child: Text(
                                         "Confirm that you know how to take your blood pressure correctly",
                                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                            color: Colors.black
+                                            color: Colors.black,
+                                          fontWeight: FontWeight.normal,
                                         )),
                                   )
                                 ],
@@ -149,7 +167,8 @@ class DoctorVirtualVisit extends StatelessWidget {
                                     child: Text(
                                         "Order blood tests",
                                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                            color: Colors.black
+                                            color: Colors.black,
+                                          fontWeight: FontWeight.normal,
                                         )),
                                   ),
 
@@ -166,7 +185,7 @@ class DoctorVirtualVisit extends StatelessWidget {
                         Text("After you call to schedule your appointment, tap the finish button below ",
                           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                               color: Colors.black,
-                              fontWeight: FontWeight.w600
+                              fontWeight: FontWeight.normal
                           ),
                         ),
                         SizedBox(
@@ -182,7 +201,7 @@ class DoctorVirtualVisit extends StatelessWidget {
                                           "62b577b25729c44144144bde",
                                       docRole: controller.role ?? "Admin");
                                 },
-                                title: "Finish",
+                                title: "Continue",
                                 backgroundColor: kPrimaryColor,
                                 textColor: kWhiteColor),
                           ),

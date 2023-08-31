@@ -71,7 +71,7 @@ backgroundColor: kWhiteColor,
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-                      height: 270.h,
+                      height: 260.h,
 
                       decoration: BoxDecoration(
 
@@ -109,6 +109,7 @@ backgroundColor: kWhiteColor,
                                                 //     ? kWhiteColor:
                                                      kBlackColor)),
                                   ])),
+                              SizedBox(width: 6.w,),
                               RichText(
                                   textAlign:TextAlign.center,
                                   text: TextSpan(
@@ -150,7 +151,7 @@ backgroundColor: kWhiteColor,
                                                    kBlackColor),
                                       children: [
                                     TextSpan(
-                                        text: "\nmin",
+                                        text: "\nbeats/minute  ",
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyText1

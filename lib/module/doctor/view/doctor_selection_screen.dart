@@ -1,3 +1,4 @@
+import 'package:bp_treat/module/consult/controller/add_health_profile_controller.dart';
 import 'package:bp_treat/widget/common_elevated_button.dart';
 import 'package:bp_treat/module/doctor/controller/doctor_controller.dart';
 import 'package:bp_treat/utils/app_theme.dart';
@@ -37,39 +38,42 @@ class _DoctorSelectionScreenState extends State<DoctorSelectionScreen> {
                   init: DoctorController(),
                   builder: (controller) {
                     return Container(
-                      padding: const EdgeInsets.only(left: 12,right: 12,bottom: 20),
+                      padding: const EdgeInsets.only(left: 30,right: 30,bottom: 20),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
 
-                          Image.asset(
-                            "assets/images/app_icon2.png",
-                              height: 90.h,
-                              width: 100.w
-                          ),
                           Text(
                             'Choose your Doctor',
+                            textAlign: TextAlign.left,
                             style: Theme.of(context).textTheme.headline1!.copyWith(
-                            //  fontSize: 20.h,
+                           //  fontSize: 25.sp,
+
+                                color: const Color.fromRGBO(193, 65, 66, 1)
                             ),
                           ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
                           Text(
-                            'This doctor will have access to your record '
-                                'and you may contact them for a virtual visit',
-                            textAlign: TextAlign.center,
+                            'This doctor will have access to your record. '
+                                'Contact them for a virtual visit',
+                            textAlign: TextAlign.left,
                             style: Theme.of(context).textTheme.subtitle2!.copyWith(
-
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.normal,
                                // fontSize: 12.sp,
-                                color: kBlackColor?.withOpacity(0.8)
+                                color: kBlackColor
                             ),
                           ),
                           SizedBox(
                             height: 40.h,
                           ),
-                          Text("Available Doctors",
-                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                            color: kBlackColor
-                          ),
+                          Center(
+                            child: Text("Available Doctors for zip code ${Get.find<AddHealthController>().addConsent?.consent?.zipcode}",
+                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              color: kBlackColor
+                            ),
+                            ),
                           ),
 SizedBox(
   height: 20.h,
@@ -107,20 +111,22 @@ SizedBox(
                            SizedBox(
                              height: 20.h,
                            ),
-                            Container(
-                              alignment: Alignment.bottomCenter,
-                               width: 200.w,
-                               child: CommonElevatedButton(
-                                   onTap: ()  async {
+                            Center(
+                              child: Container(
+                                alignment: Alignment.bottomCenter,
+                                 width: 200.w,
+                                 child: CommonElevatedButton(
+                                     onTap: ()  async {
 
-                                 Get.to(()=> const DoctorVirtualVisit(),
-                                 arguments: [controller.docName??'Dr.Steven Goldstein',controller.docContact??'281-481-4236'],
-                                 );
-                                   },
-                                   title: "Continue",
-                                   backgroundColor: kPrimaryColor,
-                                   textColor: kWhiteColor),
-                             )
+                                   Get.to(()=> const DoctorVirtualVisit(),
+                                   arguments: [controller.docName??'Dr.Steven Goldstein',controller.docContact??'281-481-4236'],
+                                   );
+                                     },
+                                     title: "Continue",
+                                     backgroundColor: kPrimaryColor,
+                                     textColor: kWhiteColor),
+                               ),
+                            )
                         ],
                       ),
                     );
@@ -144,7 +150,7 @@ SizedBox(
 
       child: ListTile(
         contentPadding:
-            const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
+        const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         onTap: onTap,
         leading: CircleAvatar(
           radius: 40,
@@ -154,13 +160,16 @@ SizedBox(
             style: TextStyle(color: isSelected ? kPrimaryColor : kBlackColor),
           ),
         ),
-        title: Text("$docName",
-            style: TextStyle(
-                color:
+        title: Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Text("$docName",
+              style: TextStyle(
+                  color:
 
-              kBlackColor,
-              fontSize: 16
-            )),
+                kBlackColor,
+                fontSize: 16
+              )),
+        ),
         subtitle:
             Text(
               'Zip code: $docAddress',

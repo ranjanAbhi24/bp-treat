@@ -53,7 +53,7 @@ class ProfileComplete extends StatelessWidget {
                      Text("Now that you have created a profile.You will need to:",
                      style: Theme.of(context).textTheme.subtitle1!.copyWith(
                        color: Colors.black,
-                       fontWeight: FontWeight.w600
+                       fontWeight: FontWeight.normal
                      ),
                      ),
                     SizedBox(
@@ -73,7 +73,8 @@ class ProfileComplete extends StatelessWidget {
                             child: Text(
                                 "Purchase a blood pressure cuff",
                                 style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                                    color: Colors.black
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal
                                 )),
                           )
                         ],
@@ -90,7 +91,8 @@ class ProfileComplete extends StatelessWidget {
                             child: Text(
                                 "Schedule a virtual visit with a doctor",
                                 style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                                    color: Colors.black
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.normal
                                 )),
                           ),
 
@@ -115,6 +117,7 @@ class ProfileComplete extends StatelessWidget {
                                     textAlign: TextAlign.start,
                                     style: Theme.of(context).textTheme.subtitle1!.copyWith(
                                         color: Colors.black,
+                                      fontWeight: FontWeight.normal,
                                         decoration: TextDecoration.underline,
 
                                     )),

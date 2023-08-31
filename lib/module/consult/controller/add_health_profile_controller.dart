@@ -36,7 +36,7 @@ class AddHealthController extends GetxController {
   bool isMarijuana = false;
  // bool istabacco=false;
   bool isAmphetamine = false;
-  List<String> dropdownList = ["Select a choice..", "1", '2', "3","more than 3"];
+  List<String> dropdownList = ["Select a choice..", "1 drink in a day", '2 drinks in a day', "3 drinks in a day","more than 3 drinks in a day"];
   List<String> list1 = ['Tobacco', 'Marijuana', 'None of these'];
   String selectValueL1 = '';
   String selectValueL2 = '';
@@ -52,7 +52,7 @@ class AddHealthController extends GetxController {
     'Cocaine',
     'None of these'
   ];
-  ApiService _apiService = ApiService();
+  final ApiService _apiService = ApiService();
 
   String dropDownValue = 'Select a choice..';
 
@@ -79,8 +79,8 @@ class AddHealthController extends GetxController {
 
      if(addConsent?.status == "Success"){
         isLoading = false;
-        ApplicationUtils.showSnackBar(
-            titleText: addConsent?.status, messageText: addConsent?.msg);
+        // ApplicationUtils.showSnackBar(
+        //     titleText: addConsent?.status, messageText: addConsent?.msg);
        // await _prefs.setUserDetails(jsonEncode(addConsent));
      //   Get.find<LandingController>().getUserDetails();
         Get.to(() => const ProfileComplete());
@@ -104,18 +104,18 @@ update();
     if (dropDownValue == "Select a choice..") {
       dropDownValue = "Select a choice..";
       alcholic = "0/day";
-    } else if (dropDownValue == "1") {
-      dropDownValue = "1";
+    } else if (dropDownValue == "1 drink in a day") {
+      dropDownValue = "1 drink in a day";
       alcholic = "1/day";
-    } else if (dropDownValue == '2') {
-      dropDownValue = "2";
+    } else if (dropDownValue == '2 drinks in a day') {
+      dropDownValue = "2 drinks in a day";
       alcholic = "2/day";
-    } else if(dropDownValue == '3'){
-      dropDownValue = "3";
+    } else if(dropDownValue == '3 drinks in a day'){
+      dropDownValue = "3 drinks in a day";
       alcholic = "3/day";
     }
     else {
-      dropDownValue = "more than 3";
+      dropDownValue = "more than 3 drinks in a day";
       alcholic= "more than 3/day";
     }
     update();

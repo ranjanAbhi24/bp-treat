@@ -148,7 +148,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                               Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Please describe further?',
+                                        'Please describe further',
                                         style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                           color: kBlackColor
                                         )

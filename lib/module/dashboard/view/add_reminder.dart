@@ -38,18 +38,11 @@ class ReminderScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
 
-                        Center(
-                          child: Image.asset(
-                              "assets/images/app_icon2.png",
-                              height: 80.h,
-                              width: 100.w
-                          ),
-                        ),
-                        Center(
-                          child: Text("Reminders",
-                            style: Theme.of(context).textTheme.headline1!.copyWith(
-                                //fontSize: 25.sp
-                            ),
+
+                        Text("Reminders",
+                          style: Theme.of(context).textTheme.headline1!.copyWith(
+                              //fontSize: 25.sp
+                              color: const Color.fromRGBO(193, 65, 66, 1)
                           ),
                         ),
                         SizedBox(height: 10.h),
@@ -57,257 +50,224 @@ class ReminderScreen extends StatelessWidget {
                           child: Text("Let's set a reminder for when you are past due for taking your blood pressure.",
                             textAlign: TextAlign.start,
                             style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.normal,
                                // fontSize: 14.sp,
-                                color: kBlackColor?.withOpacity(0.9)
+                                color: kBlackColor
                             ),
                           ),
                         ),
                         SizedBox(height:20.h),
-                        Text("How often does your doctor advise you to take your blood pressure?",
-                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              color: kBlackColor
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: kGreyColor!.withOpacity(0.3),
+                              border: Border.all(color: Colors.grey)
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("How often does your doctor advise you to take your blood pressure?",
+                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: kBlackColor
+                                ),
+                              ),
+                              SizedBox(height:10.h),
+                              Container(
+                                padding: const EdgeInsets.only(left: 10,right: 10),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(12)),
+                                child: DropDownWidget(dropdownValue: controller.dropdown1, items: controller.items1, onChange: (value ) {
+                                  controller.onChangeValue1(value!);
+                                },),
+                              ),
+                              SizedBox(height:30.h),
+                              Text("What is Your time zone?",
+                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                    color: kBlackColor
+                                ),
+                              ),
+                              SizedBox(height:10.h),
+                              Container(
+                                padding: const EdgeInsets.only(left: 10,right: 10),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(12)),
+                                child: DropDownWidget(dropdownValue: controller.dropdown2, items: controller.items2,
+                                  onChange: (value) {
+                                    controller.onChangedValue2(value!);
+                                  },),
+                              ),
+                            ],
                           ),
                         ),
+
                         SizedBox(height:10.h),
                         Container(
-                          width: 150.w,
-                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          padding: const EdgeInsets.all(15),
                           decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(12)),
-                          child: DropDownWidget(dropdownValue: controller.dropdown1, items: controller.items1, onChange: (value ) {
-                            controller.onChangeValue1(value!);
-                          },),
-                        ),
-                        SizedBox(height:10.h),
-                        Text("At what time would you like to be reminded if you haven't yet taken your blood pressure?",
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                color: kBlackColor
-                            )),
-                        SizedBox(height: 20.h,),
-//TimePickerDialog(initialTime: TimeOfDay(hour: 10, minute: 47),)
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-
-                              children: [
-                                Container(
-                                  width: 70.w,
-                                  height: 70.h,
-                                  color: kGreyColor,
-                                  child: Center(
-                                    child: TextField(
-                                      keyboardType: TextInputType.number,
-                                      cursorColor: kBlackColor,
-                                      controller: controller.hourController,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-
-                                          fontWeight: FontWeight.w500,
-                                          color: kBlackColor,
-                                          fontSize: 40.sp
-                                      ),
-                                      decoration: InputDecoration(
-                                        contentPadding: EdgeInsets.zero,
-                                        fillColor: kGreyColor,
-                                        filled: true,
-
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Text("Hour",
-                                    style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w400
-                                    )
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Align(
-                                alignment: Alignment.center,
-                                child: Text(":",
-                                  style: TextStyle(
-                                      fontSize: 60,
-                                      fontWeight: FontWeight.w500,
+                              borderRadius: BorderRadius.circular(12),
+                              color: kGreyColor!.withOpacity(0.3),
+                              border: Border.all(color: Colors.grey)
+                          ),
+                          child: Column(
+                            children: [
+                              Text("At what time would you like to be reminded if you haven't yet taken your blood pressure?",
+                                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
                                       color: kBlackColor
-                                  ),
-                                )
-                              // ImageIcon(AssetImage("assets/images/colon.png"),size: 60,)
-                            ),
-                            SizedBox(
-                              width: 5.w,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 70.w,
-                                  height: 70.h,
-                                  color: kGreyColor,
-                                  child: Center(
-                                    child: TextField(
-                                      keyboardType: TextInputType.number,
-                                      cursorColor: kBlackColor,
-                                      controller: controller.minuteController,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          color: kBlackColor,
-                                          fontSize: 40.sp
-                                      ),
-                                      decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.zero,
-                                          fillColor: kGreyColor,
-                                          filled: true
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Text("Minute",
-                                    style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                                        color: kBlackColor,
-                                        fontWeight: FontWeight.w400
-                                    )
-                                )
-                              ],
-                            ),
-                            SizedBox(width: 10.w,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    InkWell(
-                                      onTap: (){
-                                        controller.selectMeridian("AM");
+                                  )),
+                              SizedBox(height: 20.h,),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
 
-                                      },
-                                      child: Container(
-                                        height: 30.h,
-                                        width: 40.w,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(2),
-                                            border: Border.all(color: kGreyColor!),
-                                            color: controller.meridian=="AM"?Colors.pink[50]:kGreyColor
+                                    children: [
+                                      Container(
+                                        width: 70.w,
+                                        height: 70.h,
+                                        color: kGreyColor,
+                                        child: Center(
+                                          child: TextField(
+                                            keyboardType: TextInputType.number,
+                                            cursorColor: kBlackColor,
+                                            controller: controller.hourController,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+
+                                                fontWeight: FontWeight.w500,
+                                                color: kBlackColor,
+                                                fontSize: 40.sp
+                                            ),
+                                            decoration: InputDecoration(
+                                              contentPadding: EdgeInsets.zero,
+                                              fillColor: kGreyColor,
+                                              filled: true,
+
+                                            ),
+                                          ),
                                         ),
-                                        child:  Center(child: Text("AM",
-                                          style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                                             color: controller.meridian=="AM"?kPrimaryColor:kBlackColor
+                                      ),
+                                      Text("Hour",
+                                          style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w400
                                           )
-                                        ),),),
-                                    ),
-                                    SizedBox(width: 5.w,),
-                                    InkWell(
-                                      onTap: (){
-                                        controller.selectMeridian("PM");
-
-                                      },
-                                      child: Container(
-                                        height: 30.h,
-                                        width: 40.w,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(2),
-                                            border: Border.all(color: kGreyColor!),
-                                            color: controller.meridian=="PM"?Colors.pink[50]:kGreyColor
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Align(
+                                      alignment: Alignment.center,
+                                      child: Text(":",
+                                        style: TextStyle(
+                                            fontSize: 60,
+                                            fontWeight: FontWeight.w500,
+                                            color: kBlackColor
                                         ),
-                                        child: Center(child: Text("PM",
-                                        style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                                            color: controller.meridian=="PM"?kPrimaryColor:kBlackColor
-                                        )
-                                        ),),),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 10.h,),
-                                Container(
-                                  width: 110.w,
-                                  height: 40.h,
-                                  padding: const EdgeInsets.only(left: 10,right: 10),
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.black),
-                                      borderRadius: BorderRadius.circular(12)),
-                                  child: DropDownWidget(dropdownValue: controller.dropdown2, items: controller.items2,
-                                    onChange: (value) {
-                                    controller.onChangedValue2(value!);
-                                    },),
-                                ),
-                              ],
-                            ),
+                                      )
+                                    // ImageIcon(AssetImage("assets/images/colon.png"),size: 60,)
+                                  ),
+                                  SizedBox(
+                                    width: 5.w,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 70.w,
+                                        height: 70.h,
+                                        color: kGreyColor,
+                                        child: Center(
+                                          child: TextField(
+                                            keyboardType: TextInputType.number,
+                                            cursorColor: kBlackColor,
+                                            controller: controller.minuteController,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                color: kBlackColor,
+                                                fontSize: 40.sp
+                                            ),
+                                            decoration: InputDecoration(
+                                                contentPadding: EdgeInsets.zero,
+                                                fillColor: kGreyColor,
+                                                filled: true
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Text("Minute",
+                                          style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                                              color: kBlackColor,
+                                              fontWeight: FontWeight.w400
+                                          )
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(width: 10.w,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          InkWell(
+                                            onTap: (){
+                                              controller.selectMeridian("AM");
 
-                          ],
+                                            },
+                                            child: Container(
+                                              height: 30.h,
+                                              width: 40.w,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(2),
+                                                  border: Border.all(color: kGreyColor!),
+                                                  color: controller.meridian=="AM"?Colors.pink[50]:kGreyColor
+                                              ),
+                                              child:  Center(child: Text("AM",
+                                                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                                                      color: controller.meridian=="AM"?kPrimaryColor:kBlackColor
+                                                  )
+                                              ),),),
+                                          ),
+                                          SizedBox(width: 5.w,),
+                                          InkWell(
+                                            onTap: (){
+                                              controller.selectMeridian("PM");
+
+                                            },
+                                            child: Container(
+                                              height: 30.h,
+                                              width: 40.w,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(2),
+                                                  border: Border.all(color: kGreyColor!),
+                                                  color: controller.meridian=="PM"?Colors.pink[50]:kGreyColor
+                                              ),
+                                              child: Center(child: Text("PM",
+                                                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                                                      color: controller.meridian=="PM"?kPrimaryColor:kBlackColor
+                                                  )
+                                              ),),),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 10.h,),
+
+                                    ],
+                                  ),
+
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                        // SizedBox(
-                        //   height: 20.h,
-                        // ),
-                        // Text("How would you like to receive your reminders?",
-                        //     style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                        //         color: kBlackColor,
-                        //         fontSize: 13.sp
-                        //     )),
-                        // SizedBox(height: 10.h,),
-                        // Row(
-                        //   children: [
-                        //     Row(
-                        //       crossAxisAlignment: CrossAxisAlignment.center,
-                        //       mainAxisAlignment: MainAxisAlignment.center,
-                        //       children: [
-                        //         InkWell(
-                        //           onTap: (){
-                        //             controller.selectValue("Text");
-                        //           },
-                        //           child: Container(
-                        //             width: 100.w,
-                        //             height: 50.h,
-                        //             decoration: BoxDecoration(
-                        //               borderRadius: BorderRadius.circular(12),
-                        //               color: controller.selected_value=="Text"?kPrimaryColor:kGreyColor,
-                        //             ),
-                        //
-                        //             child:   Center(
-                        //               child: Text("Text",
-                        //               style: TextStyle(
-                        //                 color: controller.selected_value=="Text"?kWhiteColor:kBlackColor
-                        //               ),
-                        //               ),
-                        //             ),
-                        //           ),
-                        //         ),
-                        //
-                        //         SizedBox(width: 20.w,),
-                        //         InkWell(
-                        //           onTap: (){
-                        //             controller.selectValue("In app");
-                        //           },
-                        //           child: Container(
-                        //             width: 100.w,
-                        //             height: 50.h,
-                        //             decoration: BoxDecoration(
-                        //               borderRadius: BorderRadius.circular(12),
-                        //
-                        //               color: controller.selected_value=="In app"?kPrimaryColor:kGreyColor,
-                        //             ),
-                        //
-                        //             child:   Center(
-                        //               child: Text("In app",
-                        //               style: TextStyle(
-                        //                   color: controller.selected_value=="In app"?kWhiteColor:kBlackColor
-                        //               ),
-                        //               ),
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ],
-                        // ),
+
                         SizedBox(
                           height: 40.h,
                         ),
@@ -318,7 +278,7 @@ class ReminderScreen extends StatelessWidget {
                                 onTap: (){
                                   controller.setReminder();
                                 },
-                                title: "Record BP",
+                                title: "Finish",
                                 backgroundColor: kPrimaryColor,
                                 textColor: kWhiteColor),
                           ),

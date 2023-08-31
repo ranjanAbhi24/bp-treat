@@ -24,8 +24,14 @@ class PinCodeTextField extends StatelessWidget {
 
       width: width,
       child: TextFormField(
+        textAlign: TextAlign.center,
         keyboardType: inputType,
         cursorColor: kBlackColor,
+        style: TextStyle(
+          color: kBlackColor,
+          fontWeight: FontWeight.bold,
+          fontSize: 20
+        ),
         maxLines: maxLine,
         controller: controller,
         validator: validator,

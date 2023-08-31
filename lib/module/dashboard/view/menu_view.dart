@@ -17,7 +17,7 @@ class MenuDialog {
     {
       return SafeArea(
          child: Container(
-           color: Colors.red[100],
+           color: const Color.fromRGBO(247, 206, 212, 1),
            padding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
            child: ListView(
              //crossAxisAlignment: CrossAxisAlignment.start,

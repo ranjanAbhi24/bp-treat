@@ -9,7 +9,7 @@ import '../view/landing_page.dart';
 class AddReminderController extends GetxController{
   final ApiService _apiService = ApiService();
   String dropdown1 ="Daily";
-  String dropdown2="Central Time";
+  String dropdown2="Central";
   late TextEditingController hourController;
   late TextEditingController minuteController;
   String meridian="";
@@ -19,7 +19,7 @@ class AddReminderController extends GetxController{
   bool isText=false;
   bool isInApp=false;
   List<String> items1= ["Daily","Weekly","Monthly"];
-  List<String> items2= ["Central Time","1","2"];
+  List<String> items2= ["Central"];
   SetReminder? _setReminder;
 
   onChangeValue1(String value) {
@@ -36,13 +36,13 @@ class AddReminderController extends GetxController{
 
   onChangedValue2(String value){
     dropdown2= value;
-    if (dropdown2 == "Central Time") {
-      dropdown2 = "Central Time";
-    } else if (dropdown2 == "1") {
-      dropdown2 = "1";
-    } else   {
-      dropdown2= "2";
-    }
+    if (dropdown2 == "Central") {
+      dropdown2 = "Central";
+    // } else if (dropdown2 == "1") {
+    //   dropdown2 = "1";
+    // } else   {
+    //   dropdown2= "2";
+     }
     update();
   }
 
@@ -79,7 +79,7 @@ class AddReminderController extends GetxController{
     print(time);
     _setReminder =   await _apiService.addReminder(period: dropdown1,time: time,type: "In App");
   if(_setReminder?.status == "Success"){
-    ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
+  //  ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
     Get.offAll(()=>const LandingPage());
   }else{
     ApplicationUtils.showSnackBar(titleText: "Fail!!", messageText: _setReminder?.msg);

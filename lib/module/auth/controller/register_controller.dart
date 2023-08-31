@@ -49,7 +49,7 @@ class RegisterController extends GetxController {
     } else {
       isLoading = false;
       ApplicationUtils.showSnackBar(
-          titleText: 'Error',
+          titleText: 'Alert!',
           messageText: _sendOtp!.msg ?? "Something wrong.Try again");
     }
     update();
@@ -63,9 +63,10 @@ class RegisterController extends GetxController {
       isLoading = false;
     } else {
       isLoading = false;
-      ApplicationUtils.showSnackBar(
-          titleText: 'Error',
-          messageText: _sendOtp!.msg ?? "Something wrong.Try again");
+      print(_sendOtp!.msg);
+      // ApplicationUtils.showSnackBar(
+      //     titleText: 'Error',
+      //     messageText: _sendOtp!.msg ?? "Something wrong.Try again");
     }
     update();
   }
@@ -92,8 +93,8 @@ print(token);
 
         await _prefs.setToken(token);
 
-        await ApplicationUtils.showSnackBar(
-            titleText: _registerUser?.status, messageText: _registerUser?.msg);
+        // await ApplicationUtils.showSnackBar(
+        //     titleText: _registerUser?.status, messageText: _registerUser?.msg);
         Get.to(() => const AddPersonalProfile(),
         );
       } else {

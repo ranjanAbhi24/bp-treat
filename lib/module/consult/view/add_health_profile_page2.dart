@@ -41,25 +41,18 @@ class AddHealthProfilePage2 extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
 
-                        Center(
-                          child: Image.asset(
-                            "assets/images/app_icon2.png",
-                              height: 90.h,
-                              width: 100.w
-                          ),
-                        ),
-                        Center(
-                          child: Text("Health Profile (2 of 4)",
-                            style: Theme.of(context).textTheme.headline1!
-                          ),
+                        Text("Health Profile (2 of 4)",
+                          style: Theme.of(context).textTheme.headline1!.copyWith(
+                            color: const Color.fromRGBO(193, 65, 66, 1)
+                          )
                         ),
                         SizedBox(height: 5.h),
                         Text("Please continue your health profile to get better recommendations.",
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                           style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.normal,
                               //fontSize: 13.sp,
-                              color: kBlackColor?.withOpacity(0.8)
+                              color: kBlackColor
                           ),
                         ),
                         SizedBox(height: 30.h),
@@ -68,138 +61,201 @@ class AddHealthProfilePage2 extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("How tall are you?",
-                                  textAlign: TextAlign.center,
-                                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      color: Colors.black
-                                  )
-                              ),
+                              Container(
+                                padding: const EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: kGreyColor!.withOpacity(0.3),
+                                    border: Border.all(color: Colors.grey)
 
-                              SizedBox(
-                                  height: 20.h
-                              ),
-                              Row(
-
-                                children: [
-                                  PinCodeTextField(controller: controller.feetController,
-                                    inputType: TextInputType.number,
-                                    maxLine: 1,
-                                    width: 50.w, validator: (value) {
-                                     if(value!.isEmpty){
-                                        return "Required *";
-                                      }else{
-                                        return null;
-                                      }
-                                    },
-                                  ),
-                                  SizedBox(
-                                      width: 5.w
-                                  ),
-                                  // SizedBox(
-                                  //   width: size.width*0.13,
-                                  //   height: size.height*0.2,
-                                  //   child: InputTextField(
-                                  //       controller:controller.feetController,
-                                  //       validator: (value) {  },
-                                  //   text: '',),
-                                  // ),
-                                  Text("Feet",
-                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                        color: Colors.black
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("How tall are you?",
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                            color: Colors.black
+                                        )
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: 10.w
-                                  ),
-                                  PinCodeTextField(
-inputType: TextInputType.number,
-                                    controller: controller.inchesController,
-                                    maxLine: 1, width: 50.w, validator: (value) {
-                                      if(value!.isEmpty){
-                                        return "Required *";
-                                      }else{
-                                        return null;
-                                      }
-                                  },),
-                                  SizedBox(
-                                      width: 5.w
-                                  ),
-
-                                  Text("Inches",
-                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                        color: Colors.black
+                                    SizedBox(
+                                        height: 20.h
                                     ),
-                                  ),
+                                    Row(
 
-                                ],
-                              ),
-                              SizedBox(
-                                  height: 20.h
-                              ),
-                              Text("How much do you weigh?",
-                                  textAlign: TextAlign.center,
-                                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      color: Colors.black
-                                  )
-                              ),
-                              SizedBox(
-                                  height: 20.h
-                              ),
-                              Row(
-                                children: [
-                                  PinCodeTextField(controller: controller.poundsController,
-                                    inputType: TextInputType.number,
-                                    maxLine: 1,
-                                    width: 70.w, validator: (value) {
-                                    if(value!.isEmpty){
-                                        return "Required *";
-                                      }else{
-                                        return null;
-                                      }
-                                    },
-                                  ),
-                                  SizedBox(
-                                      width: 20.w
-                                  ),
+                                      children: [
+                                        PinCodeTextField(controller: controller.feetController,
+                                          inputType: TextInputType.number,
+                                          maxLine: 1,
+                                          width: 50.w, validator: (value) {
+                                            if(value!.isEmpty){
+                                              return "Required *";
+                                            }else{
+                                              return null;
+                                            }
+                                          },
+                                        ),
+                                        SizedBox(
+                                            width: 10.w
+                                        ),
+                                        // SizedBox(
+                                        //   width: size.width*0.13,
+                                        //   height: size.height*0.2,
+                                        //   child: InputTextField(
+                                        //       controller:controller.feetController,
+                                        //       validator: (value) {  },
+                                        //   text: '',),
+                                        // ),
+                                        Text("Feet",
+                                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                              color: Colors.black,
+                                            fontWeight: FontWeight.normal
+                                          ),
+                                        ),
+                                        SizedBox(
+                                            width: 20.w
+                                        ),
+                                        PinCodeTextField(
+                                          inputType: TextInputType.number,
+                                          controller: controller.inchesController,
+                                          maxLine: 1, width: 50.w, validator: (value) {
+                                          if(value!.isEmpty){
+                                            return "Required *";
+                                          }else{
+                                            return null;
+                                          }
+                                        },),
+                                        SizedBox(
+                                            width: 10.w
+                                        ),
 
-                                  Text("Pounds",
-                                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                        color: Colors.black
+                                        Text("Inches",
+                                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.normal
+                                          ),
+                                        ),
+
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: 20.h
-                              ),
-                              Text('What allergies do you have?',
-                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                    color: Colors.black
+                                  ],
                                 ),
                               ),
-                              Text('(If none, please enter "none")',
-                                style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500
+
+
+                              SizedBox(
+                                  height: 20.h
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: kGreyColor!.withOpacity(0.3),
+                                    border: Border.all(color: Colors.grey)
+
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("How much do you weigh?",
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                            color: Colors.black
+                                        )
+                                    ),
+                                    SizedBox(
+                                        height: 20.h
+                                    ),
+                                    Row(
+                                      children: [
+                                        PinCodeTextField(controller: controller.poundsController,
+                                          inputType: TextInputType.number,
+                                          maxLine: 1,
+                                          width: 70.w, validator: (value) {
+                                            if(value!.isEmpty){
+                                              return "Required *";
+                                            }else{
+                                              return null;
+                                            }
+                                          },
+                                        ),
+                                        SizedBox(
+                                            width: 20.w
+                                        ),
+
+                                        Text("Pounds",
+                                          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                              color: Colors.black,
+                                            fontWeight: FontWeight.normal
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(
-                                  height: 10.h
-                              ),
-                              PinCodeTextField(
 
-                                  controller: controller.allergiesController,
-                                  maxLine: 5,
-                                  width: 360.w, validator: (value) {
-                                if(value!.isEmpty){
-                                  return "Required *";
-                                }else{
-                                  return null;
-                                }
-                              },),
                               SizedBox(
-                                  height: 40.h
+                                  height: 20.h
                               ),
+                              Container(
+                                padding: const EdgeInsets.all(15),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: kGreyColor!.withOpacity(0.3),
+                                    border: Border.all(color: Colors.grey)
+
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('What allergies do you have?',
+                                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                          color: Colors.black
+                                      ),
+                                    ),
+                                    Text('(If none, please enter "none")',
+                                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        height: 10.h
+                                    ),
+                                    SizedBox(
+                                      width: 360.w,
+                                      child: TextFormField(
+                                        controller: controller.allergiesController,
+                                        maxLines: 4,
+                                         decoration: InputDecoration(
+                                           contentPadding: const EdgeInsets.all(10),
+                                           focusedBorder: OutlineInputBorder(
+                                               borderRadius: BorderRadius.circular(12),
+                                               //  borderSide: BorderSide.none,
+                                               borderSide: const BorderSide(color: Colors.black)
+                                           ),
+                                           border: OutlineInputBorder(
+                                               borderRadius: BorderRadius.circular(12),
+                                               //  borderSide: BorderSide.none,
+                                               borderSide: const BorderSide(color: Colors.black)
+                                           ),
+                                         ),
+                                         validator: (value) {
+                                        if(value!.isEmpty){
+                                          return "Required *";
+                                        }else{
+                                          return null;
+                                        }
+                                      },),
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+SizedBox(
+  height: 20.h,
+),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [

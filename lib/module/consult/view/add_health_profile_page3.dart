@@ -41,143 +41,208 @@ class AddHealthProfilePage3 extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                          child: Image.asset(
-                            "assets/images/app_icon2.png",
-                              height: 90.h,
-                              width: 100.w
-                          ),
-                        ),
-                        Center(
-                          child: Text("Health Profile (3 of 4)",
-                            style: Theme.of(context).textTheme.headline1
-                          ),
+                        Text("Health Profile (3 of 4)",
+                          style: Theme.of(context).textTheme.headline1!.copyWith(
+                            color:  const Color.fromRGBO(193, 65, 66, 1)
+                          )
                         ),
                         SizedBox(height: 10.h),
                         Text("Please continue your health profile to get better recommendations.",
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                           style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.normal,
 
-                              color: kBlackColor?.withOpacity(0.8)
+                              color: kBlackColor
                           ),
                         ),
                         SizedBox(height:30.h),
 
-                        Text("Do you have diabetes?",
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                color: Colors.black
-                            )
+                        Container(
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: kGreyColor!.withOpacity(0.3),
+                              border: Border.all(color: Colors.grey)
+
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Do you have diabetes?",
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                      color: Colors.black
+                                  )
+                              ),
+                              SizedBox(height:20.h),
+                              Row(
+                                children: [
+                                  InkWell(
+                                    onTap: (){
+                                      controller.confirmDiabetes("yes");
+                                    },
+                                    child: Container(
+                                     padding: const EdgeInsets.all(40),
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        border: Border.all(color: controller.diabetesYes ?
+                                        const Color.fromRGBO(193, 65, 56, 10):Colors.grey,),
+                                          color: controller.diabetesYes?const Color.fromRGBO(193, 65, 56, 10):Colors.white,
+                                      ),
+
+                                      child: Center(child: Text("Yes",
+                                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                            color: controller.diabetesYes?kWhiteColor:kBlackColor
+                                        ),
+                                      )),
+                                    ),
+                                  ),
+                                  SizedBox(width: 30.w),
+                                  InkWell(
+                                    onTap: (){
+                                      controller.confirmDiabetes("no");
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(40),
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        border: Border.all(color: controller.diabetesNo ?
+                                        const Color.fromRGBO(193, 65, 56, 10):Colors.grey,),
+                                          color: controller.diabetesNo?const Color.fromRGBO(193, 65, 56, 10):Colors.white,
+                                      ),
+
+                                      child: Center(child: Text("No",
+                                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                            color:controller.diabetesNo?kWhiteColor:kBlackColor
+                                        ),
+                                      )),
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(height:20.h),
+
                      Form(
                        key: controller.page3FormKey,
                        child: Column(
                          crossAxisAlignment: CrossAxisAlignment.start,
                          children: [
-                           Row(
-                             children: [
-                               SizedBox(
-                                 width: 100.w,
-                                 height: 50.h,
-                                 child: InkWell(
-                                   onTap: (){
-                                     controller.confirmDiabetes("yes");
-                                   },
-                                   child: Container(
-                                     padding: const EdgeInsets.all(12),
-                                     decoration: BoxDecoration(
-                                         borderRadius: BorderRadius.circular(12),
-                                         color: controller.diabetesYes?kPrimaryColor:kGreyColor
-                                     ),
-
-                                     child: Center(child: Text("Yes",
-                                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                           color: controller.diabetesYes?kWhiteColor:kBlackColor
-                                       ),
-                                     )),
+                           SizedBox(height: 20.h),
+                           Container(
+                             padding: const EdgeInsets.all(15),
+                             decoration: BoxDecoration(
+                                 borderRadius: BorderRadius.circular(12),
+                                 color: kGreyColor!.withOpacity(0.3),
+                                 border: Border.all(color: Colors.grey)
+                             ),
+                             child: Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 Text('What medical conditions do you have?',
+                                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                       color: Colors.black
                                    ),
                                  ),
-                               ),
-                               SizedBox(width: 20.w),
-                               SizedBox(
-                                 width: 100.w,
-                                 height: 50.h,
-                                 child: InkWell(
-                                   onTap: (){
-                                     controller.confirmDiabetes("no");
-                                   },
-                                   child: Container(
-                                     padding: const EdgeInsets.all(12),
-                                     decoration: BoxDecoration(
-                                         borderRadius: BorderRadius.circular(12),
-                                         color: controller.diabetesNo?kPrimaryColor:kGreyColor
-                                     ),
-
-                                     child: Center(child: Text("No",
-                                       style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                           color:controller.diabetesNo?kWhiteColor:kBlackColor
-                                       ),
-                                     )),
+                                 Text('(If none, please enter "none")',
+                                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                       color: Colors.black,
+                                       fontWeight: FontWeight.w500
                                    ),
                                  ),
-                               ),
+                                 SizedBox(
+                                     height: 10.h
+                                 ),
 
-                             ],
+                                 SizedBox(
+                                   width: 360.w,
+                                   child: TextFormField(
+                                     controller: controller.medicalConditionsController,
+                                     maxLines: 4,
+                                     decoration: InputDecoration(
+                                       contentPadding: const EdgeInsets.all(10),
+                                       focusedBorder: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(12),
+                                           //  borderSide: BorderSide.none,
+                                           borderSide: const BorderSide(color: Colors.black)
+                                       ),
+                                       border: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(12),
+                                           //  borderSide: BorderSide.none,
+                                           borderSide: const BorderSide(color: Colors.black)
+                                       ),
+                                     ),
+                                     validator: (value) {
+                                       if(value!.isEmpty){
+                                         return "Required *";
+                                       }else{
+                                         return null;
+                                       }
+                                     },),
+                                 ),
+                               ],
+                             ),
                            ),
+
+
                            SizedBox(height: 20.h),
-                           Text('What medical conditions do you have?',
-                             style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                 color: Colors.black
+                           Container(
+                             padding: const EdgeInsets.all(15),
+                             decoration: BoxDecoration(
+                                 borderRadius: BorderRadius.circular(12),
+                                 color: kGreyColor!.withOpacity(0.3),
+                                 border: Border.all(color: Colors.grey)
+                             ),
+                             child: Column(
+                               crossAxisAlignment: CrossAxisAlignment.start,
+                               children: [
+                                 Text('What are your current medications?',
+                                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                       color: Colors.black
+                                   ),
+                                 ),
+                                 Text('(If none, please enter "none")',
+                                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                                       color: Colors.black,
+                                       fontWeight: FontWeight.w500
+                                   ),
+                                 ),
+                                 SizedBox(
+                                     height: 10.h
+                                 ),
+
+                                 SizedBox(
+                                   width: 360.w,
+                                   child: TextFormField(
+                                     controller: controller.currentMedicationsController,
+                                     maxLines: 4,
+                                     decoration: InputDecoration(
+                                       contentPadding: const EdgeInsets.all(10),
+                                       focusedBorder: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(12),
+                                           //  borderSide: BorderSide.none,
+                                           borderSide: const BorderSide(color: Colors.black)
+                                       ),
+                                       border: OutlineInputBorder(
+                                           borderRadius: BorderRadius.circular(12),
+                                           //  borderSide: BorderSide.none,
+                                           borderSide: const BorderSide(color: Colors.black)
+                                       ),
+                                     ),
+                                     validator: (value) {
+                                       if(value!.isEmpty){
+                                         return "Required *";
+                                       }else{
+                                         return null;
+                                       }
+                                     },),
+                                 ),
+                               ],
                              ),
                            ),
-                           Text('(If none, please enter "none")',
-                             style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                 color: Colors.black,
-                                 fontWeight: FontWeight.w500
-                             ),
-                           ),
-                           SizedBox(
-                               height: 10.h
-                           ),
-                           PinCodeTextField(
-                             controller: controller.medicalConditionsController,
-                             maxLine: 5,
-                             width: 360.w,
-                             validator: (value) {
-                               if(value!.isEmpty){
-                                 return "Required *";
-                               }else{
-                                 return null;
-                               }
-                             },),
-                           SizedBox(height: 20.h),
-                           Text('What are your current medications?',
-                             style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                 color: Colors.black
-                             ),
-                           ),
-                           Text('(If none, please enter "none")',
-                             style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                                 color: Colors.black,
-                                 fontWeight: FontWeight.w500
-                             ),
-                           ),
-                           SizedBox(
-                               height: 10.h
-                           ),
-                           PinCodeTextField(
-                             controller: controller.currentMedicationsController,
-                             maxLine: 5,
-                             width: 360.w,
-                             validator: (value) {
-                               if(value!.isEmpty){
-                                 return "Required *";
-                               }else{
-                                 return null;
-                               }
-                             },),
+
                            SizedBox(
                                height: 30.h
                            ),

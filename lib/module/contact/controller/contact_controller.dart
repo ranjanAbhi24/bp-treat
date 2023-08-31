@@ -12,7 +12,7 @@ class ContactController extends GetxController {
 final ApiService _apiService = ApiService();
   late TextEditingController descriptionController;
 String dropdownValue="Select a choice..";
-List<String> items= ['Select a choice..','Medication Side Effect','Medication Allergy','other'];
+List<String> items= ['Select a choice..','Medication Allergy','Medication Side Effect','other'];
 ContactDoctor? contactDoctor;
 String option1="";
 String option2="";
