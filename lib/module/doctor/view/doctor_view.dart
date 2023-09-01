@@ -64,7 +64,10 @@ class _ListOfDoctorsState extends State<ListOfDoctors> {
                            color: kBlackColor
                          ),
                          ),
-                        subtitle: Text("Contact: ${controller.listOfDoctor[index].contact??"2814814236"}"),
+                        subtitle: 
+                        // Text("Contact:"
+                        //     " ${controller.listOfDoctor[index].contact??"2814814236"}"),
+                        Text("Contact: ${controller.formatPhoneNumber(controller.listOfDoctor[index].contact??"2814814236")}")
                       ),
                     );
                       })

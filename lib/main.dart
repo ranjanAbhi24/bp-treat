@@ -13,6 +13,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import 'module/consult/view/ready_to_record.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefrence.instance.init();
@@ -59,7 +61,8 @@ class _MyAppState extends State<MyApp> {
           getPages: AppRoute.routes,
         );
       },
-      child: const Wrapper(),
+      child:
+      const Wrapper(),
     );
   }
 }

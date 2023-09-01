@@ -23,11 +23,11 @@ class _VideoListState extends State<VideoList> {
       'title': 'Video on treatment of BP without medication',
       'link': 'https://www.youtube.com/watch?v=hXC304-cFaU',
     },
-    {
-      'image': 'assets/images/imagetwo.jpeg',
-      'title': 'Complete these steps to obtain treatment',
-      'link': 'https://www.link2labs.com/home/home',
-    },
+    // {
+    //   'image': 'assets/images/imagetwo.jpeg',
+    //   'title': 'Complete these steps to obtain treatment',
+    //   'link': 'https://www.link2labs.com/home/home',
+    // },
   ];
 
   @override

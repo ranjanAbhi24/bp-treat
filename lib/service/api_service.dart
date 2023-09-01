@@ -149,14 +149,19 @@ class ApiService {
         "Access-Control-Allow-Origin": "*",
         "Authorization": 'Bearer $token',
       };
+      print(jsonEncode(body));
       http.Response response = await http.post(url,headers: header,body: jsonEncode(body));
       if(response.statusCode == 200 || response.statusCode == 201){
         ContactDoctor contactDetails= ContactDoctor.fromJson(jsonDecode(response.body));
         debugPrint(response.body);
         return contactDetails;
       }
+      else{
+        debugPrint(response.body);
+      }
 
     }catch(e){
+
       throw Exception(e);
     }
   }

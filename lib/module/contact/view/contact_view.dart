@@ -186,7 +186,7 @@ class _ContactMyDoctorState extends State<ContactMyDoctor> {
                                         onTap: () async {
                                           await EasyLoading.show();
                                           await controller.addContactDetails(
-                                              doctorId:Get.find<LandingController>().userInfo['data']['doctorId']["id"]);
+                                              doctorId:Get.find<LandingController>().userInfo['data']['doctorId']["_id"]);
                                           await EasyLoading.dismiss();
                                           controller.descriptionController.clear();
                                           FocusManager.instance.primaryFocus?.unfocus();

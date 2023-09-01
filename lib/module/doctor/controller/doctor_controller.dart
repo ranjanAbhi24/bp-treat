@@ -30,11 +30,9 @@ class DoctorController extends GetxController {
   bool isLoading = false;
 
 
-  formatPhoneNumber(phone){
-    // RegionInfo region = const RegionInfo(name: 'US', code: '1', prefix: 0);
-    // var formatted = await PhoneNumberUtil().format(phone, region.code);
-    // return formatted.toString();
-   String text= phone.split(RegExp(r"/^(?:\(\d{3}\)|\d{3}-)\d{3}-\d{4}$/"));
+  formatPhoneNumber(String phone){
+    String text= "${phone.substring(0,3)}-${phone.substring(3,6)}-${phone.substring(6,phone.length)}";
+   print(text);
    return text;
   }
   //
@@ -65,7 +63,7 @@ class DoctorController extends GetxController {
 print(_selectDoctor);
       await _prefs.setUserDetails(jsonEncode(_selectDoctor));
       Get.find<LandingController>().getUserDetails();
-      Get.offAll(()=>const ReminderScreen());
+      Get.to(()=>const ReminderScreen());
 
     } else {
       ApplicationUtils.showSnackBar(

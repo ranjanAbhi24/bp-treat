@@ -74,7 +74,7 @@ class DoctorVirtualVisit extends StatelessWidget {
                               radius: 40,
                               backgroundColor: kSecondaryColor,
                               child: Text(
-                                " ${arguments[0]?[4]}",
+                                " ${arguments[0]!.substring(0,3)=="Dr."?arguments[0][4]:arguments[0][0]}",
 
                                 style: TextStyle(color: kBlackColor),
                               ),
@@ -92,15 +92,15 @@ class DoctorVirtualVisit extends StatelessWidget {
                             ),
                             subtitle:RichText(
                               text: TextSpan(
-                                text: "Call:",
+                                text: "Call: ",
                                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                     color: kBlackColor,
                                   fontWeight: FontWeight.normal
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: '${arguments[1]}',
-                                    //text: controller.formatPhoneNumber(arguments[1]),
+                                  //  text:'${arguments[1]}',
+                                    text: controller.formatPhoneNumber(arguments[1]),
                                     style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                         color: kBlackColor,
                                       fontWeight: FontWeight.bold

@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 5.h),
-                      Text("Log in with email and password you associated with your account",
+                      Text("Login with email and password you associated with your account",
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.headline4!.copyWith(
                             fontWeight: FontWeight.w600,

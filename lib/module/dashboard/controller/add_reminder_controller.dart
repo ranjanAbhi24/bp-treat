@@ -1,3 +1,4 @@
+import 'package:bp_treat/module/consult/view/ready_to_record.dart';
 import 'package:bp_treat/module/dashboard/model/add_reminder.dart';
 import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
@@ -80,7 +81,8 @@ class AddReminderController extends GetxController{
     _setReminder =   await _apiService.addReminder(period: dropdown1,time: time,type: "In App");
   if(_setReminder?.status == "Success"){
   //  ApplicationUtils.showSnackBar(titleText: "Congrats!!", messageText: _setReminder?.msg);
-    Get.offAll(()=>const LandingPage());
+
+    Get.to(()=>const ReadyToRecord());
   }else{
     ApplicationUtils.showSnackBar(titleText: "Fail!!", messageText: _setReminder?.msg);
   }

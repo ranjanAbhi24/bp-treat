@@ -88,7 +88,7 @@ SizedBox(
                                 return buildDoctorListTile(
                                   docName:
                                       '${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}',
-                                  docAddress:
+                                  docZipCode:
                                       "${controller.listOfDoctor[index].zipcode}",
                                   onTap: () {
                                     setState(() {
@@ -99,7 +99,7 @@ SizedBox(
                                           controller.listOfDoctor[index].role;
                                       controller.docName =
                                           "${controller.listOfDoctor[index].fname} ${controller.listOfDoctor[index].lname}";
-                                      controller.docContact = controller.listOfDoctor[index].contact??"281-481-4236";
+                                      controller.docContact = controller.listOfDoctor[index].contact??"2814814236";
 
                                     });
                                   },
@@ -119,7 +119,7 @@ SizedBox(
                                      onTap: ()  async {
 
                                    Get.to(()=> const DoctorVirtualVisit(),
-                                   arguments: [controller.docName??'Dr.Steven Goldstein',controller.docContact??'281-481-4236'],
+                                   arguments: [controller.docName??'Dr. Steven Goldstein',controller.docContact??'2814814236'],
                                    );
                                      },
                                      title: "Continue",
@@ -137,7 +137,7 @@ SizedBox(
 
   buildDoctorListTile({
     String? docName,
-    String? docAddress,
+    String? docZipCode,
     required Function() onTap,
     required bool isSelected,
   }) {
@@ -156,23 +156,22 @@ SizedBox(
           radius: 40,
           backgroundColor: kSecondaryColor,
           child: Text(
-            docName?[4] ?? "D",
+            docName!.substring(0,3)=="Dr."?docName![4]:docName![0],
             style: TextStyle(color: isSelected ? kPrimaryColor : kBlackColor),
           ),
         ),
         title: Padding(
           padding: const EdgeInsets.only(bottom: 10),
-          child: Text("$docName",
+          child: Text(docName,
               style: TextStyle(
                   color:
-
                 kBlackColor,
                 fontSize: 16
               )),
         ),
         subtitle:
             Text(
-              'Zip code: $docAddress',
+              'Zip code: ${docZipCode!="null"?docZipCode:"12345"}',
 
               style: TextStyle(
                 color: kBlackColor,

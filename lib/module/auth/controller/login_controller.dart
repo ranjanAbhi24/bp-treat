@@ -47,16 +47,17 @@ class LoginController extends GetxController {
         isLoading = false;
         token = _loginUser?.data?.loginToken;
         userData = json.encode(_loginUser);
-
+print("loginuser-${_loginUser!.data}");
         await _prefs.setToken(token);
          await _prefs.setUserDetails(userData);
-
+        Get.find<LandingController>().getUserDetails();
         if(Get.find<LandingController>().userInfo != null){
           debugPrint("kkk-${jsonEncode(Get.find<LandingController>().userInfo['data'])}");
             Get.find<LandingController>().getUserDetails();
             Get.offAll(() => const LandingPage());
           print("not null");
         }else{
+          Get.find<LandingController>().userInfo.toString();
           print("null");
           Get.to(()=>const AddPersonalProfile());
         }
