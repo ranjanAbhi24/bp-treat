@@ -246,16 +246,18 @@ SizedBox(
                                       //     'Please accept our terms and Privacy Policy to continue.');
                                     }
                                         : () async {
-                                      FocusScopeNode currentFocus = FocusScope.of(context);
-                                      if(!currentFocus.hasPrimaryFocus){
-                                        currentFocus.unfocus();
+              print("lll");
+              FocusNode myFocusNode = FocusNode();
+              FocusScope.of(context).requestFocus(myFocusNode);
+                                     // if(!currentFocus.hasPrimaryFocus){
+                                       // currentFocus.unfocus();
                                         if (controller.formKey.currentState!
                                             .validate()) {
                                           EasyLoading.show(status: 'Generating Otp...');
                                           await controller.sendOtp();
                                           EasyLoading.dismiss();
                                         }
-                                      }
+                                     // }
                                     }, backgroundColor: controller.isChecked!?
                                    kPrimaryColor:kGreyColor, textColor: kWhiteColor
                                   ),

@@ -28,7 +28,8 @@ final Function() onTap;
         leading: Image.asset(
           fit: BoxFit.cover,
           image,
-          color: kPrimaryColor,
+
+       //   color: kPrimaryColor,
         ),
         title: Text(
           title,

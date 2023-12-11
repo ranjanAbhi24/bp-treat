@@ -5,8 +5,10 @@ import 'package:bp_treat/module/auth/model/changepassword.dart';
 import 'package:bp_treat/module/auth/model/register.dart';
 import 'package:bp_treat/module/auth/model/send_otp.dart';
 import 'package:bp_treat/module/auth/model/user.dart';
+import 'package:bp_treat/module/auth/view/login_screen.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
@@ -78,6 +80,33 @@ class AuthService {
     } catch (e) {
       debugPrint("error ${e.toString()}");
       throw Exception(e);
+    }
+  }
+
+
+  deleteAccount(id) async {
+    try{
+      Uri url = Uri.parse("https://api.houstonepilepsy.com/api/deletepatient");
+      Map<String, dynamic> body = {
+        "id": id,
+      };
+      Map<String, String> header = {
+        'Content-type': 'application/json',
+      };
+      http.Response response =
+          await http.post(url, body: jsonEncode(body),headers: header);
+   print("deleteAccountResponse -${response.statusCode}");
+      if(response.statusCode == 200 || response.statusCode == 201){
+        debugPrint("deleteAccount-${response.body}");
+        bool isCleared = await _prefs.clearData();
+        if(isCleared){
+          Get.offAll(const LoginScreen());
+        }
+      }else{
+        debugPrint("deleteAccount-${response.body}");
+      }
+    }catch(e){
+ throw Exception(e);
     }
   }
 

@@ -7,8 +7,6 @@ import 'package:bp_treat/service/api_service.dart';
 import 'package:bp_treat/utils/prefs.dart';
 import 'package:bp_treat/utils/show_snackbar.dart';
 import 'package:get/get.dart';
-import 'package:phone_number/phone_number.dart';
-
 
 
 class DoctorController extends GetxController {
@@ -59,7 +57,6 @@ class DoctorController extends GetxController {
       docData = json.encode(_selectDoctor);
       // ApplicationUtils.showSnackBar(
       //     titleText: _selectDoctor?.status, messageText: _selectDoctor?.msg);
-
 print(_selectDoctor);
       await _prefs.setUserDetails(jsonEncode(_selectDoctor));
       Get.find<LandingController>().getUserDetails();

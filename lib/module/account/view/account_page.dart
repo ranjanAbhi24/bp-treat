@@ -5,6 +5,7 @@ import 'package:bp_treat/module/account/view/basic_detail_page.dart';
 import 'package:bp_treat/module/dashboard/view/add_reminder.dart';
 
 import 'package:bp_treat/module/doctor/view/doctor_view.dart';
+import 'package:bp_treat/utils/app_theme.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -83,7 +84,162 @@ class AccountPage extends StatelessWidget {
                               await controller.logout();
                               EasyLoading.dismiss();
                             }),
+                        SizedBox(height: 10.h,),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: kWhiteColor,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: kGreyColor!)
+                        ),
+                        child: ListTile(
+                            onTap:() async {
+                              // EasyLoading.show();
+                              // await controller.logout();
+                              // EasyLoading.dismiss();
+                              Get.defaultDialog(
+                                buttonColor: kPrimaryColor,
+                                confirm: InkWell(
+                                  onTap: (){
+                                    controller.deletePatientAccount();
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: kPrimaryColor,
+                                    ),
+                                    padding: const EdgeInsets.all(5),
 
+                                    child: const Center(
+                                      child: Text(
+                                        "Yes",
+                                        style: TextStyle(
+                                            color: Colors.white
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                cancel: InkWell(
+                                  onTap: (){
+                                    Get.back();
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: 50,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: kPrimaryColor,
+                                    ),
+                                    padding: const EdgeInsets.all(5),
+
+                                    child: const Center(
+                                      child: Text(
+                                        "No",
+                                        style: TextStyle(
+                                            color: Colors.white
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                content:
+                                const Text("Are you sure to delete account",
+                                  textAlign: TextAlign.center,
+                                ),
+                              );
+                            } ,
+                            leading: Container(
+                              padding: EdgeInsets.all(12),
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(7),
+                                color: Color(0xFFfbe4e6)
+                              ),
+                              child: Image.asset(
+                                "assets/icons/delete.png",
+                                fit: BoxFit.contain,
+
+                                //   color: kPrimaryColor,
+                              ),
+                            ),
+                            title: Text(
+                                'Delete Account',
+                                style: Theme.of(context).textTheme!.bodyText2!.copyWith(
+                                    color: kBlackColor,
+                                    //   fontSize: 1.sp,
+                                    fontWeight: FontWeight.w500
+                                )
+                            )
+                        ),
+                      ),
+                        // BuildListTile(
+                        //     title: 'Delete Account',
+                        //     image: "assets/icons/trash.png",
+                        //     onTap: () async {
+                        //       // EasyLoading.show();
+                        //       // await controller.logout();
+                        //       // EasyLoading.dismiss();
+                        //       Get.defaultDialog(
+                        //         buttonColor: kPrimaryColor,
+                        //         confirm: InkWell(
+                        //           onTap: (){
+                        //          controller.deletePatientAccount();
+                        //           },
+                        //           child: Container(
+                        //             height: 40,
+                        //             width: 50,
+                        //             decoration: BoxDecoration(
+                        //               borderRadius: BorderRadius.circular(10),
+                        //               color: kPrimaryColor,
+                        //             ),
+                        //             padding: const EdgeInsets.all(5),
+                        //
+                        //             child: const Center(
+                        //               child: Text(
+                        //                 "Yes",
+                        //                 style: TextStyle(
+                        //                     color: Colors.white
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           ),
+                        //         ),
+                        //         cancel: InkWell(
+                        //           onTap: (){
+                        //             Get.back();
+                        //           },
+                        //           child: Container(
+                        //             height: 40,
+                        //             width: 50,
+                        //             decoration: BoxDecoration(
+                        //               borderRadius: BorderRadius.circular(10),
+                        //               color: kPrimaryColor,
+                        //             ),
+                        //             padding: const EdgeInsets.all(5),
+                        //
+                        //             child: const Center(
+                        //               child: Text(
+                        //                 "No",
+                        //                 style: TextStyle(
+                        //                   color: Colors.white
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           ),
+                        //         ),
+                        //
+                        //         content:
+                        //         const Text("Are you sure to delete account",
+                        //         textAlign: TextAlign.center,
+                        //         ),
+                        //       );
+                        //     }
+                        //     ),
                       ],
                     ),
                   ),
